@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <div className="header flex justify-between items-center pt-5">
-      <p className="text-2xl font-medium">Resume Builder</p>
+      <p className="text-2xl font-medium ml-12">Resume Builder</p>
       <ul className="flex justify-between items-center w-1/2">
         <li className="relative flex-1 ">
           <svg
