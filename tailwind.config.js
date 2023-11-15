@@ -2,7 +2,17 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: {
+        'primary-color': 'black',
+        'additional-color': '#7070e5', //purple
+        'additional-hover-color': '#5555b4', //purple
+      },
+      textColor: {
+        'additional-color': '#7070e5', //purple
+        'additional-hover-color': '#5555b4', //purple
+      },
+    },
   },
   plugins: [],
 }
