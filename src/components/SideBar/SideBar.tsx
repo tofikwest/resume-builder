@@ -5,7 +5,6 @@ const SideBar: React.FC = () => {
   return (
     <div className="fixed ml-[-10px] mt-[-10px] float-left inline-block  w-1/12 h-screen shadow-xl ">
       <img src="src/assets/icons/logo.png" className="mt-[-10] w-30" />
-
       <nav className="text-center uppercase flex flex-col ">
         <p className="mb-5 text-gray-600 text-sm">main menu</p>
         <ul className="mb-16 select-none flex flex-col justify-center items-center">
@@ -13,11 +12,17 @@ const SideBar: React.FC = () => {
             <NavLink
               to={routes_list[0].path}
               className={({ isActive, isPending }) =>
-                `p-2 ${isActive ? 'active' : isPending ? 'pending' : ''}`
+                `p-2 ${
+                  isActive
+                    ? 'bg-additional-color text-gray-100 rounded-3xl'
+                    : isPending
+                      ? 'pending'
+                      : 'text-gray-500'
+                }`
               }
             >
               <svg
-                className="w-8 h-8 inline-block text-gray-500"
+                className="w-8 h-8 inline-block "
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -36,7 +41,13 @@ const SideBar: React.FC = () => {
             <NavLink
               to={'previus'}
               className={({ isActive, isPending }) =>
-                `p-2 ${isActive ? 'active' : isPending ? 'pending' : ''}`
+                `p-2 ${
+                  isActive
+                    ? 'bg-additional-color text-gray-100 rounded-3xl'
+                    : isPending
+                      ? 'pending'
+                      : 'text-gray-500'
+                }`
               }
             >
               <svg
@@ -45,7 +56,7 @@ const SideBar: React.FC = () => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-8 h-8 inline-block text-gray-500"
+                className="w-8 h-8 inline-block "
               >
                 <path
                   stroke-linecap="round"
@@ -59,7 +70,13 @@ const SideBar: React.FC = () => {
             <NavLink
               to={'work-history'}
               className={({ isActive, isPending }) =>
-                `p-2 ${isActive ? 'active' : isPending ? 'pending' : ''}`
+                `p-2 ${
+                  isActive
+                    ? 'bg-additional-color text-gray-100 rounded-3xl'
+                    : isPending
+                      ? 'pending'
+                      : 'text-gray-500'
+                }`
               }
             >
               <svg
@@ -68,7 +85,7 @@ const SideBar: React.FC = () => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-8 h-8 inline-block text-gray-500"
+                className="w-8 h-8 inline-block "
               >
                 <path
                   stroke-linecap="round"
@@ -82,7 +99,13 @@ const SideBar: React.FC = () => {
             <NavLink
               to={'education'}
               className={({ isActive, isPending }) =>
-                `p-2 ${isActive ? 'active' : isPending ? 'pending' : ''}`
+                `p-2 ${
+                  isActive
+                    ? 'bg-additional-color text-gray-100 rounded-3xl'
+                    : isPending
+                      ? 'pending'
+                      : 'text-gray-500'
+                }`
               }
             >
               <svg
@@ -91,7 +114,7 @@ const SideBar: React.FC = () => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-8 h-8 inline-block text-gray-500"
+                className="w-8 h-8 inline-block"
               >
                 <path
                   stroke-linecap="round"
@@ -105,7 +128,13 @@ const SideBar: React.FC = () => {
             <NavLink
               to={routes_list[1].path}
               className={({ isActive, isPending }) =>
-                `p-2 ${isActive ? 'active' : isPending ? 'pending' : ''}`
+                `p-2 ${
+                  isActive
+                    ? 'bg-additional-color text-gray-100 rounded-3xl'
+                    : isPending
+                      ? 'pending'
+                      : 'text-gray-500'
+                }`
               }
             >
               <svg
@@ -114,7 +143,7 @@ const SideBar: React.FC = () => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-8 h-8 text-gray-500"
+                className="w-8 h-8 "
               >
                 <path
                   stroke-linecap="round"
@@ -129,14 +158,14 @@ const SideBar: React.FC = () => {
         <p className="mb-5 text-gray-600 text-sm">other</p>
         <ul className="">
           <li className="mb-6">
-            <button>
+            <button disabled>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-8 h-8 inline-block text-gray-600"
+                className="w-8 h-8 inline-block text-gray-300"
               >
                 <path
                   stroke-linecap="round"
@@ -147,14 +176,14 @@ const SideBar: React.FC = () => {
             </button>
           </li>
           <li className="mb-6">
-            <button>
+            <button disabled>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-8 h-8 inline-block text-gray-600"
+                className="w-8 h-8 inline-block text-gray-300"
               >
                 <path
                   stroke-linecap="round"
@@ -165,14 +194,14 @@ const SideBar: React.FC = () => {
             </button>
           </li>
           <li className="mb-6">
-            <button>
+            <button disabled>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-8 h-8 inline-block text-gray-600"
+                className="w-8 h-8 inline-block text-gray-300"
               >
                 <path
                   stroke-linecap="round"
