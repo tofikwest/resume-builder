@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom'
 import { resume_img_base64 } from '../assets/icons/resume-icon.base64'
+import { routes_list } from '../routes/routesList'
 
 const HomePage = () => {
   // border: 1px solid black;
@@ -31,9 +33,12 @@ const HomePage = () => {
           d="M9 9l6-6m0 0l6 6m-6-6v12a6 6 0 01-12 0v-3"
         />
       </svg>
-      <button className="absolute bottom-[-116px] left-1/3 shadow-xl bg-additional-color hover:bg-additional-hover-color text-white font-bold py-5 px-16 rounded-2xl transition-transform transform hover:scale-105">
+      <Link
+        to={routes_list[1].path}
+        className="absolute bottom-[-116px] left-1/3 shadow-xl bg-additional-color hover:bg-additional-hover-color text-white font-bold py-5 px-16 rounded-2xl transition-transform transform hover:scale-105"
+      >
         Build Resume
-      </button>
+      </Link>
     </section>
   )
 }
