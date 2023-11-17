@@ -3,9 +3,9 @@ import { routes_list } from '../../routes/routesList'
 
 const SideBar: React.FC = () => {
   return (
-    <div className="fixed ml-[-10px] mt-[-10px] float-left inline-block  w-1/12 h-screen shadow-xl ">
-      <img src="src/assets/icons/logo.png" className="mt-[-10] w-30" />
-      <nav className="text-center uppercase flex flex-col ">
+    <div className="fixed float-left inline-block h-screen  w-1/12  shadow-xl ">
+      <img src="src/assets/icons/logo.png" />
+      <nav className="text-center uppercase flex flex-col h-full ">
         <p className="mb-5 text-gray-600 text-sm">main menu</p>
         <ul className="mb-16 select-none flex flex-col justify-center items-center">
           <li id="homeBtn" className="mb-8">

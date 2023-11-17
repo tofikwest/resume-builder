@@ -7,9 +7,9 @@ interface PageLayoutProps {
 }
 const PageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
   return (
-    <div className="relative">
+    <div>
       <SideBar />
-      <div className="w-11/12 float-right">
+      <div id="contentPart" className="w-11/12 float-right h-screen py-8 ">
         <Header />
         <Component />
       </div>

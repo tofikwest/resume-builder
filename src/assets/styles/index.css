@@ -4,16 +4,17 @@
 
 html {
   scroll-behavior: smooth;
+}
+#root {
+  overflow-x: hidden;
+}
+* {
   box-sizing: border-box;
 }
-
 body {
-  overflow-x: hidden;
-  width: 100vw;
   height: 100vh;
+  width: 100vw;
   font-family: 'Inter', sans-serif;
-  padding: 10px;
-  padding-right: 25px;
   line-height: 1.5rem;
 }
 button {
@@ -21,4 +22,19 @@ button {
 }
 a {
   display: block;
+}
+
+#pdf ul > li {
+  list-style-type: disc;
+}
+#skills ul > li,
+#references ul > li {
+  list-style-type: none;
+}
+
+.custom-list-disc::before {
+  content: '\2022'; /* Unicode character for a bullet point */
+  color: #333; /* Adjust the color as needed */
+  font-size: 12px; /* Adjust the font size as needed */
+  margin-right: 4px; /* Adjust the spacing as needed */
 }

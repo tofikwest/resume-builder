@@ -13,6 +13,10 @@ export default {
         'additional-hover-color': '#5555b4', //purple
       },
     },
+    fontFamily: {
+      garamond: 'Garamond, serif-serif',
+      math: 'math',
+    },
   },
   plugins: [],
 }

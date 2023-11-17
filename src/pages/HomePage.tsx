@@ -5,7 +5,7 @@ import { routes_list } from '../routes/routesList'
 const HomePage = () => {
   // border: 1px solid black;
   return (
-    <section className="relative mt-9">
+    <section className="relative mt-9 h-4/6">
       <div className=" ml-10 mt-16 flex justify-between ">
         <h1 className=" font-bold tracking-wide text-center text-7xl  w-28">
           Star<span className="text-additional-color">t</span> buildin

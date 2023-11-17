@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <div className="header flex justify-between items-center pt-5 pr-3">
+    <div className="header flex justify-between items-center  w-12/12 pr-8">
       <p className="text-2xl font-medium ml-12">Resume Builder</p>
       <ul className="flex justify-between items-center w-1/2">
         <li className="relative flex-1 ">
