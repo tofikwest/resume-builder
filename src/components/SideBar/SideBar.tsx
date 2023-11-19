@@ -1,18 +1,17 @@
-import { NavLink } from 'react-router-dom'
 import { routes_list } from '../../routes/routesList'
 import Button from '../Button/Button'
 
 const SideBar: React.FC = () => {
   return (
-    <div className="fixed float-left inline-block h-screen  w-1/12  shadow-xl rounded-md z-[1]">
+    <div className="fixed z-[1] float-left inline-block  h-screen  w-[95px] rounded-md shadow-xl">
       <img src="src/assets/icons/logo.png" />
-      <nav className="text-center uppercase flex flex-col h-full  ">
-        <p className="mb-5 text-gray-600 text-sm">main menu</p>
-        <ul className="mb-16 select-none flex flex-col justify-center items-center">
-          <li id="homeBtn" className="mb-8">
+      <nav className="flex h-[82%] flex-col text-center uppercase  ">
+        <p className="mb-5 text-xs text-gray-600">main menu</p>
+        <ul className="mb-16 flex flex-1 select-none flex-col items-center justify-start  gap-2">
+          <li id="homeBtn" className="">
             <Button path={routes_list[0].path}>
               <svg
-                className="w-8 h-8 inline-block "
+                className="inline-block h-6 w-6 "
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -27,7 +26,7 @@ const SideBar: React.FC = () => {
               </svg>
             </Button>
           </li>
-          <li className="mb-8">
+          <li className="">
             <Button path={'previus'}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +34,7 @@ const SideBar: React.FC = () => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-8 h-8 inline-block "
+                className="inline-block h-6 w-6 "
               >
                 <path
                   stroke-linecap="round"
@@ -45,7 +44,7 @@ const SideBar: React.FC = () => {
               </svg>
             </Button>
           </li>
-          <li className="mb-8">
+          <li className="">
             <Button path={'work-history'}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +52,7 @@ const SideBar: React.FC = () => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-8 h-8 inline-block "
+                className="inline-block h-6 w-6 "
               >
                 <path
                   stroke-linecap="round"
@@ -63,7 +62,7 @@ const SideBar: React.FC = () => {
               </svg>
             </Button>
           </li>
-          <li className="mb-8">
+          <li className="">
             <Button path={'education'}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +70,7 @@ const SideBar: React.FC = () => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-8 h-8 inline-block"
+                className="inline-block h-6 w-6"
               >
                 <path
                   stroke-linecap="round"
@@ -89,7 +88,7 @@ const SideBar: React.FC = () => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-8 h-8 "
+                className="h-6 w-6 "
               >
                 <path
                   stroke-linecap="round"
@@ -101,9 +100,9 @@ const SideBar: React.FC = () => {
           </li>
         </ul>
 
-        <p className="mb-5 text-gray-600 text-sm">other</p>
-        <ul className="">
-          <li className="mb-6">
+        <p className="mb-5 text-xs text-gray-600">other</p>
+        <ul className="flex flex-col gap-2 ">
+          <li className="">
             <button disabled>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +110,7 @@ const SideBar: React.FC = () => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-8 h-8 inline-block text-gray-300"
+                className="inline-block h-6 w-6 text-gray-300"
               >
                 <path
                   stroke-linecap="round"
@@ -121,7 +120,7 @@ const SideBar: React.FC = () => {
               </svg>
             </button>
           </li>
-          <li className="mb-6">
+          <li className="">
             <button disabled>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -129,7 +128,7 @@ const SideBar: React.FC = () => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-8 h-8 inline-block text-gray-300"
+                className="inline-block h-6 w-6 text-gray-300"
               >
                 <path
                   stroke-linecap="round"
@@ -139,7 +138,7 @@ const SideBar: React.FC = () => {
               </svg>
             </button>
           </li>
-          <li className="mb-6">
+          <li className="">
             <button disabled>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -147,7 +146,7 @@ const SideBar: React.FC = () => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-8 h-8 inline-block text-gray-300"
+                className="inline-block h-6 w-6 text-gray-300"
               >
                 <path
                   stroke-linecap="round"

@@ -1,5 +1,3 @@
-import React, { useState } from 'react'
-
 const ProgresBar = () => {
   const progressBarStyle = {
     width: `${15}%`,
@@ -7,17 +5,17 @@ const ProgresBar = () => {
   return (
     <>
       {/* // * PROGRES BAR */}
-      <div className="flex flex-col px-14 mb-2">
+      <div className="mb-2 flex flex-col px-11">
         <div className="flex justify-between">
           <div className="flex items-center gap-2">
-            <div className=" rounded text-white text-sm p-1 bg-primary-red text-center ">
+            <div className=" rounded bg-primary-red p-1 text-center text-sm text-white ">
               15%
             </div>
             <div className="text-sm text-gray-500">Resume score</div>
           </div>
 
-          <div className="flex items-center gap-2 w-4/12 justify-end">
-            <div className="rounded text-center text-sm p-1 bg-primary-green text-primary-green">
+          <div className="flex w-4/12 items-center justify-end gap-2">
+            <div className="rounded bg-primary-green p-1 text-center text-sm text-primary-green">
               +25%
             </div>
             <div className="text-sm text-gray-500">Add employment history</div>
@@ -26,7 +24,7 @@ const ProgresBar = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="w-5 h-5 text-green-900"
+                className="h-5 w-5 text-green-900"
               >
                 <path
                   fill-rule="evenodd"
@@ -37,7 +35,7 @@ const ProgresBar = () => {
             </button>
           </div>
         </div>
-        <div className="h-1 bg-gray-200 mt-2 relative">
+        <div className="relative mt-2 h-1 bg-gray-200">
           <div className="h-full bg-primary-red" style={progressBarStyle}></div>
         </div>
       </div>

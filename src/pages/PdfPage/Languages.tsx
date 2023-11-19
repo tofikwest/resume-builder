@@ -1,11 +1,11 @@
 const Languages = () => {
   return (
     <>
-      <h2 className="ml-14 block my-2 mb-2 text-xl font-semibold">Languages</h2>
+      <h2 className="my-2 mb-2 ml-11 block text-xl font-semibold">Languages</h2>
 
       <button
         type="button"
-        className="ml-14 mb-3 w-[11%] gap-1  flex items-center text-left text-sm text-additional-color hover:text-additional-hover-color"
+        className="mb-3 ml-11 flex w-[13%]  items-center gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const Languages = () => {
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          className="w-6 h-6"
+          className="h-6 w-6"
         >
           <path
             stroke-linecap="round"
@@ -25,8 +25,8 @@ const Languages = () => {
         <p>Add language</p>
       </button>
 
-      <ul id="skills-list" className=" ml-14 w-[628px] flex flex-wrap gap-2">
-        <li className="flex gap-2 justify-between items-center bg-gray-200 p-2">
+      <ul id="skills-list" className=" ml-11 flex w-[628px] flex-wrap gap-2">
+        <li className="flex items-center justify-between gap-2 bg-gray-200 p-2">
           English
           <button>
             <svg
@@ -35,7 +35,7 @@ const Languages = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              className="w-5 h-5"
+              className="h-5 w-5"
             >
               <path
                 stroke-linecap="round"
@@ -45,7 +45,7 @@ const Languages = () => {
             </svg>
           </button>
         </li>
-        <li className="flex gap-2 justify-between items-center bg-gray-200 p-2">
+        <li className="flex items-center justify-between gap-2 bg-gray-200 p-2">
           Russian
           <button>
             <svg
@@ -54,7 +54,7 @@ const Languages = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              className="w-5 h-5"
+              className="h-5 w-5"
             >
               <path
                 stroke-linecap="round"
@@ -64,7 +64,7 @@ const Languages = () => {
             </svg>
           </button>
         </li>
-        <li className="flex gap-2 justify-between items-center bg-gray-200 p-2">
+        <li className="flex items-center justify-between gap-2 bg-gray-200 p-2">
           Ukrainian
           <button>
             <svg
@@ -73,7 +73,7 @@ const Languages = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              className="w-5 h-5"
+              className="h-5 w-5"
             >
               <path
                 stroke-linecap="round"

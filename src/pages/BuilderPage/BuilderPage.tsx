@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import TitleResume from '../PdfPage/TitleResume'
 import ProgresBar from '../PdfPage/ProgresBar'
 import ProfessionalSummary from '../PdfPage/ProfessionalSummary'
@@ -11,7 +10,7 @@ import Languages from '../PdfPage/Languages'
 
 const BuilderPage = () => {
   return (
-    <section className="relative  font-garamond w-12/12     flex flex-col justify-center pt-6 ">
+    <section className="relative flex w-11/12 max-w-[1440px] select-none flex-col justify-center pt-6  font-garamond ">
       <TitleResume />
       <ProgresBar />
       <PersonalDetails />

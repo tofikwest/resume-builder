@@ -2,14 +2,14 @@ import React from 'react'
 
 const TitleResume = () => {
   return (
-    <div className="relative w-3/3 h-10 text-center  mb-2 text-xl flex flex-col justify-center items-center">
+    <div className="w-3/3 relative mb-2 flex  h-10 flex-col items-center justify-center text-center text-xl">
       {/* //Title Of Resume  */}
       <input
         type="text"
-        className="shadow-sm border border-solid border-x-0 border-t-0   focus:outline-none focus:outline bg-slate-50 rounded"
+        className="rounded border border-x-0 border-t-0 border-solid   bg-slate-50 shadow-sm focus:outline-none focus:outline"
       />
       <button
-        className="absolute right-[518px] 
+        className="absolute right-[408px] 
         rounded-xl text-center "
         type="button"
       >
@@ -17,7 +17,7 @@ const TitleResume = () => {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
-          className="w-4 h-4 text-additional-color
+          className="h-4 w-4 text-additional-color
            hover:text-additional-hover-color"
         >
           <path

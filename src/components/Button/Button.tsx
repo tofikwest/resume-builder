@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react'
 import { NavLink } from 'react-router-dom'
-import { routes_list } from '../../routes/routesList'
 
 interface IParentComponentProps {
   children: ReactNode
@@ -11,9 +10,9 @@ const Button: React.FC<IParentComponentProps> = ({ children, path }) => {
     <NavLink
       to={path}
       className={({ isActive, isPending }) =>
-        `p-2 ${
+        `flex items-center justify-center p-2 ${
           isActive
-            ? 'bg-additional-color text-gray-100 rounded-3xl'
+            ? 'rounded-3xl bg-additional-color text-gray-100'
             : isPending
               ? 'pending'
               : 'text-gray-500'

@@ -4,10 +4,10 @@ const ProfessionalSummary = () => {
   return (
     <>
       {/* // * Professional Summary */}
-      <h2 className="ml-14 block my-2 mb-1 text-xl font-semibold">
+      <h2 className="my-2 mb-1 ml-11 block text-xl font-semibold">
         Professional Summary
       </h2>
-      <p className=" ml-14 text-gray-400 text-sm mb-2 w-10/12">
+      <p className=" mb-2 ml-11 w-10/12 text-sm text-gray-400">
         Write 2-4 short & energetic sentences to interest the reader! Mention
         your role, experience & most importantly - your biggest achievements,
         best qualities and skills.
@@ -15,7 +15,7 @@ const ProfessionalSummary = () => {
 
       <div className="relative ">
         {/* // * BTN STYLES */}
-        <div className="absolute top-2 left-16  flex w-11/12 h-3/6">
+        <div className="absolute left-16 top-2  flex h-3/6 w-11/12">
           <div className="cursor-pointer ">
             <svg
               width="24"
@@ -98,14 +98,14 @@ const ProfessionalSummary = () => {
       <textarea
         name="prof_summary"
         id="prof_summary"
-        className=" my-0 mx-auto bg-input-bg w-11/12 p-4 pt-10 border border-solid rounded focus:outline-none"
+        className=" mx-auto my-0 w-11/12 rounded border border-solid bg-input-bg p-4 pt-10 focus:outline-none"
         rows={10}
         placeholder="e.g. HR with 5 years experiance"
         minLength={50}
         maxLength={200}
         required
       ></textarea>
-      <p className="ml-14 mt-2 text-gray-500 text-xs">
+      <p className="ml-11 mt-2 text-xs text-gray-500">
         * Recruiter tip: write 50-200 characters to increase interview chances
       </p>
     </>
