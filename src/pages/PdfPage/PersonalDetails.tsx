@@ -1,26 +1,28 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const PersonalDetails = () => {
   const [isNeedAdditionalForm, setIsNeedAdditionalForm] =
     useState<Boolean>(false)
+  const [isDisable, setisDisable] = useState<boolean>(true)
 
   function handleAdditionalForm() {
     setIsNeedAdditionalForm((prev) => !prev)
   }
+
   return (
     <>
-      <h2 className="block my-2 ml-14 text-xl font-semibold">
+      <h2 className="my-2 ml-11 block text-xl font-semibold">
         Personal Details
       </h2>
-      <form className=" select-none font-form-family flex flex-col flex-wrap h-[371px]  w-11/12 my-0 mx-auto justify-between">
+      <form className=" mx-auto my-0 flex h-[371px] w-11/12 select-none  flex-col flex-wrap justify-between font-form-family">
         <label
           htmlFor="jobTitle"
-          className="inline text-gray-400 font-extralight"
+          className="inline font-extralight text-gray-400"
         >
           Wanted Job Title
         </label>
         <input
-          className="placeholder:font-extralight block border rounded border-solid p-2 mt-1 mb-4 bg-input-bg focus:outline-none focus:border-b-additional-color focus:border-b-2 w-5/12 h-12 "
+          className={`mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none `}
           type="text"
           id="jobTitle"
           name="jobTitle"
@@ -28,33 +30,33 @@ const PersonalDetails = () => {
           placeholder="e.g HR"
         />
         {/* ======== */}
-        <label htmlFor="first_name" className="text-gray-400 font-extralight">
+        <label htmlFor="first_name" className="font-extralight text-gray-400">
           First Name
         </label>
         <input
-          className="block border rounded border-solid p-2 mt-1 mb-4 bg-input-bg focus:outline-none focus:border-b-additional-color focus:border-b-2 w-5/12 h-12"
+          className="mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
           type="text"
           id="first_name"
           name="first_name"
           required
         />
         {/* ======== */}
-        <label htmlFor="email" className="text-gray-400 font-extralight">
+        <label htmlFor="email" className="font-extralight text-gray-400">
           Email
         </label>
         <input
-          className="block border rounded border-solid p-2 mt-1 mb-4 bg-input-bg focus:outline-none focus:border-b-additional-color focus:border-b-2 w-5/12 h-12"
+          className="mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
           type="email"
           id="email"
           name="email"
           required
         />
         {/* ======== */}
-        <label htmlFor="country" className="text-gray-400 font-extralight">
+        <label htmlFor="country" className="font-extralight text-gray-400">
           Country
         </label>
         <input
-          className="block border rounded border-solid p-2 mt-1 mb-4 bg-input-bg focus:outline-none focus:border-b-additional-color focus:border-b-2 w-5/12 h-12"
+          className="mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
           type="text"
           id="country"
           name="country"
@@ -63,9 +65,11 @@ const PersonalDetails = () => {
         {/* ====== */}
         <label
           htmlFor="photo"
-          className=" p-2 h-12 rounded mt-[28px] text-gray-400 font-extralight flex items-center gap-2 cursor-pointer bg-input-bg hover:bg-slate-700 mb-4 w-5/12 border border-solid border-gray-200 focus:border-b-2
-          self-end
-          "
+          className={`mb-4 mt-[28px] flex h-12 w-5/12 items-center gap-2 self-end rounded border border-solid border-gray-200 bg-input-bg p-2 font-extralight text-gray-400 hover:bg-[#553692]
+          focus:border-b-2 ${
+            isDisable ? 'cursor-not-allowed' : 'cursor-pointer'
+          }
+          `}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +77,7 @@ const PersonalDetails = () => {
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            className="w-6 h-6 inline text-center"
+            className="inline h-6 w-6 text-center"
           >
             <path
               stroke-linecap="round"
@@ -89,22 +93,22 @@ const PersonalDetails = () => {
           {/* <p>Upload photo</p> */}
           <p>This template doesn't support photo upload</p>
           <input
-            className="  rounded p-2 mt-1 mb-4 bg-input-bg focus:outline-none focus:border-b-additional-color  w-5/12 h-12 hidden"
+            className="  mb-4 mt-1 hidden h-12 w-5/12 rounded bg-input-bg  p-2 focus:border-b-additional-color focus:outline-none "
             type="file"
             id="photo"
             name="photo"
-            disabled
+            disabled={isDisable}
           />
         </label>
         {/* ====== */}
         <label
           htmlFor="last_name"
-          className="text-gray-400 font-extralight ml-[100px]"
+          className="ml-[86px] font-extralight text-gray-400"
         >
           Last Name
         </label>
         <input
-          className="block focus:border-b-2 border rounded border-solid p-2 mt-1 mb-4 bg-input-bg focus:outline-none focus:border-b-additional-color  w-5/12 h-12 self-end"
+          className="mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2  focus:border-b-2 focus:border-b-additional-color focus:outline-none"
           type="text"
           id="last_name"
           name="last_name"
@@ -113,12 +117,12 @@ const PersonalDetails = () => {
         {/* ===== */}
         <label
           htmlFor="phone"
-          className="text-gray-400 font-extralight ml-[100px]"
+          className="ml-[86px] font-extralight text-gray-400"
         >
           Phone
         </label>
         <input
-          className="placeholder:font-extralight self-end block border rounded border-solid p-2 mt-1 mb-4 bg-input-bg focus:outline-none focus:border-b-additional-color focus:border-b-2 w-5/12 h-12"
+          className="mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none"
           type="text"
           id="phone"
           name="phone"
@@ -128,12 +132,12 @@ const PersonalDetails = () => {
         {/* ====== */}
         <label
           htmlFor="city"
-          className="text-gray-400 font-extralight ml-[100px]"
+          className="ml-[86px] font-extralight text-gray-400"
         >
           City
         </label>
         <input
-          className=" self-end block border rounded border-solid p-2 mt-1 mb-4 bg-input-bg focus:outline-none focus:border-b-additional-color focus:border-b-2 w-5/12 h-12"
+          className=" mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
           type="text"
           id="city"
           name="city"
@@ -143,7 +147,7 @@ const PersonalDetails = () => {
       {/* Additional detail BTN */}
       <button
         type="button"
-        className="ml-14 text-left text-sm text-additional-color hover:text-additional-hover-color"
+        className="ml-11 w-[16%] text-left text-sm text-additional-color hover:text-additional-hover-color"
         onClick={handleAdditionalForm}
       >
         {isNeedAdditionalForm ? (
@@ -155,7 +159,7 @@ const PersonalDetails = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              className="inline ml-2 w-4 h-4"
+              className="ml-2 inline h-4 w-4"
             >
               <path
                 stroke-linecap="round"
@@ -173,7 +177,7 @@ const PersonalDetails = () => {
               viewBox="0 0 24 24"
               stroke-width="2.5"
               stroke="currentColor"
-              className="inline ml-2 w-4 h-4"
+              className="ml-2 inline h-4 w-4"
             >
               <path
                 stroke-linecap="round"
@@ -185,12 +189,12 @@ const PersonalDetails = () => {
         )}
       </button>
       {isNeedAdditionalForm && (
-        <form className="w-11/12 select-none font-form-family flex flex-col flex-wrap h-[294px] my-4 mx-auto">
-          <label htmlFor="address" className="text-gray-400 font-extralight">
+        <form className="mx-auto my-4 flex h-[294px] w-11/12 select-none flex-col flex-wrap font-form-family">
+          <label htmlFor="address" className="font-extralight text-gray-400">
             Address
           </label>
           <input
-            className="block border rounded border-solid p-2 mt-1 mb-4 bg-input-bg focus:outline-none focus:border-b-additional-color focus:border-b-2 w-5/12 h-12 placeholder:font-light"
+            className="mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 placeholder:font-light focus:border-b-2 focus:border-b-additional-color focus:outline-none"
             type="text"
             id="address"
             name="address"
@@ -198,12 +202,12 @@ const PersonalDetails = () => {
           {/* ======== */}
           <label
             htmlFor="driving_license"
-            className="text-gray-400 font-extralight"
+            className="font-extralight text-gray-400"
           >
             Driving License
           </label>
           <input
-            className="block border rounded border-solid p-2 mt-1 mb-4 bg-input-bg focus:outline-none focus:border-b-additional-color focus:border-b-2 w-5/12 h-12"
+            className="mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
             type="text"
             id="driving_license"
             name="driving_license"
@@ -211,12 +215,12 @@ const PersonalDetails = () => {
           {/* ======== */}
           <label
             htmlFor="place_birth"
-            className="text-gray-400 font-extralight"
+            className="font-extralight text-gray-400"
           >
             Place Of Birth
           </label>
           <input
-            className="block border rounded border-solid p-2 mt-1 mb-4 bg-input-bg focus:outline-none focus:border-b-additional-color focus:border-b-2 w-5/12 h-12"
+            className="mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
             type="email"
             id="place_birth"
             name="place_birth"
@@ -224,12 +228,12 @@ const PersonalDetails = () => {
           {/* ======== */}
           <label
             htmlFor="postalCode"
-            className="text-gray-400 font-extralight ml-[100px]"
+            className="ml-[100px] font-extralight text-gray-400"
           >
             Postal Code
           </label>
           <input
-            className="self-end block border rounded border-solid p-2 mt-1 mb-4 bg-input-bg focus:outline-none focus:border-b-additional-color focus:border-b-2 w-5/12 h-12"
+            className="mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
             type="text"
             id="postalCode"
             name="postalCode"
@@ -237,12 +241,12 @@ const PersonalDetails = () => {
           {/* ====== */}
           <label
             htmlFor="nationality"
-            className="text-gray-400 font-extralight ml-[100px]"
+            className="ml-[100px] font-extralight text-gray-400"
           >
             Nationality
           </label>
           <input
-            className="self-end block border rounded border-solid p-2 mt-1 mb-4 bg-input-bg focus:outline-none focus:border-b-additional-color focus:border-b-2 w-5/12 h-12"
+            className="mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
             type="text"
             id="nationality"
             name="nationality"
@@ -250,12 +254,12 @@ const PersonalDetails = () => {
           {/* ====== */}
           <label
             htmlFor="date_birth"
-            className="text-gray-400 font-extralight ml-[100px]"
+            className="ml-[100px] font-extralight text-gray-400"
           >
             Date Of Birth
           </label>
           <input
-            className=" self-end block focus:border-b-2 border rounded border-solid p-2 mt-1 mb-4 bg-input-bg focus:outline-none focus:border-b-additional-color text-gray-400  w-5/12 h-12"
+            className=" mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 text-gray-400 focus:border-b-2  focus:border-b-additional-color focus:outline-none"
             type="date"
             id="date_birth"
             name="date_birth"

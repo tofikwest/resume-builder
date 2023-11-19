@@ -1,8 +1,8 @@
 const Header = () => {
   return (
-    <div className="header flex justify-between items-center  w-12/12 pr-8">
-      <p className="text-2xl font-medium ml-12">Resume Builder</p>
-      <ul className="flex justify-between items-center w-1/2">
+    <div className="header w-12/12 flex items-center  justify-between pr-8 ">
+      <p className="ml-12  text-2xl font-medium">Resume Builder</p>
+      <ul className="flex w-1/2 items-center justify-between">
         <li className="relative flex-1 ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +10,7 @@ const Header = () => {
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            className="w-6 h-6 inline-block absolute left-2 top-2 text-gray-400"
+            className="absolute left-2 top-2 inline-block h-5 w-5 text-gray-400"
           >
             <path
               stroke-linecap="round"
@@ -22,20 +22,20 @@ const Header = () => {
           <input
             type="text"
             placeholder="Search"
-            className=" text-lg text-gray-500 rounded-xl border border-gray-300 border-solid pl-9 pr-3 h-10"
+            className=" h-9 rounded-xl border border-solid border-gray-300 pl-9 pr-3 text-base text-gray-500 shadow-md  outline-none"
           />
         </li>
 
-        <li className="flex justify-between items-center">
+        <li className="flex items-center justify-between ">
           {/* NOTIFY BTN */}
-          <button className="flex mr-8 rounded-2xl border border-gray-150 p-2">
+          <button className="border-gray-150 mr-8 flex rounded-2xl border p-2 shadow-sm hover:bg-gray-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="w-7 h-7 text-gray-600"
+              className="h-6 w-6 text-gray-600"
             >
               <path
                 strokeLinecap="round"
@@ -45,14 +45,14 @@ const Header = () => {
             </svg>
           </button>
           {/* ACCOUNT BTN */}
-          <button className="text-center rounded-2xl border border-gray-150 p-2.5">
+          <button className="border-gray-150 flex items-center justify-center rounded-2xl border p-1.5 text-center shadow-sm hover:bg-gray-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              className="w-7 h-7 inline-block mr-2 text-gray-800"
+              className="mr-2 inline-block h-6 w-6 text-gray-800"
             >
               <path
                 stroke-linecap="round"
@@ -67,7 +67,7 @@ const Header = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              className="w-4 h-4 inline-block ml-2 text-gray-800"
+              className="ml-2 inline-block h-4 w-4 text-gray-800"
             >
               <path
                 stroke-linecap="round"
