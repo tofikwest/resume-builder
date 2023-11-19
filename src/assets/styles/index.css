@@ -24,6 +24,8 @@ a {
   display: block;
 }
 
+label {
+}
 #pdf ul > li {
   list-style-type: disc;
 }

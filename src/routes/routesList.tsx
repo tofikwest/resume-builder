@@ -1,5 +1,5 @@
 import HomePage from '../pages/HomePage'
-import BuilderPage from '../pages/BuilderPage'
+import BuilderPage from '../pages/BuilderPage/BuilderPage'
 import PageLayout from '../components/PageLayout/PageLayout'
 
 export const routes_list = [
