@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
+import EducationForm from '../../components/EducationForm/EducationForm'
 
 const Education = () => {
+  const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(false)
+
+  function handleBtnAddTrigger() {
+    setBtnAddTrigger((prev) => !prev)
+    console.log(btnAddTrigger)
+  }
+
   return (
     <>
       <h2 className="my-2 mb-1 ml-11 block text-xl font-semibold">Education</h2>
@@ -9,6 +17,7 @@ const Education = () => {
         and background will bring to job.
       </p>
       <button
+        onClick={handleBtnAddTrigger}
         type="button"
         className="ml-11  flex w-[13%]  items-center gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color"
       >
@@ -29,6 +38,8 @@ const Education = () => {
 
         <p>Add education</p>
       </button>
+
+      {btnAddTrigger && <EducationForm />}
     </>
   )
 }

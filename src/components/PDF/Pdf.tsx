@@ -5,9 +5,11 @@ import html2canvas from 'html2canvas'
 const Pdf = () => {
   const [page, setPage] = useState(false)
   const btn = useRef<HTMLElement>(null)
+
   function handlePage() {
     setPage((prev) => !prev)
   }
+
   return <div className="relative ">{!page}</div>
 }
 

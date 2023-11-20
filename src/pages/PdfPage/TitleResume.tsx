@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { ChangeEvent, useState } from 'react'
+import { IPdfStructure } from '../BuilderPage/BuilderPage'
+import { useDispatch, useSelector } from 'react-redux'
+import { ADD } from '../../redux/pdf/pdfSlice'
+import { RootState } from '../../redux/store'
 
-const TitleResume = () => {
+const TitleResume: React.FC = () => {
+  const [title, setTitle] = useState('')
+
+  const dispatch = useDispatch()
+
+  function handleTitle(e: ChangeEvent<HTMLInputElement>) {
+    setTitle(e.target.value)
+
+    dispatch(
+      ADD({
+        section: 'title',
+        data: title,
+      }),
+    )
+  }
+
   return (
     <div className="w-3/3 relative mb-2 flex  h-10 flex-col items-center justify-center text-center text-xl">
       {/* //Title Of Resume  */}
       <input
+        onChange={handleTitle}
         type="text"
         className="rounded border border-x-0 border-t-0 border-solid   bg-slate-50 shadow-sm focus:outline-none focus:outline"
       />
