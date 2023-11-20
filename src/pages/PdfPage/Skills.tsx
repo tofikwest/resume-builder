@@ -1,4 +1,16 @@
+import { useState } from 'react'
+import SkillsForm from '../../components/SkillsForm/SkillsForm'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../redux/store'
+
 const Skills = () => {
+  const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(false)
+  const skillsList = useSelector((state: RootState) => state.pdf.skills)
+  function handleBtnAddTrigger() {
+    setBtnAddTrigger((prev) => !prev)
+    console.log(btnAddTrigger)
+  }
+  console.log(skillsList)
   return (
     <>
       <h2 className="my-2 mb-1 ml-11 block text-xl font-semibold">Skills</h2>
@@ -8,6 +20,7 @@ const Skills = () => {
         applying via an online system).
       </p>
       <button
+        onClick={handleBtnAddTrigger}
         type="button"
         className="mb-3 ml-11 flex w-[13%]  items-center gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color"
       >
@@ -88,6 +101,7 @@ const Skills = () => {
           </button>
         </li>
       </ul>
+      {btnAddTrigger && <SkillsForm />}
     </>
   )
 }

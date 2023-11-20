@@ -1,9 +1,19 @@
+import { useState } from 'react'
+import LanguageForm from '../../components/LanguageForm/LanguageForm'
+
 const Languages = () => {
+  const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(false)
+
+  function handleBtnAddTrigger() {
+    setBtnAddTrigger((prev) => !prev)
+    console.log(btnAddTrigger)
+  }
   return (
     <>
       <h2 className="my-2 mb-2 ml-11 block text-xl font-semibold">Languages</h2>
 
       <button
+        onClick={handleBtnAddTrigger}
         type="button"
         className="mb-3 ml-11 flex w-[13%]  items-center gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color"
       >
@@ -84,6 +94,7 @@ const Languages = () => {
           </button>
         </li>
       </ul>
+      {btnAddTrigger && <LanguageForm />}
     </>
   )
 }

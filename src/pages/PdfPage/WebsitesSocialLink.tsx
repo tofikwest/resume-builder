@@ -1,6 +1,13 @@
-import React from 'react'
+import { useState } from 'react'
+import WebSitesSocLinkForm from '../../components/WebSitesSocLinkForm/WebSitesSocLinkForm'
 
 const WebsitesSocialLink = () => {
+  const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(false)
+
+  function handleBtnAddTrigger() {
+    setBtnAddTrigger((prev) => !prev)
+    console.log(btnAddTrigger)
+  }
   return (
     <>
       <h2 className="my-2 mb-1 ml-11 block text-xl font-semibold">
@@ -12,6 +19,7 @@ const WebsitesSocialLink = () => {
         website
       </p>
       <button
+        onClick={handleBtnAddTrigger}
         type="button"
         className="ml-11 flex w-[13%]  items-center gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color"
       >
@@ -32,6 +40,7 @@ const WebsitesSocialLink = () => {
 
         <p>Add link</p>
       </button>
+      {btnAddTrigger && <WebSitesSocLinkForm />}
     </>
   )
 }

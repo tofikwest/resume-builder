@@ -1,11 +1,66 @@
-import { useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { ADD } from '../../redux/pdf/pdfSlice'
 
-const PersonalDetails = () => {
-  const [isNeedAdditionalForm, setIsNeedAdditionalForm] =
-    useState<Boolean>(false)
+const PersonalDetails: React.FC = () => {
+  // ? PHOTO input
   const [isDisable, setisDisable] = useState<boolean>(true)
 
-  function handleAdditionalForm() {
+  const [isNeedAdditionalForm, setIsNeedAdditionalForm] =
+    useState<Boolean>(false)
+
+  const dispatch = useDispatch()
+
+  // * FORM DATA
+  const [mainFormData, setMainFormdata] = useState({
+    jobTitle: '',
+    first_name: '',
+    email: '',
+    country: '',
+    photo: '',
+    last_name: '',
+    phone: '',
+    city: '',
+  })
+
+  const [additionalFormData, setAdditionalFormData] = useState({
+    address: '',
+    driving_license: '',
+    place_birth: '',
+    postalCode: '',
+    nationality: '',
+    date_birth: '',
+  })
+
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch(
+        ADD({
+          section: 'personalDetails',
+          data: { ...mainFormData, ...additionalFormData },
+        }),
+      )
+    }, 300)
+  }, [mainFormData, additionalFormData])
+
+  function handleMainFormData(e: ChangeEvent<HTMLInputElement>) {
+    setMainFormdata((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }))
+    console.log(mainFormData)
+  }
+
+  function handleAdditionalFormData(e: ChangeEvent<HTMLInputElement>) {
+    setAdditionalFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }))
+
+    console.log(additionalFormData)
+  }
+
+  function handleShowAdditionalForm() {
     setIsNeedAdditionalForm((prev) => !prev)
   }
 
@@ -22,53 +77,59 @@ const PersonalDetails = () => {
           Wanted Job Title
         </label>
         <input
+          onChange={handleMainFormData}
           className={`mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none `}
           type="text"
           id="jobTitle"
           name="jobTitle"
           required
           placeholder="e.g HR"
+          value={mainFormData.jobTitle}
         />
         {/* ======== */}
         <label htmlFor="first_name" className="font-extralight text-gray-400">
           First Name
         </label>
         <input
+          onChange={handleMainFormData}
           className="mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
           type="text"
           id="first_name"
           name="first_name"
           required
+          value={mainFormData.first_name}
         />
         {/* ======== */}
         <label htmlFor="email" className="font-extralight text-gray-400">
           Email
         </label>
         <input
-          className="mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+          onChange={handleMainFormData}
+          className=" mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
           type="email"
           id="email"
           name="email"
           required
+          value={mainFormData.email}
         />
         {/* ======== */}
         <label htmlFor="country" className="font-extralight text-gray-400">
           Country
         </label>
         <input
+          onChange={handleMainFormData}
           className="mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
           type="text"
           id="country"
           name="country"
           required
+          value={mainFormData.country}
         />
         {/* ====== */}
         <label
           htmlFor="photo"
-          className={`mb-4 mt-[28px] flex h-12 w-5/12 items-center gap-2 self-end rounded border border-solid border-gray-200 bg-input-bg p-2 font-extralight text-gray-400 hover:bg-[#553692]
-          focus:border-b-2 ${
-            isDisable ? 'cursor-not-allowed' : 'cursor-pointer'
-          }
+          className={`mb-4 mt-[28px] flex h-12 w-5/12 items-center gap-2 self-end rounded border border-solid border-gray-200 bg-input-bg p-2 font-extralight text-gray-400 hover:bg-[#553692] hover:text-white focus:border-b-2
+           ${isDisable ? 'cursor-not-allowed' : 'cursor-pointer'}
           `}
         >
           <svg
@@ -93,11 +154,13 @@ const PersonalDetails = () => {
           {/* <p>Upload photo</p> */}
           <p>This template doesn't support photo upload</p>
           <input
-            className="  mb-4 mt-1 hidden h-12 w-5/12 rounded bg-input-bg  p-2 focus:border-b-additional-color focus:outline-none "
+            onChange={handleMainFormData}
+            className=" mb-4 mt-1 hidden h-12 w-5/12 rounded bg-input-bg  p-2 focus:border-b-additional-color focus:outline-none "
             type="file"
             id="photo"
             name="photo"
             disabled={isDisable}
+            value={mainFormData.photo}
           />
         </label>
         {/* ====== */}
@@ -108,10 +171,12 @@ const PersonalDetails = () => {
           Last Name
         </label>
         <input
+          onChange={handleMainFormData}
           className="mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2  focus:border-b-2 focus:border-b-additional-color focus:outline-none"
           type="text"
           id="last_name"
           name="last_name"
+          value={mainFormData.last_name}
           required
         />
         {/* ===== */}
@@ -122,12 +187,14 @@ const PersonalDetails = () => {
           Phone
         </label>
         <input
+          onChange={handleMainFormData}
           className="mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none"
           type="text"
           id="phone"
           name="phone"
           placeholder="e.g +380 96 156 75 13"
           required
+          value={mainFormData.phone}
         />
         {/* ====== */}
         <label
@@ -137,10 +204,12 @@ const PersonalDetails = () => {
           City
         </label>
         <input
+          onChange={handleMainFormData}
           className=" mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
           type="text"
           id="city"
           name="city"
+          value={mainFormData.city}
           required
         />
       </form>
@@ -148,7 +217,7 @@ const PersonalDetails = () => {
       <button
         type="button"
         className="ml-11 w-[16%] text-left text-sm text-additional-color hover:text-additional-hover-color"
-        onClick={handleAdditionalForm}
+        onClick={handleShowAdditionalForm}
       >
         {isNeedAdditionalForm ? (
           <>
@@ -194,10 +263,12 @@ const PersonalDetails = () => {
             Address
           </label>
           <input
+            onChange={handleAdditionalFormData}
             className="mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 placeholder:font-light focus:border-b-2 focus:border-b-additional-color focus:outline-none"
             type="text"
             id="address"
             name="address"
+            value={additionalFormData.address}
           />
           {/* ======== */}
           <label
@@ -207,10 +278,12 @@ const PersonalDetails = () => {
             Driving License
           </label>
           <input
+            onChange={handleAdditionalFormData}
             className="mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
             type="text"
             id="driving_license"
             name="driving_license"
+            value={additionalFormData.driving_license}
           />
           {/* ======== */}
           <label
@@ -220,6 +293,7 @@ const PersonalDetails = () => {
             Place Of Birth
           </label>
           <input
+            onChange={handleAdditionalFormData}
             className="mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
             type="email"
             id="place_birth"
@@ -233,10 +307,12 @@ const PersonalDetails = () => {
             Postal Code
           </label>
           <input
+            onChange={handleAdditionalFormData}
             className="mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
             type="text"
             id="postalCode"
             name="postalCode"
+            value={additionalFormData.postalCode}
           />
           {/* ====== */}
           <label
@@ -246,10 +322,12 @@ const PersonalDetails = () => {
             Nationality
           </label>
           <input
+            onChange={handleAdditionalFormData}
             className="mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
             type="text"
             id="nationality"
             name="nationality"
+            value={additionalFormData.nationality}
           />
           {/* ====== */}
           <label
@@ -259,10 +337,12 @@ const PersonalDetails = () => {
             Date Of Birth
           </label>
           <input
+            onChange={handleAdditionalFormData}
             className=" mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 text-gray-400 focus:border-b-2  focus:border-b-additional-color focus:outline-none"
             type="date"
             id="date_birth"
             name="date_birth"
+            value={additionalFormData.date_birth}
           />
         </form>
       )}
