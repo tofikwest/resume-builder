@@ -14,13 +14,17 @@ const SkillsForm: React.FC = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      dispatch(
-        ADD({
-          section: 'skills',
-          data: localData,
-        }),
-      )
-    }, 300)
+      if (localData.skill && localData.level) {
+        console.log('object')
+        dispatch(
+          ADD({
+            section: 'skills',
+            data: localData,
+          }),
+        )
+        setLocalData({ skill: '', level: '' })
+      }
+    }, 1000)
   }, [localData])
 
   function handleForm(e: ChangeEvent<HTMLInputElement>) {
@@ -42,6 +46,7 @@ const SkillsForm: React.FC = () => {
           id="skill"
           name="skill"
           onChange={handleForm}
+          value={localData.skill}
           required
         />
       </div>
@@ -57,6 +62,7 @@ const SkillsForm: React.FC = () => {
           id="level"
           name="level"
           onChange={handleForm}
+          value={localData.level}
           required
         />
       </div>

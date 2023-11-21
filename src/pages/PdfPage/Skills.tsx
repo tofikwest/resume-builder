@@ -2,14 +2,17 @@ import { useState } from 'react'
 import SkillsForm from '../../components/SkillsForm/SkillsForm'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
+import { ISkills } from '../../redux/pdf/types'
 
 const Skills = () => {
   const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(false)
   const skillsList = useSelector((state: RootState) => state.pdf.skills)
+
   function handleBtnAddTrigger() {
     setBtnAddTrigger((prev) => !prev)
     console.log(btnAddTrigger)
   }
+
   console.log(skillsList)
   return (
     <>
@@ -100,6 +103,27 @@ const Skills = () => {
             </svg>
           </button>
         </li>
+        {skillsList.map(({ level, skill }: ISkills) => (
+          <li className="flex items-center justify-between gap-2 bg-gray-200 p-2">
+            {skill} {level}
+            <button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="h-5 w-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </li>
+        ))}
       </ul>
       {btnAddTrigger && <SkillsForm />}
     </>

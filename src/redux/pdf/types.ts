@@ -62,6 +62,6 @@ export interface IPdfState {
   employmentHistory: IEmploymentHistory
   education: IEducation
   websitesSocialLink: IWebSitesSocLink
-  skills: ISkills
+  skills: ISkills[]
   languages: ILanguage
 }

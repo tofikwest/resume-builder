@@ -14,7 +14,7 @@ const initialState: IPdfState = {
   employmentHistory: {},
   education: {},
   websitesSocialLink: {},
-  skills: {},
+  skills: [],
   languages: {},
 }
 
@@ -23,6 +23,10 @@ export const pdfSlice = createSlice({
   initialState,
   reducers: {
     ADD: (state, { payload: { section, data } }: PayloadAction<IPayload>) => {
+      if (section === 'skills') {
+        state[section].push(data)
+        return state
+      }
       if (typeof data === 'object') {
         return {
           ...state,
