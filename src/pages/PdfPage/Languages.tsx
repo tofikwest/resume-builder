@@ -1,16 +1,67 @@
 import { useState } from 'react'
+
 import LanguageForm from '../../components/LanguageForm/LanguageForm'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../../redux/store'
+import { ILanguage } from '../../redux/pdf/types'
+import { ADD, DEL } from '../../redux/pdf/pdfSlice'
+import { LANGUAGES } from '../../redux/pdf/constants'
 
 const Languages = () => {
   const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(false)
+
+  const dispatch = useDispatch()
+
+  const languageList = useSelector((state: RootState) => state.pdf.languages)
+
+  const suggestionLangList = ['English', 'Ukrainian', 'Russian']
 
   function handleBtnAddTrigger() {
     setBtnAddTrigger((prev) => !prev)
     console.log(btnAddTrigger)
   }
+
+  function handleDeleteLang(e: React.MouseEvent<HTMLButtonElement>) {
+    const id = e.currentTarget.id
+    dispatch(
+      DEL({
+        section: LANGUAGES,
+        id,
+      }),
+    )
+  }
+
+  function handleAddSuggestLang(e: React.MouseEvent<HTMLLIElement>) {
+    const text = e.currentTarget.textContent!
+    dispatch(
+      ADD({
+        section: LANGUAGES,
+        data: {
+          language: text,
+          level: 'Expert',
+        },
+      }),
+    )
+  }
+
   return (
     <>
       <h2 className="my-2 mb-2 ml-11 block text-xl font-semibold">Languages</h2>
+
+      <ul
+        id="languages-list"
+        className=" mb-4 ml-11 flex w-full max-w-xl flex-wrap gap-2"
+      >
+        {suggestionLangList.map((el) => (
+          <li
+            onClick={handleAddSuggestLang}
+            key={el}
+            className="flex items-center justify-between gap-2 bg-gray-200 p-2"
+          >
+            {el}
+          </li>
+        ))}
+      </ul>
 
       <button
         onClick={handleBtnAddTrigger}
@@ -35,65 +86,36 @@ const Languages = () => {
         <p>Add language</p>
       </button>
 
-      <ul id="skills-list" className=" ml-11 flex w-[628px] flex-wrap gap-2">
-        <li className="flex items-center justify-between gap-2 bg-gray-200 p-2">
-          English
-          <button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="h-5 w-5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </li>
-        <li className="flex items-center justify-between gap-2 bg-gray-200 p-2">
-          Russian
-          <button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="h-5 w-5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </li>
-        <li className="flex items-center justify-between gap-2 bg-gray-200 p-2">
-          Ukrainian
-          <button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="h-5 w-5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </li>
+      <ul
+        id="skills-list"
+        className=" ml-11 flex w-full max-w-xl flex-wrap gap-2"
+      >
+        {languageList.map(({ id, language }: ILanguage) => (
+          <li
+            key={id}
+            className="flex items-center justify-between gap-2 bg-gray-200 p-2"
+          >
+            {language}
+            <button id={id} onClick={handleDeleteLang}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="h-5 w-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </li>
+        ))}
       </ul>
+
       {btnAddTrigger && <LanguageForm />}
     </>
   )
