@@ -32,36 +32,40 @@ export interface IEmploymentHistory {
 }
 
 export interface IEducation {
-  school?: ''
-  start_date?: ''
-  end_date?: ''
-  employer?: ''
-  city?: ''
-  description?: ''
+  school?: string
+  start_date?: string
+  end_date?: string
+  employer?: string
+  city?: string
+  description?: string
 }
 
 export interface IWebSitesSocLink {
-  label?: ''
-  link?: ''
+  id?: string
+  label?: string
+  link?: string
 }
 
 export interface ISkills {
-  skill?: ''
-  level?: ''
+  id?: string
+  skill?: string
+  level?: string
 }
 
 export interface ILanguage {
-  language?: ''
-  level?: ''
+  id?: string
+  language?: string
+  level?: string
 }
 
 export interface IPdfState {
+  [key: string]: any
   title: ITitle
   personalDetails: IPersonalDetails
   professionalSummary: IProfessionalSummary
   employmentHistory: IEmploymentHistory
   education: IEducation
-  websitesSocialLink: IWebSitesSocLink
+  websitesSocialLink: IWebSitesSocLink[]
   skills: ISkills[]
-  languages: ILanguage
+  languages: ILanguage[]
 }

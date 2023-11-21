@@ -1,10 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { IPdfState } from './types'
+import { ILanguage, IPdfState, ISkills, IWebSitesSocLink } from './types'
 import type { PayloadAction } from '@reduxjs/toolkit'
+import { nanoid } from 'nanoid'
+import { LANGUAGES, SKILLS, WEBSITE_SOC_LINK } from './constants'
 
-export interface IPayload {
+export interface IPayloadAdd {
   section: string
-  data: any
+  data: ISkills | ILanguage | IWebSitesSocLink
+}
+
+export interface IPayloadDel {
+  section: string
+  id: string
 }
 
 const initialState: IPdfState = {
@@ -13,18 +20,32 @@ const initialState: IPdfState = {
   professionalSummary: {},
   employmentHistory: {},
   education: {},
-  websitesSocialLink: {},
+  websitesSocialLink: [],
   skills: [],
-  languages: {},
+  languages: [],
 }
 
 export const pdfSlice = createSlice({
   name: 'pdf',
   initialState,
   reducers: {
-    ADD: (state, { payload: { section, data } }: PayloadAction<IPayload>) => {
-      if (section === 'skills') {
-        state[section].push(data)
+    ADD: (
+      state,
+      { payload: { section, data } }: PayloadAction<IPayloadAdd>,
+    ) => {
+      if (
+        section === SKILLS ||
+        section === LANGUAGES ||
+        section === WEBSITE_SOC_LINK
+      ) {
+        const id = nanoid()
+
+        const obj: ISkills | ILanguage | IWebSitesSocLink = {
+          id,
+          ...data,
+        }
+
+        state[section].push(obj)
         return state
       }
       if (typeof data === 'object') {
@@ -43,8 +64,14 @@ export const pdfSlice = createSlice({
         },
       }
     },
+    DEL: (state, { payload: { section, id } }: PayloadAction<IPayloadDel>) => {
+      return {
+        ...state,
+        [section]: state[section].filter((el: { id: string }) => el.id !== id),
+      }
+    },
   },
 })
 
-export const { ADD } = pdfSlice.actions
+export const { ADD, DEL } = pdfSlice.actions
 export default pdfSlice.reducer

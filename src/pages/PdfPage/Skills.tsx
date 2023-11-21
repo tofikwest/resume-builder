@@ -1,16 +1,42 @@
 import { useState } from 'react'
 import SkillsForm from '../../components/SkillsForm/SkillsForm'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../../redux/store'
 import { ISkills } from '../../redux/pdf/types'
+import { ADD, DEL } from '../../redux/pdf/pdfSlice'
+import { SKILLS } from '../../redux/pdf/constants'
 
 const Skills = () => {
   const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(false)
   const skillsList = useSelector((state: RootState) => state.pdf.skills)
 
+  const suggestionsList = [
+    'Project Management Skills',
+    'Communication',
+    'Highly Organized',
+  ]
+  const dispatch = useDispatch()
+
   function handleBtnAddTrigger() {
     setBtnAddTrigger((prev) => !prev)
-    console.log(btnAddTrigger)
+  }
+
+  function handleDeleteSkill(e: React.MouseEvent<HTMLButtonElement>) {
+    dispatch(
+      DEL({
+        section: SKILLS,
+        id: e.currentTarget.id,
+      }),
+    )
+  }
+
+  function handleAddSuggestions(e: React.MouseEvent<HTMLLIElement>) {
+    dispatch(
+      ADD({
+        section: SKILLS,
+        data: { skill: e.currentTarget.textContent!, level: 'Expert' },
+      }),
+    )
   }
 
   console.log(skillsList)
@@ -22,6 +48,22 @@ const Skills = () => {
         match the key skills mentioned in the job listing (especially when
         applying via an online system).
       </p>
+
+      <ul
+        id="skills-to-suggest"
+        className="mb-4 ml-11 flex w-full max-w-xl flex-wrap gap-2"
+      >
+        {suggestionsList.map((el) => (
+          <li
+            onClick={handleAddSuggestions}
+            className="flex items-center justify-between gap-2 bg-gray-200 p-2"
+            key={el}
+          >
+            {el}
+          </li>
+        ))}
+      </ul>
+
       <button
         onClick={handleBtnAddTrigger}
         type="button"
@@ -45,68 +87,17 @@ const Skills = () => {
         <p>Add skill</p>
       </button>
 
-      <ul id="skills-list" className="ml-11 flex w-[628px] flex-wrap gap-2">
-        <li className="flex items-center justify-between gap-2 bg-gray-200 p-2">
-          Project Management Skills
-          <button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="h-5 w-5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </li>
-        <li className="flex items-center justify-between gap-2 bg-gray-200 p-2">
-          Communication
-          <button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="h-5 w-5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </li>
-        <li className="flex items-center justify-between gap-2 bg-gray-200 p-2">
-          Highly Organized
-          <button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="h-5 w-5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </li>
-        {skillsList.map(({ level, skill }: ISkills) => (
-          <li className="flex items-center justify-between gap-2 bg-gray-200 p-2">
-            {skill} {level}
-            <button>
+      <ul
+        id="skills-list"
+        className="ml-11 flex w-full max-w-xl flex-wrap gap-2"
+      >
+        {skillsList.map(({ skill, id }: ISkills) => (
+          <li
+            key={id}
+            className="flex items-center justify-between gap-2 bg-gray-200 p-2"
+          >
+            {skill}
+            <button id={id} onClick={handleDeleteSkill}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

@@ -20,7 +20,7 @@ export interface IPdfStructure {
 }
 const BuilderPage = () => {
   return (
-    <section className="relative flex w-11/12 max-w-[1440px] select-none flex-col justify-center pt-6  font-garamond ">
+    <section className="relative flex w-11/12 max-w-[1440px] select-none flex-col justify-center gap-2 pt-6  font-garamond ">
       <TitleResume />
       <ProgresBar />
       <PersonalDetails />
