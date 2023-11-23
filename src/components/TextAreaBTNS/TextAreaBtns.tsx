@@ -2,7 +2,7 @@ interface IProps {
   left?: string
   top?: string
 }
-const TextAreaBtns: React.FC<IProps> = ({ left = '16', top = '2' }) => {
+const TextAreaBtns: React.FC<IProps> = ({ left = '12', top = '2' }) => {
   return (
     <div className="relative ">
       {/* // * BTN STYLES */}

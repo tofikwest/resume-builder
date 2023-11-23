@@ -29,13 +29,15 @@ export interface IEmploymentHistory {
   end_date?: string
   employer?: string
   city?: string
+  id?: string
 }
 
 export interface IEducation {
+  id?: string
   school?: string
   start_date?: string
   end_date?: string
-  employer?: string
+  degree?: string
   city?: string
   description?: string
 }
@@ -63,8 +65,8 @@ export interface IPdfState {
   title: ITitle
   personalDetails: IPersonalDetails
   professionalSummary: IProfessionalSummary
-  employmentHistory: IEmploymentHistory
-  education: IEducation
+  employmentHistory: IEmploymentHistory[]
+  education: IEducation[]
   websitesSocialLink: IWebSitesSocLink[]
   skills: ISkills[]
   languages: ILanguage[]

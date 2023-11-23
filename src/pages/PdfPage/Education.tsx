@@ -1,14 +1,20 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import EducationForm from '../../components/EducationForm/EducationForm'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../redux/store'
+import UIEducationForm from '../../components/EducationForm/UIEducationForm'
 
 const Education = () => {
   const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(false)
 
+  const edu = useSelector((state: RootState) => state.pdf.education)
+
   function handleBtnAddTrigger() {
     setBtnAddTrigger((prev) => !prev)
-    console.log(btnAddTrigger)
+    console.log(btnAddTrigger, edu)
   }
 
+  console.log(edu)
   return (
     <>
       <h2 className="my-2 mb-1 ml-11 block text-xl font-semibold">Education</h2>
@@ -38,6 +44,14 @@ const Education = () => {
 
         <p>Add education</p>
       </button>
+
+      <ul>
+        {edu.map((el) => (
+          <li>
+            <UIEducationForm el={el} />
+          </li>
+        ))}
+      </ul>
 
       {btnAddTrigger && <EducationForm />}
     </>

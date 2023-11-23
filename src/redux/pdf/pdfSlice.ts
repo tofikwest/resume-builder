@@ -1,12 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { ILanguage, IPdfState, ISkills, IWebSitesSocLink } from './types'
+import {
+  IEducation,
+  IEmploymentHistory,
+  ILanguage,
+  IPdfState,
+  ISkills,
+  IWebSitesSocLink,
+} from './types'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { nanoid } from 'nanoid'
-import { LANGUAGES, SKILLS, WEBSITE_SOC_LINK } from './constants'
+import {
+  LANGUAGES,
+  PERSONAL_DETAILS,
+  SKILLS,
+  TITLE,
+  WEBSITE_SOC_LINK,
+} from './constants'
 
 export interface IPayloadAdd {
   section: string
-  data: ISkills | ILanguage | IWebSitesSocLink
+  data: ISkills | ILanguage | IWebSitesSocLink | IEducation | IEmploymentHistory
 }
 
 export interface IPayloadDel {
@@ -14,12 +27,17 @@ export interface IPayloadDel {
   id: string
 }
 
+export interface IPayloadChange {
+  section: string
+  id: string
+  data: IEducation | IEmploymentHistory
+}
 const initialState: IPdfState = {
   title: {},
   personalDetails: {},
   professionalSummary: {},
-  employmentHistory: {},
-  education: {},
+  employmentHistory: [],
+  education: [],
   websitesSocialLink: [],
   skills: [],
   languages: [],
@@ -33,22 +51,7 @@ export const pdfSlice = createSlice({
       state,
       { payload: { section, data } }: PayloadAction<IPayloadAdd>,
     ) => {
-      if (
-        section === SKILLS ||
-        section === LANGUAGES ||
-        section === WEBSITE_SOC_LINK
-      ) {
-        const id = nanoid()
-
-        const obj: ISkills | ILanguage | IWebSitesSocLink = {
-          id,
-          ...data,
-        }
-
-        state[section].push(obj)
-        return state
-      }
-      if (typeof data === 'object') {
+      if (section === TITLE || section === PERSONAL_DETAILS) {
         return {
           ...state,
           [section]: {
@@ -56,13 +59,19 @@ export const pdfSlice = createSlice({
           },
         }
       }
-      console.log(state)
-      return {
-        ...state,
-        [section]: {
-          data,
-        },
+
+      const obj:
+        | ISkills
+        | ILanguage
+        | IWebSitesSocLink
+        | IEducation
+        | IEmploymentHistory = {
+        id: nanoid(),
+        ...data,
       }
+
+      state[section].push(obj)
+      return state
     },
     DEL: (state, { payload: { section, id } }: PayloadAction<IPayloadDel>) => {
       return {
@@ -70,8 +79,26 @@ export const pdfSlice = createSlice({
         [section]: state[section].filter((el: { id: string }) => el.id !== id),
       }
     },
+
+    CHANGE: (
+      state,
+      { payload: { section, id, data } }: PayloadAction<IPayloadChange>,
+    ) => {
+      return {
+        ...state,
+        [section]: state[section].map((el: IEducation | IEmploymentHistory) => {
+          if (el.id === id) {
+            return {
+              id,
+              ...data,
+            }
+          }
+          return el
+        }),
+      }
+    },
   },
 })
 
-export const { ADD, DEL } = pdfSlice.actions
+export const { ADD, DEL, CHANGE } = pdfSlice.actions
 export default pdfSlice.reducer
