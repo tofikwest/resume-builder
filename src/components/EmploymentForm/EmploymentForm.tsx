@@ -3,8 +3,11 @@ import TextArea from '../TextArea/TextArea'
 import { useDispatch } from 'react-redux'
 import { ADD } from '../../redux/pdf/pdfSlice'
 import TextAreaBtns from '../TextAreaBTNS/TextAreaBtns'
+import { EMPLOYMENT_HISTORY } from '../../redux/pdf/constants'
 
 const EmploymentForm: React.FC = () => {
+  const [isUnfold, setIsUnfold] = useState(false)
+
   const [localData, setLocalData] = useState({
     jobTitleHistory: '',
     start_date: '',
@@ -20,7 +23,7 @@ const EmploymentForm: React.FC = () => {
     setTimeout(() => {
       dispatch(
         ADD({
-          section: 'employmentHistory',
+          section: EMPLOYMENT_HISTORY,
           data: localData,
         }),
       )
@@ -35,7 +38,47 @@ const EmploymentForm: React.FC = () => {
   }
 
   return (
-    <form className="mx-auto my-2 flex h-[510px] w-11/12 select-none flex-col   rounded  border-blue-300 font-form-family">
+    <form
+      className={` my-2 ml-12 flex h-auto w-9/12 select-none flex-col items-center rounded-xl border border-dashed   border-additional-color  p-4 font-form-family`}
+    >
+      <div className="my-2 flex w-11/12 items-center justify-between">
+        <legend className="self-start text-left font-bold">
+          (Not specified)
+        </legend>
+        <button
+          onClick={() => setIsUnfold((prev) => !prev)}
+          type="button"
+          className=" rounded-xl bg-additional-color p-1 text-white"
+        >
+          {isUnfold ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M14.77 12.79a.75.75 0 01-1.06-.02L10 8.832 6.29 12.77a.75.75 0 11-1.08-1.04l4.25-4.5a.75.75 0 011.08 0l4.25 4.5a.75.75 0 01-.02 1.06z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          )}
+        </button>
+      </div>
       <div className=" my-2 flex h-[210px] w-11/12 select-none flex-col flex-wrap  rounded  border-blue-300 font-form-family">
         <label
           htmlFor="jobTitleHistory"
@@ -113,7 +156,7 @@ const EmploymentForm: React.FC = () => {
           required
         />
       </div>
-      <TextAreaBtns left={2} />
+      <TextAreaBtns left={'2'} />
       <TextArea
         mx=""
         handle={handleForm}
