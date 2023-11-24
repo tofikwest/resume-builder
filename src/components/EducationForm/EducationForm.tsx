@@ -24,7 +24,6 @@ const EducationForm: React.FC = () => {
   const dispatch = useDispatch()
 
   function handleSubmit() {
-    console.log(Object.values(localData))
     if (Object.values(localData).some(Boolean)) {
       dispatch(
         ADD({
@@ -33,20 +32,19 @@ const EducationForm: React.FC = () => {
         }),
       )
       setHeaderForm(localData.school!)
-    }
 
-    setLocalData({
-      school: '',
-      start_date: '',
-      end_date: '',
-      degree: '',
-      city: '',
-      description: '',
-    })
+      setLocalData({
+        school: '',
+        start_date: '',
+        end_date: '',
+        degree: '',
+        city: '',
+        description: '',
+      })
+    }
   }
 
   function handleForm(e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) {
-    console.log(e.target.name)
     setLocalData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,

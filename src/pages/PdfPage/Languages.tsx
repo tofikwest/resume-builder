@@ -18,7 +18,6 @@ const Languages = () => {
 
   function handleBtnAddTrigger() {
     setBtnAddTrigger((prev) => !prev)
-    console.log(btnAddTrigger)
   }
 
   function handleDeleteLang(e: React.MouseEvent<HTMLButtonElement>) {
@@ -56,7 +55,7 @@ const Languages = () => {
           <li
             onClick={handleAddSuggestLang}
             key={el}
-            className="flex items-center justify-between gap-2 bg-gray-200 p-2"
+            className="flex cursor-pointer items-center justify-between gap-2 bg-gray-200 p-2"
           >
             {el}
           </li>
@@ -68,22 +67,42 @@ const Languages = () => {
         type="button"
         className="mb-3 ml-11 flex w-[13%]  items-center gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          className="h-6 w-6"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M12 6v12m6-6H6"
-          />
-        </svg>
+        {!btnAddTrigger ? (
+          <>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="h-6 w-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 6v12m6-6H6"
+              />
+            </svg>
+            <p>Add language</p>
+          </>
+        ) : (
+          <>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z"
+                clip-rule="evenodd"
+              />
+            </svg>
 
-        <p>Add language</p>
+            <p>Hide language</p>
+          </>
+        )}
       </button>
 
       <ul
@@ -93,7 +112,7 @@ const Languages = () => {
         {languageList.map(({ id, language }: ILanguage) => (
           <li
             key={id}
-            className="flex items-center justify-between gap-2 bg-gray-200 p-2"
+            className="flex cursor-pointer items-center justify-between gap-2 bg-gray-200 p-2"
           >
             {language}
             <button id={id} onClick={handleDeleteLang}>

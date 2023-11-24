@@ -1,21 +1,20 @@
 import React, { useState } from 'react'
-import { IEducation } from '../../redux/pdf/types'
-import TextAreaBtns from '../TextAreaBTNS/TextAreaBtns'
+import { IEducation, IEmploymentHistory } from '../../redux/pdf/types'
 import { useDispatch } from 'react-redux'
 import { CHANGE } from '../../redux/pdf/pdfSlice'
-import { EDUCATION } from '../../redux/pdf/constants'
+import { EDUCATION, EMPLOYMENT_HISTORY } from '../../redux/pdf/constants'
 
 interface IProps {
-  el: IEducation
+  el: IEmploymentHistory
 }
-const UIEducationForm: React.FC<IProps> = ({ el }) => {
+const UIEmploymentForm: React.FC<IProps> = ({ el }) => {
   const dispatch = useDispatch()
 
-  const [input, setChangeInput] = useState<IEducation>({
-    school: el.school,
+  const [input, setChangeInput] = useState<IEmploymentHistory>({
+    jobTitleHistory: el.jobTitleHistory,
     start_date: el.start_date,
     end_date: el.end_date,
-    degree: el.degree,
+    employer: el.employer,
     city: el.city,
     description: el.description,
   })
@@ -38,7 +37,7 @@ const UIEducationForm: React.FC<IProps> = ({ el }) => {
 
     dispatch(
       CHANGE({
-        section: EDUCATION,
+        section: EMPLOYMENT_HISTORY,
         data: input,
         id: el.id!,
       }),
@@ -53,7 +52,7 @@ const UIEducationForm: React.FC<IProps> = ({ el }) => {
     >
       <div className="my-2 flex w-11/12 items-center justify-between">
         <legend className="self-start text-left font-bold">
-          {input.school}
+          {input.jobTitleHistory}
         </legend>
         <button
           onClick={() => setIsUnfold((prev) => !prev)}
@@ -98,17 +97,17 @@ const UIEducationForm: React.FC<IProps> = ({ el }) => {
             }
           >
             <label
-              htmlFor="school"
+              htmlFor="jobTitleHistory"
               className="mb-2 inline font-extralight text-gray-400"
             >
-              School
+              Job Title
             </label>
             <input
               className={`mb-2 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none `}
               type="text"
-              id="school"
-              name="school"
-              value={input.school}
+              id="jobTitleHistory"
+              name="jobTitleHistory"
+              value={input.jobTitleHistory}
               onChange={handleInput}
             />
             {/* ======== */}
@@ -122,7 +121,7 @@ const UIEducationForm: React.FC<IProps> = ({ el }) => {
               <input
                 className="block h-12 w-5/12  rounded border border-solid bg-input-bg p-2 text-center text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
                 type="date"
-                id="edu_date"
+                id="start_date"
                 name="start_date"
                 onChange={handleInput}
                 value={input.start_date}
@@ -161,10 +160,10 @@ const UIEducationForm: React.FC<IProps> = ({ el }) => {
             <input
               className="mb-2 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none "
               type="text"
-              id="degree"
-              name="degree"
+              id="employer"
+              name="employer"
               onChange={handleInput}
-              value={input.degree}
+              value={input.employer}
             />
             <label
               htmlFor="city"
@@ -285,4 +284,4 @@ const UIEducationForm: React.FC<IProps> = ({ el }) => {
   )
 }
 
-export default UIEducationForm
+export default UIEmploymentForm

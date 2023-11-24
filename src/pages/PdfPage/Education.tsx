@@ -1,20 +1,29 @@
 import { useState } from 'react'
 import EducationForm from '../../components/EducationForm/EducationForm'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../../redux/store'
 import UIEducationForm from '../../components/EducationForm/UIEducationForm'
+import { DEL } from '../../redux/pdf/pdfSlice'
+import { EDUCATION } from '../../redux/pdf/constants'
 
 const Education = () => {
   const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(false)
 
   const edu = useSelector((state: RootState) => state.pdf.education)
+  const dispatch = useDispatch()
 
   function handleBtnAddTrigger() {
     setBtnAddTrigger((prev) => !prev)
-    console.log(btnAddTrigger, edu)
   }
 
-  console.log(edu)
+  function handleDelEducation(e: React.MouseEvent<HTMLButtonElement>) {
+    dispatch(
+      DEL({
+        section: EDUCATION,
+        id: e.currentTarget.id,
+      }),
+    )
+  }
   return (
     <>
       <h2 className="my-2 mb-1 ml-11 block text-xl font-semibold">Education</h2>
@@ -27,28 +36,70 @@ const Education = () => {
         type="button"
         className="ml-11  flex w-[13%]  items-center gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          className="h-6 w-6"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M12 6v12m6-6H6"
-          />
-        </svg>
+        {!btnAddTrigger ? (
+          <>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="h-6 w-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 6v12m6-6H6"
+              />
+            </svg>
+            <p>Add education</p>
+          </>
+        ) : (
+          <>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z"
+                clip-rule="evenodd"
+              />
+            </svg>
 
-        <p>Add education</p>
+            <p>Hide education</p>
+          </>
+        )}
       </button>
 
       <ul>
         {edu.map((el) => (
-          <li>
-            <UIEducationForm el={el} />
+          <li key={el.id}>
+            <div className="flex items-start">
+              <UIEducationForm el={el} />
+              <button
+                className="ml-4  mt-8 h-full text-gray-300 hover:text-additional-hover-color"
+                id={el.id}
+                onClick={handleDelEducation}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="h-8 w-8  "
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 9.75L14.25 12m0 0l2.25 2.25M14.25 12l2.25-2.25M14.25 12L12 14.25m-2.58 4.92l-6.375-6.375a1.125 1.125 0 010-1.59L9.42 4.83c.211-.211.498-.33.796-.33H19.5a2.25 2.25 0 012.25 2.25v10.5a2.25 2.25 0 01-2.25 2.25h-9.284c-.298 0-.585-.119-.796-.33z"
+                  />
+                </svg>
+              </button>
+            </div>
           </li>
         ))}
       </ul>

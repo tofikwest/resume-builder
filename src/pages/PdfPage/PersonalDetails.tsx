@@ -1,6 +1,7 @@
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { ADD } from '../../redux/pdf/pdfSlice'
+import { PERSONAL_DETAILS } from '../../redux/pdf/constants'
 
 const PersonalDetails: React.FC = () => {
   // ? PHOTO input
@@ -36,7 +37,7 @@ const PersonalDetails: React.FC = () => {
     setTimeout(() => {
       dispatch(
         ADD({
-          section: 'personalDetails',
+          section: PERSONAL_DETAILS,
           data: { ...mainFormData, ...additionalFormData },
         }),
       )
@@ -48,7 +49,6 @@ const PersonalDetails: React.FC = () => {
       ...prev,
       [e.target.name]: e.target.value,
     }))
-    console.log(mainFormData)
   }
 
   function handleAdditionalFormData(e: ChangeEvent<HTMLInputElement>) {
@@ -56,8 +56,6 @@ const PersonalDetails: React.FC = () => {
       ...prev,
       [e.target.name]: e.target.value,
     }))
-
-    console.log(additionalFormData)
   }
 
   function handleShowAdditionalForm() {
