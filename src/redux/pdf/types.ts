@@ -15,16 +15,13 @@ export interface IPersonalDetails {
   date_birth?: string
 }
 
-export interface ITitle {
-  title?: string
-}
-
 export interface IProfessionalSummary {
   summary?: string
 }
 
 export interface IEmploymentHistory {
   jobTitleHistory?: string
+  description?: string
   start_date?: string
   end_date?: string
   employer?: string
@@ -52,6 +49,10 @@ export interface ISkills {
   id?: string
   skill?: string
   level?: string
+}
+
+export interface ITitle {
+  title?: string
 }
 
 export interface ILanguage {

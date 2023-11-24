@@ -4,22 +4,27 @@ import {
   IEmploymentHistory,
   ILanguage,
   IPdfState,
+  IPersonalDetails,
+  IProfessionalSummary,
   ISkills,
+  ITitle,
   IWebSitesSocLink,
 } from './types'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { nanoid } from 'nanoid'
-import {
-  LANGUAGES,
-  PERSONAL_DETAILS,
-  SKILLS,
-  TITLE,
-  WEBSITE_SOC_LINK,
-} from './constants'
+import { PERSONAL_DETAILS, PROF_SUMMARY, TITLE } from './constants'
 
 export interface IPayloadAdd {
   section: string
-  data: ISkills | ILanguage | IWebSitesSocLink | IEducation | IEmploymentHistory
+  data:
+    | ISkills
+    | ILanguage
+    | IWebSitesSocLink
+    | IEducation
+    | IEmploymentHistory
+    | IProfessionalSummary
+    | IPersonalDetails
+    | ITitle
 }
 
 export interface IPayloadDel {
@@ -32,10 +37,13 @@ export interface IPayloadChange {
   id: string
   data: IEducation | IEmploymentHistory
 }
+
 const initialState: IPdfState = {
   title: {},
   personalDetails: {},
-  professionalSummary: {},
+  professionalSummary: {
+    summary: '',
+  },
   employmentHistory: [],
   education: [],
   websitesSocialLink: [],
@@ -51,7 +59,11 @@ export const pdfSlice = createSlice({
       state,
       { payload: { section, data } }: PayloadAction<IPayloadAdd>,
     ) => {
-      if (section === TITLE || section === PERSONAL_DETAILS) {
+      if (
+        section === PERSONAL_DETAILS ||
+        section === PROF_SUMMARY ||
+        section === TITLE
+      ) {
         return {
           ...state,
           [section]: {

@@ -27,8 +27,6 @@ const Pdf: React.FC<IProps> = ({ tag }) => {
 
     tag.current!.classList.replace(findWidth, 'w-[1280px]')
 
-    console.log(findWidth)
-
     //w-[1280px]
     const {
       dataUrl: { extension, quality },
@@ -62,13 +60,13 @@ const Pdf: React.FC<IProps> = ({ tag }) => {
     <div>
       <div
         id="pdf"
-        className="flex flex-col justify-between font-math  w-full   h-full p-4 bg-white text-xl "
+        className="flex h-full w-full flex-col  justify-between   bg-white p-4 font-math text-xl "
         ref={pdfRef}
       >
         {/* HEADER */}
-        <section id="pdf__header" className="pdf__header text-center mb-6">
-          <div className="flex justify-center font-bold text-2xl">
-            <h2 className="mr-2 mb-2">Tim Stewart</h2>
+        <section id="pdf__header" className="pdf__header mb-6 text-center">
+          <div className="flex justify-center text-2xl font-bold">
+            <h2 className="mb-2 mr-2">Tim Stewart</h2>
             <p className="mb-2">Accountant</p>
           </div>
           <address>
@@ -77,8 +75,8 @@ const Pdf: React.FC<IProps> = ({ tag }) => {
         </section>
         <hr className="border border-solid border-black" />
         {/* Profile */}
-        <section id="pdf__profile" className="flex justify-between p-2 my-6 ">
-          <h3 className=" tracking-widest uppercase text-xl font-bold">
+        <section id="pdf__profile" className="my-6 flex justify-between p-2 ">
+          <h3 className=" text-xl font-bold uppercase tracking-widest">
             profile
           </h3>
           <p className="float-right w-[856px]  leading-relaxed ">
@@ -91,18 +89,18 @@ const Pdf: React.FC<IProps> = ({ tag }) => {
         <hr className="border border-solid border-black" />
         {/* employment history */}
         <section id="pdf__work-history" className="p-6 pb-12">
-          <h3 className=" tracking-widest uppercase text-xl font-bold">
+          <h3 className=" text-xl font-bold uppercase tracking-widest">
             employment history
           </h3>
           <div>
             {/* First job history */}
-            <div className="flex justify-between mt-4 mb-6">
+            <div className="mb-6 mt-4 flex justify-between">
               <p>Nov 2013 - Sep 2019</p>
               <div>
-                <p className="ml-[-38px] text-2xl mb-2">
+                <p className="mb-2 ml-[-38px] text-2xl">
                   Staff Acciuntant, Dubone Partnership
                 </p>
-                <ul className="w-[500px] text-xl flex flex-col justify-center ">
+                <ul className="flex w-[500px] flex-col justify-center text-xl ">
                   <li className="py-2">
                     Managed accounts by analyzing costs and revenues
                   </li>
@@ -121,10 +119,10 @@ const Pdf: React.FC<IProps> = ({ tag }) => {
             <div className="flex justify-between">
               <p>Jul 2010 - Sep 2013</p>
               <div className="pl-4">
-                <p className="ml-[-38px] text-2xl mb-2">
+                <p className="mb-2 ml-[-38px] text-2xl">
                   Huntington Associates
                 </p>
-                <ul className="w-[500px] text-xl flex flex-col justify-center ">
+                <ul className="flex w-[500px] flex-col justify-center text-xl ">
                   <li className="py-2">
                     Managed accounts by analyzing costs and revenues
                   </li>
@@ -143,15 +141,15 @@ const Pdf: React.FC<IProps> = ({ tag }) => {
         <hr className="border border-solid border-black" />
         {/* education-history */}
         <section id="education-history" className="p-6 pb-12">
-          <h3 className="text-xl tracking-widest font-bold uppercase">
+          <h3 className="text-xl font-bold uppercase tracking-widest">
             education history
           </h3>
           <div>
             {/* First eductaion history */}
-            <div className="flex justify-between mt-4 mb-6">
+            <div className="mb-6 mt-4 flex justify-between">
               <p>Nov 2013 - Sep 2019</p>
               <div>
-                <p className="ml-[-38px] text-2xl mb-2">
+                <p className="mb-2 ml-[-38px] text-2xl">
                   Master of Accountment
                 </p>
                 <ul className="w-[500px] ">
@@ -166,7 +164,7 @@ const Pdf: React.FC<IProps> = ({ tag }) => {
             <div className="flex justify-between">
               <p>Jul 2010 - Sep 2013</p>
               <div className="pl-4">
-                <p className="ml-[-32px] text-2xl mb-2">
+                <p className="mb-2 ml-[-32px] text-2xl">
                   Bachelor Degree in Collegue
                 </p>
                 <ul className="w-[500px] text-xl">
@@ -181,33 +179,33 @@ const Pdf: React.FC<IProps> = ({ tag }) => {
         </section>
         <hr className="border border-solid border-black" />
         {/* skills */}
-        <section id="skills" className="p-6 flex justify-between ">
-          <h3 className="text-xl font-bold tracking-widest uppercase">
+        <section id="skills" className="flex justify-between p-6 ">
+          <h3 className="text-xl font-bold uppercase tracking-widest">
             Skills
           </h3>
-          <ul className=" w-[856px] flex  flex-wrap justify-between">
-            <li className="flex gap-3 m-2 mr-4">
+          <ul className=" flex w-[856px]  flex-wrap justify-between">
+            <li className="m-2 mr-4 flex gap-3">
               <p className="">Financial Reporting</p>-<p>2 years</p>
             </li>
-            <li className="flex gap-4 m-2 mr-4">
+            <li className="m-2 mr-4 flex gap-4">
               <p>Time Management</p>-<p>1 years</p>
             </li>
-            <li className="flex gap-4 m-2 mr-4">
+            <li className="m-2 mr-4 flex gap-4">
               <p>Time Management</p>-<p>3 years</p>
             </li>
-            <li className="flex gap-4 m-2 mr-4">
+            <li className="m-2 mr-4 flex gap-4">
               <p>Time Management</p>-<p>1 years</p>
             </li>
           </ul>
         </section>
         <hr className="border border-solid border-black" />
         {/* References */}
-        <section id="references" className="p-6 flex justify-between">
-          <h3 className="text-xl font-bold tracking-widest uppercase">
+        <section id="references" className="flex justify-between p-6">
+          <h3 className="text-xl font-bold uppercase tracking-widest">
             References
           </h3>
-          <ul className="w-[856px] flex flex-wrap gap-2">
-            <li className="m-2 mt-0 mr-20">
+          <ul className="flex w-[856px] flex-wrap gap-2">
+            <li className="m-2 mr-20 mt-0">
               <p className="text-2xl">LeAnne Gaines</p>
               <address className="flex gap-2">
                 <a href="mailto:" target="_blank">
@@ -218,7 +216,7 @@ const Pdf: React.FC<IProps> = ({ tag }) => {
                 </a>
               </address>
             </li>
-            <li className="m-2 mt-0 mr-20">
+            <li className="m-2 mr-20 mt-0">
               <p className="text-2xl">LeAnne Gaines</p>
               <address className="flex gap-2">
                 <a href="mailto:" target="_blank">
@@ -229,7 +227,7 @@ const Pdf: React.FC<IProps> = ({ tag }) => {
                 </a>
               </address>
             </li>
-            <li className="m-2 mt-0 mr-20">
+            <li className="m-2 mr-20 mt-0">
               <p className="text-2xl">LeAnne Gaines</p>
               <address className="flex gap-2">
                 <a href="mailto:" target="_blank">
@@ -240,7 +238,7 @@ const Pdf: React.FC<IProps> = ({ tag }) => {
                 </a>
               </address>
             </li>
-            <li className="m-2 mt-0 mr-20">
+            <li className="m-2 mr-20 mt-0">
               <p className="text-2xl">LeAnne Gaines</p>
               <address className="flex gap-2">
                 <a href="mailto:" target="_blank">
@@ -251,7 +249,7 @@ const Pdf: React.FC<IProps> = ({ tag }) => {
                 </a>
               </address>
             </li>
-            <li className="m-2 mt-0 mr-20">
+            <li className="m-2 mr-20 mt-0">
               <p className="text-2xl">LeAnne Gaines</p>
               <address className="flex gap-2">
                 <a href="mailto:" target="_blank">
@@ -266,7 +264,7 @@ const Pdf: React.FC<IProps> = ({ tag }) => {
         </section>
       </div>
       <button
-        className="fixed  rounded-lg p-2 text-center right-6 bottom-4 text-white bg-additional-color"
+        className="fixed  bottom-4 right-6 rounded-lg bg-additional-color p-2 text-center text-white"
         onClick={handleDownload}
       >
         Download PDF
