@@ -72,15 +72,6 @@ const ProgresBar = () => {
     }
   }
 
-  const backgroundColor =
-    countObj.left <= 20
-      ? 'bg-primary-red'
-      : countObj.left <= 50
-        ? 'bg-gradient-to-r from-primary-red via-primary-orange to-primary-yellow'
-        : countObj.left <= 70
-          ? 'bg-gradient-to-r from-primary-orange via-primary-yellow to-primary-green'
-          : 'bg-primary-green'
-
   return (
     <>
       <div className=" mb-2 flex flex-col px-11">

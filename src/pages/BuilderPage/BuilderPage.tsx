@@ -7,6 +7,9 @@ import Education from '../PdfPage/Education'
 import WebsitesSocialLink from '../PdfPage/WebsitesSocialLink'
 import Skills from '../PdfPage/Skills'
 import Languages from '../PdfPage/Languages'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../redux/store'
+import { useEffect } from 'react'
 
 export interface IPdfStructure {
   title: {}
@@ -19,8 +22,14 @@ export interface IPdfStructure {
   languages: {}
 }
 const BuilderPage = () => {
+  const pdf = useSelector((state: RootState) => state.pdf)
+
+  useEffect(() => {
+    console.log(pdf)
+  }, [pdf])
+
   return (
-    <section className="relative flex w-11/12 max-w-[1440px] select-none flex-col justify-center gap-2 pt-6   ">
+    <section className=" relative flex w-11/12 max-w-[1440px] select-none flex-col justify-center gap-2 pt-6   ">
       <TitleResume />
       <ProgresBar />
       <PersonalDetails />

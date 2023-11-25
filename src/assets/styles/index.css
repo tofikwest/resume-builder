@@ -4,7 +4,6 @@
 
 html {
   scroll-behavior: smooth;
-  /* max-width: 1440px; */
   overflow-x: hidden;
 }
 #root {
@@ -19,7 +18,7 @@ body {
   width: 100vw;
   font-family: 'Inter', sans-serif;
   line-height: 1.5rem;
-  max-width: 1440px;
+  /* max-width: 1440px; */
 }
 button {
   cursor: pointer;
