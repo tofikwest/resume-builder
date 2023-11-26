@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react'
+import React, { useState, useEffect, ChangeEvent } from 'react'
 import TextArea from '../../components/TextArea/TextArea'
 import { ADD } from '../../redux/pdf/pdfSlice'
 import { useDispatch } from 'react-redux'
@@ -15,7 +15,7 @@ const ProfessionalSummary: React.FC = () => {
       dispatch(
         ADD({
           section: PROF_SUMMARY,
-          data: { summary: textArea },
+          data: { summary: e.target.value },
         }),
       )
     }, 300)
@@ -114,7 +114,12 @@ const ProfessionalSummary: React.FC = () => {
           </div>
         </div>
       </div>
-      <TextArea handle={handleTextArea} mx="mx-auto" name="profSummary" />
+      <TextArea
+        handle={handleTextArea}
+        mx="mx-auto"
+        name="profSummary"
+        value={textArea}
+      />
       <p className="ml-11 mt-2 text-xs text-gray-500">
         * Recruiter tip: write 50-200 characters to increase interview chances
       </p>
