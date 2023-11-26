@@ -17,7 +17,7 @@ const TitleResume: FC = () => {
       dispatch(
         ADD({
           section: TITLE,
-          data: { title },
+          data: { title: e.target.value },
         }),
       )
     }, 300)
@@ -29,6 +29,7 @@ const TitleResume: FC = () => {
       <input
         onChange={handleTitle}
         type="text"
+        value={title}
         className=" rounded border border-x-0 border-t-0 border-solid bg-slate-50 p-2 text-sm shadow-sm focus:outline-none focus:outline"
       />
       <div className="group relative">

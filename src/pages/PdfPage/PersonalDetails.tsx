@@ -26,11 +26,11 @@ const PersonalDetails: React.FC = () => {
 
   const [additionalFormData, setAdditionalFormData] = useState({
     address: '',
-    driving_license: '',
-    place_birth: '',
     postalCode: '',
+    place_birth: '',
     nationality: '',
     date_birth: '',
+    driving_license: '',
   })
 
   useEffect(() => {
