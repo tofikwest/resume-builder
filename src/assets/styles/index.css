@@ -2,11 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
+@keyframes colorChange {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
 }
-::-webkit-scrollbar {
+
+.animated-text {
+  background-size: 200% 200%;
+  background-image: linear-gradient(
+    to right,
+    #d900ff,
+    rgb(164, 16, 127),
+    #4747b4
+  ); /* Adjust colors as needed */
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: colorChange 3s infinite alternate; /* Adjust the duration as needed */
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+-webkit-font-smoothing antialiased ::-webkit-scrollbar {
   width: 8px;
   border-radius: 20px;
   display: flex;
@@ -29,19 +57,30 @@ html {
   background: #929292;
 }
 
-#root {
-  overflow-x: hidden;
-  margin: 0 auto;
-}
 * {
   box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  margin: 0 auto;
+  height: 100vh;
+  width: 100vw;
+}
+
 body {
+  -webkit-font-smoothing: antialiased;
   height: 100vh;
   width: 100vw;
   font-family: 'Inter', sans-serif;
   line-height: 1.5rem;
-  /* max-width: 1440px; */
 }
 button {
   cursor: pointer;
@@ -65,25 +104,8 @@ a {
   margin-right: 4px; /* Adjust the spacing as needed */
 }
 
-.bg-gradient-red-orange-yellow {
-  background: linear-gradient(to right, #ff0000, #ffa500, #ffff00);
-}
-
-.bg-gradient-orange-yellow-green {
-  background: linear-gradient(to right, #ffa500, #ffff00, #008000);
-}
-
 .skeleton {
   animation: skeleton-loading 1s linear infinite alternate;
-}
-
-@keyframes skeleton-loading {
-  0% {
-    background-color: hsl(200, 20%, 80%);
-  }
-  100% {
-    background-color: hsl(200, 20%, 95%);
-  }
 }
 
 .skeleton-text {
@@ -101,7 +123,7 @@ a {
   width: 30%;
 }
 
-#pageLayout::after {
+.builderPage::after {
   content: '';
   position: fixed;
   top: 0;

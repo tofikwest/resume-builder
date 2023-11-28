@@ -10,7 +10,7 @@ import Languages from '../PdfPage/Languages'
 
 const BuilderPage = () => {
   return (
-    <section className=" relative flex w-11/12 max-w-[1440px] select-none flex-col justify-center gap-2 pt-6   ">
+    <section className=" relative flex w-11/12 max-w-[1440px] select-none flex-col justify-center gap-2 pt-6 ">
       <TitleResume />
       <ProgresBar />
       <PersonalDetails />

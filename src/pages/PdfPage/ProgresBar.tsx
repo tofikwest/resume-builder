@@ -93,7 +93,9 @@ const ProgresBar = () => {
             <div className="rounded bg-primary-green p-1 text-center text-sm text-primary-green">
               +{countObj.right}%
             </div>
-            <div className="text-sm text-gray-500">{countObj.nextSect}</div>
+            <div className="animated-text text-sm text-gray-500">
+              {countObj.nextSect}
+            </div>
             <div className="group relative">
               <button
                 className="rounded-xl pt-2 text-center"
