@@ -1,10 +1,9 @@
-import { ChangeEvent, useState, useEffect } from 'react'
+import { ChangeEvent, useState } from 'react'
 import TextArea from '../TextArea/TextArea'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { ADD } from '../../redux/pdf/pdfSlice'
 import TextAreaBtns from '../TextAreaBTNS/TextAreaBtns'
 import { EMPLOYMENT_HISTORY } from '../../redux/pdf/constants'
-import { RootState } from '../../redux/store'
 
 const EmploymentForm: React.FC = () => {
   const [isUnfold, setIsUnfold] = useState(false)
@@ -19,9 +18,6 @@ const EmploymentForm: React.FC = () => {
   })
 
   const dispatch = useDispatch()
-  const employmentList = useSelector(
-    (state: RootState) => state.pdf.employmentHistory,
-  )
 
   function handleSubmit() {
     if (Object.values(localData).some(Boolean)) {
@@ -119,8 +115,9 @@ const EmploymentForm: React.FC = () => {
             </label>
             <div className="mb-4 flex w-5/12 items-center justify-between">
               <input
-                className="block h-12 w-5/12  rounded border border-solid bg-input-bg p-2 text-center text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
-                type="date"
+                className="block h-12 w-6/12  rounded border border-solid bg-input-bg p-2 text-center text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+                type="month"
+                lang="en"
                 id="date"
                 name="start_date"
                 onChange={handleForm}
@@ -130,20 +127,21 @@ const EmploymentForm: React.FC = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="mb-2 h-6 w-6"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"
                 />
               </svg>
 
               <input
-                className=" block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 text-center text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
-                type="date"
+                className=" block h-12 w-6/12 rounded border border-solid bg-input-bg p-2 text-center text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+                type="month"
+                lang="en"
                 id="end_date"
                 name="end_date"
                 onChange={handleForm}
@@ -153,7 +151,7 @@ const EmploymentForm: React.FC = () => {
             {/* ====== */}
             <label
               htmlFor="employer"
-              className="mb-2 ml-[78px] font-extralight text-gray-400"
+              className="mb-2 ml-[50px] font-extralight text-gray-400"
             >
               Employer
             </label>
@@ -166,21 +164,20 @@ const EmploymentForm: React.FC = () => {
               value={localData.employer}
             />
             <label
-              htmlFor="city"
-              className="mb-2 ml-[78px] font-extralight text-gray-400"
+              htmlFor="city_employment"
+              className="mb-2 ml-[50px] font-extralight text-gray-400"
             >
               City
             </label>
             <input
               className="block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none "
               type="text"
-              id="city"
+              id="city_employment"
               name="city"
               onChange={handleForm}
               value={localData.city}
             />
           </div>
-          <TextAreaBtns left={'2'} />
           <TextArea
             mx=""
             handle={handleForm}

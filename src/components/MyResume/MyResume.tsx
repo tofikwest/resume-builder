@@ -7,30 +7,53 @@ import {
   StyleSheet,
   PDFViewer,
   Link,
+  Font,
 } from '@react-pdf/renderer'
+
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
+import { useEffect, useState } from 'react'
+import Skeletom from './Skeletom'
+
+// * FONTS
+import EBGaramondRegular from '../../assets/fonts/EBGaramond/EBGaramond-Regular.ttf'
+import EBGaramondMedium from '../../assets/fonts/EBGaramond/EBGaramond-Medium.ttf'
+import EBGaramondSemiBold from '../../assets/fonts/EBGaramond/EBGaramond-SemiBold.ttf'
+import EBGaramondBold from '../../assets/fonts/EBGaramond/EBGaramond-Bold.ttf'
+import EBGaramondExtraBold from '../../assets/fonts/EBGaramond/EBGaramond-ExtraBold.ttf'
+import date_beautiful from '../../helpers/monthConvertObject'
+
+Font.register({
+  family: 'EBGaramond',
+  fonts: [
+    { src: EBGaramondRegular, fontWeight: 'normal' },
+    { src: EBGaramondMedium, fontWeight: 'medium' },
+    { src: EBGaramondSemiBold, fontWeight: 'semibold' },
+    { src: EBGaramondBold, fontWeight: 'bold' },
+    { src: EBGaramondExtraBold, fontWeight: 'ultrabold' },
+  ],
+})
 
 const styles = StyleSheet.create({
   page: {
-    // fontFamily: 'Inner',
-
+    fontFamily: 'EBGaramond',
+    fontWeight: 'light',
     lineHeight: '1.5',
-    fontSize: '10px',
+    fontSize: '10pt',
     padding: 40,
     backgroundColor: 'white',
   },
   line: {
     width: '100%',
     border: '1 solid black',
-    marginTop: '8px',
-    marginBottom: '8px',
+    marginTop: '8pt',
+    marginBottom: '8pt',
   },
 
   hero__title: {
     textAlign: 'center',
-    fontWeight: 'extrabold',
-    fontSize: '14px',
+    fontWeight: 'semibold',
+    fontSize: '14pt',
   },
   hero__descriptions: {
     textAlign: 'center',
@@ -40,13 +63,13 @@ const styles = StyleSheet.create({
   linkBox: {
     display: 'flex',
     flexDirection: 'row',
-    gap: '10px',
+    gap: '10pt',
   },
 
   linkBox__title: {
-    fontSize: '9px',
+    fontSize: '9pt',
     letterSpacing: '1.2',
-    marginRight: '63px',
+    marginRight: '63pt',
   },
 
   linkBox__link: {
@@ -58,129 +81,116 @@ const styles = StyleSheet.create({
   profileBox: {
     display: 'flex',
     flexDirection: 'row',
-    gap: '60px',
+    gap: '60pt',
   },
 
   profileBox__title: {
-    fontSize: '9px',
+    fontSize: '9pt',
     letterSpacing: '1.2',
   },
 
   profileBox__description: {
-    maxWidth: '400px',
+    maxWidth: '386pt',
+    fontWeight: 'extralight',
   },
 
   // ================
 
-  employmentBox: {
-    // display: 'flex',
-    // flexDirection: 'row',
-    // gap: '15px',
-  },
+  employmentBox: {},
 
   employmentBox__rendering: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    gap: '15px',
+    gap: '15pt',
     flexWrap: 'wrap',
-    marginTop: '10px',
-    // paddingRight: '50px',
+    marginTop: '10pt',
   },
 
   employmentBox__title: {
-    fontSize: '9px',
+    fontSize: '9pt',
     letterSpacing: '1.2',
     textTransform: 'uppercase',
   },
 
   employmentBox__description: {
-    marginTop: '-10px',
-    marginLeft: '109px',
-    minWidth: '350px',
-    maxWidth: '430px',
+    marginTop: '-10pt',
+    marginLeft: '109pt',
+    minWidth: '350pt',
+    maxWidth: '430pt',
+    lineHeight: 1,
   },
 
   employmentBox__rendering__jobtitle: {
     flex: '1',
+    fontWeight: 'semibold',
   },
 
   // ================
 
-  educationBox: {
-    // display: 'flex',
-    // flexDirection: 'row',
-    // gap: '15px',
-  },
+  educationBox: {},
 
   educationBox__rendering: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    gap: '15px',
+    gap: '15pt',
     flexWrap: 'wrap',
-    marginTop: '10px',
-    // paddingRight: '50px',
+    marginTop: '10pt',
   },
 
   educationBox__title: {
-    fontSize: '9px',
+    fontSize: '9pt',
     letterSpacing: '1.2',
     textTransform: 'uppercase',
   },
 
   educationBox__description: {
-    marginTop: '-10px',
-    marginLeft: '109px',
-    minWidth: '350px',
-    maxWidth: '430px',
+    marginTop: '-10pt',
+    marginLeft: '109pt',
+    minWidth: '350pt',
+    maxWidth: '430pt',
+    lineHeight: 1,
   },
 
   educationBox__rendering__jobtitle: {
     flex: '1',
+    fontWeight: 'semibold',
   },
   // ================
 
   skillBox: {
-    // marginTop: '15px',
     display: 'flex',
-
     flexDirection: 'row',
-    // gap: '19px',
   },
 
   skillBox_dynamic: {
-    // marginTop: '15px',
-    marginLeft: '-55px',
+    marginLeft: '-55pt',
     display: 'flex',
     flexWrap: 'wrap',
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    gap: '10px',
+    gap: '10pt',
     width: '100%',
   },
 
   skillBox_title_box: {
-    marginRight: '5px',
-    // flex: '1',
+    marginRight: '5pt',
   },
 
   skillBox__title: {
     textTransform: 'uppercase',
-    fontSize: '9px',
+    fontSize: '9pt',
     letterSpacing: '1.2',
-    width: '200px',
+    width: '200pt',
   },
 
-  skillBox__description: {
-    // marginLeft: '20px',
-    // maxWidth: '500px',
-  },
+  skillBox__description: {},
 
   // ======================
 
   langBox: {
-    marginTop: '5px',
+    marginTop: '5pt',
     display: 'flex',
     flexDirection: 'row',
   },
@@ -189,30 +199,43 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexWrap: 'wrap',
     flexDirection: 'row',
-    gap: '10px',
-    marginLeft: '-100px',
+    gap: '10pt',
+    marginLeft: '-100pt',
   },
 
   langBox_title_box: {
-    marginRight: '5px',
+    marginRight: '5pt',
   },
 
   langBox__title: {
     textTransform: 'uppercase',
-    fontSize: '9px',
+    fontSize: '9pt',
     letterSpacing: '1.2',
-    width: '200px',
+    width: '200pt',
   },
 })
 
-const MyResume = ({}) => {
+const PRESENT_STR = 'Present'
+
+const MyResume = () => {
+  const [isPdfLoading, setIsPdfLoading] = useState(false)
+
   const pdf = useSelector((state: RootState) => state.pdf)
 
   const fileName = pdf.title.title ? pdf.title.title : 'resume'
 
+  useEffect(() => {
+    setIsPdfLoading(true)
+    const delay = setTimeout(() => {
+      setIsPdfLoading(false)
+    }, 1000)
+
+    return () => clearTimeout(delay)
+  }, [pdf])
+
   const DocumentContent = () => (
-    <Document subject="resume">
-      <Page size="A4" style={styles.page}>
+    <Document title={fileName} pageLayout="singlePage">
+      <Page size="A4" style={styles.page} dpi={70}>
         {/* Title */}
         {Object.values(pdf.personalDetails).some(Boolean) && (
           <>
@@ -300,7 +323,14 @@ const MyResume = ({}) => {
                 {pdf.employmentHistory.map((job) => (
                   <View key={job.id} style={styles.employmentBox__rendering}>
                     <Text>
-                      {'Jun 2022'} — {'Jul 2022'}
+                      {job.start_date && (
+                        <>
+                          {date_beautiful(job.start_date!)} —{' '}
+                          {date_beautiful(
+                            job.end_date ? job.end_date : PRESENT_STR,
+                          )}
+                        </>
+                      )}
                     </Text>
                     <Text style={styles.employmentBox__rendering__jobtitle}>
                       {job.jobTitleHistory}, {job.employer}
@@ -330,7 +360,14 @@ const MyResume = ({}) => {
                 {pdf.education.map((edu) => (
                   <View key={edu.id} style={styles.educationBox__rendering}>
                     <Text>
-                      {'Jun 2022'} — {'Jul 2022'}
+                      {edu.start_date && (
+                        <>
+                          {date_beautiful(edu.start_date!)} —{' '}
+                          {date_beautiful(
+                            edu.end_date ? edu.end_date : PRESENT_STR,
+                          )}
+                        </>
+                      )}
                     </Text>
                     <Text style={styles.educationBox__rendering__jobtitle}>
                       {edu.degree}, {edu.school}
@@ -358,8 +395,10 @@ const MyResume = ({}) => {
               </View>
               <View style={styles.skillBox_dynamic}>
                 {pdf.skills.map((skill) => (
-                  <View key={skill.id} style={styles.skillBox__description}>
-                    <Text>{skill.skill}</Text>
+                  <View key={skill.id}>
+                    <Text style={styles.skillBox__description}>
+                      {skill.skill}
+                    </Text>
                   </View>
                 ))}
               </View>
@@ -372,24 +411,44 @@ const MyResume = ({}) => {
 
   return (
     <>
-      <PDFViewer
-        style={{
-          width: '100%',
-          height: '127%',
-          borderRadius: '8px',
-        }}
-        showToolbar={false}
-      >
-        <DocumentContent />
-      </PDFViewer>
-      <PDFDownloadLink
-        document={<DocumentContent />}
-        fileName={fileName + '.pdf'}
-      >
-        {({ blob, url, loading, error }) =>
-          loading ? 'Loading document...' : 'Download PDF'
-        }
-      </PDFDownloadLink>
+      {isPdfLoading ? (
+        <Skeletom />
+      ) : (
+        <>
+          <PDFViewer
+            style={{
+              width: '70%',
+              height: '87vh',
+              backgroundColor: 'white',
+              color: 'black',
+              transform: 'scale(1.4)',
+              marginTop: '100px',
+            }}
+            showToolbar={false}
+          >
+            <DocumentContent />
+          </PDFViewer>
+
+          <PDFDownloadLink
+            document={<DocumentContent />}
+            fileName={fileName + '.pdf'}
+            style={{
+              position: 'absolute',
+              top: '125%',
+              right: '50%',
+              fontWeight: 'semibold',
+              width: '25%',
+              color: 'white',
+              borderRadius: '5pt',
+              padding: '10pt',
+              textAlign: 'center',
+              backgroundColor: 'rgb(35 35 76)',
+            }}
+          >
+            Download PDF
+          </PDFDownloadLink>
+        </>
+      )}
     </>
   )
 }

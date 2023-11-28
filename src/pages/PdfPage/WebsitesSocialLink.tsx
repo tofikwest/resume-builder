@@ -44,7 +44,7 @@ const WebsitesSocialLink = () => {
       <button
         onClick={handleBtnAddTrigger}
         type="button"
-        className="ml-11 flex w-[13%]  items-center gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color"
+        className="ml-11 flex w-[20%]  items-center gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color"
       >
         {!btnAddTrigger ? (
           <>
@@ -52,13 +52,13 @@ const WebsitesSocialLink = () => {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               className="h-6 w-6"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M12 6v12m6-6H6"
               />
             </svg>
@@ -79,7 +79,7 @@ const WebsitesSocialLink = () => {
               />
             </svg>
 
-            <p>Hide link</p>
+            <p>Hide link panel</p>
           </>
         )}
       </button>
@@ -105,13 +105,13 @@ const WebsitesSocialLink = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="h-5 w-5"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M6 18L18 6M6 6l12 12"
                 />
               </svg>

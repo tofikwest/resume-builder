@@ -36,7 +36,7 @@ const LanguageForm: React.FC = () => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className=" mx-10 my-4 flex h-full w-6/12 select-none   justify-between rounded-xl  border border-dashed border-gray-300 p-4 font-form-family"
+      className=" mx-10 my-4 flex h-full w-7/12 select-none   justify-between rounded-xl  border border-dashed border-gray-300 p-4 font-form-family"
     >
       <div className="">
         <label htmlFor="language" className="font-light text-gray-400">
