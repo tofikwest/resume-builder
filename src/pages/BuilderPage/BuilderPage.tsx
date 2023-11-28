@@ -8,16 +8,6 @@ import WebsitesSocialLink from '../PdfPage/WebsitesSocialLink'
 import Skills from '../PdfPage/Skills'
 import Languages from '../PdfPage/Languages'
 
-// export interface IPdfStructure {
-//   title: {}
-//   personalDetails: {}
-//   professionalSummary: {}
-//   employmentHistory: {}
-//   education: {}
-//   websitesSocialLink: {}
-//   skills: {}
-//   languages: {}
-// }
 const BuilderPage = () => {
   return (
     <section className=" relative flex w-11/12 max-w-[1440px] select-none flex-col justify-center gap-2 pt-6   ">
@@ -35,9 +25,3 @@ const BuilderPage = () => {
 }
 
 export default BuilderPage
-
-{
-  /* <div id="pdf_carcas" className="mt-16  w-[1280px]" ref={target}>
-        <Pdf tag={target} />
-      </div> */
-}

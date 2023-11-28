@@ -106,6 +106,7 @@ const PersonalDetails: React.FC = () => {
           className=" mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
           type="email"
           id="email"
+          inputMode="email"
           name="email"
           required
           value={mainFormData.email}
@@ -126,7 +127,7 @@ const PersonalDetails: React.FC = () => {
         {/* ====== */}
         <label
           htmlFor="photo"
-          className={`mb-4 mt-[28px] flex h-12 w-5/12 items-center gap-2 self-end rounded border border-solid border-gray-200 bg-input-bg p-2 font-extralight text-gray-400 hover:bg-[#553692] hover:text-white focus:border-b-2
+          className={`mb-4 mt-[28px] flex h-12 w-5/12 items-center gap-2 self-end rounded border border-solid border-gray-200 bg-input-bg p-2 text-sm font-extralight text-gray-400 hover:bg-[#553692] hover:text-white focus:border-b-2
            ${isDisable ? 'cursor-not-allowed' : 'cursor-pointer'}
           `}
         >
@@ -134,18 +135,18 @@ const PersonalDetails: React.FC = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
             className="inline h-6 w-6 text-center"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"
             />
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"
             />
           </svg>
@@ -164,7 +165,7 @@ const PersonalDetails: React.FC = () => {
         {/* ====== */}
         <label
           htmlFor="last_name"
-          className="ml-[86px] font-extralight text-gray-400"
+          className="ml-[70px] font-extralight text-gray-400"
         >
           Last Name
         </label>
@@ -180,14 +181,15 @@ const PersonalDetails: React.FC = () => {
         {/* ===== */}
         <label
           htmlFor="phone"
-          className="ml-[86px] font-extralight text-gray-400"
+          className="ml-[70px] font-extralight text-gray-400"
         >
           Phone
         </label>
         <input
           onChange={handleMainFormData}
           className="mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none"
-          type="text"
+          type="tel"
+          inputMode="tel"
           id="phone"
           name="phone"
           placeholder="e.g +380 96 156 75 13"
@@ -197,7 +199,7 @@ const PersonalDetails: React.FC = () => {
         {/* ====== */}
         <label
           htmlFor="city"
-          className="ml-[86px] font-extralight text-gray-400"
+          className="ml-[70px] font-extralight text-gray-400"
         >
           City
         </label>
@@ -214,7 +216,7 @@ const PersonalDetails: React.FC = () => {
       {/* Additional detail BTN */}
       <button
         type="button"
-        className="ml-11 w-[16%] text-left text-sm text-additional-color hover:text-additional-hover-color"
+        className="ml-11 w-[20%] text-left text-sm text-additional-color hover:text-additional-hover-color"
         onClick={handleShowAdditionalForm}
       >
         {isNeedAdditionalForm ? (
@@ -224,13 +226,13 @@ const PersonalDetails: React.FC = () => {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               className="ml-2 inline h-4 w-4"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M4.5 15.75l7.5-7.5 7.5 7.5"
               />
             </svg>
@@ -242,13 +244,13 @@ const PersonalDetails: React.FC = () => {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="2.5"
+              strokeWidth="2.5"
               stroke="currentColor"
               className="ml-2 inline h-4 w-4"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M19.5 8.25l-7.5 7.5-7.5-7.5"
               />
             </svg>
@@ -293,14 +295,14 @@ const PersonalDetails: React.FC = () => {
           <input
             onChange={handleAdditionalFormData}
             className="mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
-            type="email"
+            type="text"
             id="place_birth"
             name="place_birth"
           />
           {/* ======== */}
           <label
             htmlFor="postalCode"
-            className="ml-[100px] font-extralight text-gray-400"
+            className="ml-[70px] font-extralight text-gray-400"
           >
             Postal Code
           </label>
@@ -315,7 +317,7 @@ const PersonalDetails: React.FC = () => {
           {/* ====== */}
           <label
             htmlFor="nationality"
-            className="ml-[100px] font-extralight text-gray-400"
+            className="ml-[70px] font-extralight text-gray-400"
           >
             Nationality
           </label>
@@ -330,14 +332,15 @@ const PersonalDetails: React.FC = () => {
           {/* ====== */}
           <label
             htmlFor="date_birth"
-            className="ml-[100px] font-extralight text-gray-400"
+            className="ml-[70px] font-extralight text-gray-400"
           >
             Date Of Birth
           </label>
           <input
             onChange={handleAdditionalFormData}
             className=" mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 text-gray-400 focus:border-b-2  focus:border-b-additional-color focus:outline-none"
-            type="date"
+            type="month"
+            lang="en"
             id="date_birth"
             name="date_birth"
             value={additionalFormData.date_birth}

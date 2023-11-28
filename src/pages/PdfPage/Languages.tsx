@@ -55,7 +55,7 @@ const Languages = () => {
           <li
             onClick={handleAddSuggestLang}
             key={el}
-            className="flex cursor-pointer items-center justify-between gap-2 bg-gray-200 p-2"
+            className="flex cursor-pointer items-center justify-between  bg-gray-200 p-2"
           >
             {el}
           </li>
@@ -65,7 +65,7 @@ const Languages = () => {
       <button
         onClick={handleBtnAddTrigger}
         type="button"
-        className="mb-3 ml-11 flex w-[13%]  items-center gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color"
+        className="mb-3 ml-11 flex w-[20%]  items-center gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color"
       >
         {!btnAddTrigger ? (
           <>
@@ -73,13 +73,13 @@ const Languages = () => {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               className="h-6 w-6"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M12 6v12m6-6H6"
               />
             </svg>
@@ -100,7 +100,7 @@ const Languages = () => {
               />
             </svg>
 
-            <p>Hide language</p>
+            <p>Hide language panel</p>
           </>
         )}
       </button>
@@ -120,13 +120,13 @@ const Languages = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="h-5 w-5"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M6 18L18 6M6 6l12 12"
                 />
               </svg>

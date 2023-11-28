@@ -50,11 +50,17 @@ const ProgresBar = () => {
 
     const nextSectionTip = findSectionForAdding(sectionsData) // witch section need to add next
 
+    // console.log(sectionsData, 'sectionsData')
+    // console.log(nextSectionTip, 'nextSectionTip')
+
     for (const item in sectionsData) {
       if (sectionsData[item]) {
+        console.log(sectionsData, item)
         if (item === PERSONAL_DETAILS || item === PROF_SUMMARY) {
+          persent += 10
+        } else {
           persent += 16
-        } else persent += 17
+        }
       }
     }
 
@@ -90,7 +96,7 @@ const ProgresBar = () => {
             <div className="text-sm text-gray-500">{countObj.nextSect}</div>
             <div className="group relative">
               <button
-                className="rounded-xl text-center"
+                className="rounded-xl pt-2 text-center"
                 type="button"
                 onMouseEnter={() => setQuestionMark(true)}
                 onMouseLeave={() => setQuestionMark(false)}
@@ -110,7 +116,7 @@ const ProgresBar = () => {
               </button>
 
               {questionMark && (
-                <div className="absolute right-[-125px] top-[-60px] rounded-lg bg-gray-200 p-2 text-xs shadow-sm">
+                <div className="absolute left-[-80px] top-[-50px] w-[180px] rounded-xl bg-gray-200 p-2 text-xs shadow-md">
                   Your resume is evaluated every time
                 </div>
               )}

@@ -20,7 +20,7 @@ export const findTruthyParentObjects = (
   for (const key in obj) {
     if (obj.hasOwnProperty(key)) {
       const value = obj[key]
-      const newPath = currentPath ? `${currentPath}.${key}` : key
+      const newPath = currentPath ? `${currentPath}` : key
 
       if (value && typeof value === 'object') {
         // If the value is an object, recursively check its properties
@@ -30,7 +30,7 @@ export const findTruthyParentObjects = (
       } else if (Array.isArray(value)) {
         // If the value is an array, check each element for truthy properties
         for (let i = 0; i < value.length; i++) {
-          if (findTruthyParentObjects(value[i], flags, `${newPath}[${i}]`)) {
+          if (findTruthyParentObjects(value[i], flags, newPath)) {
             hasTruthyProperty = true
           }
         }
