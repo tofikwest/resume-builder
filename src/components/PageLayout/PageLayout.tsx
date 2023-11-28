@@ -1,5 +1,4 @@
 import { ElementType, useRef } from 'react'
-import Header from '../Header/Header'
 import SideBar from '../SideBar/SideBar'
 import MyResume from '../MyResume/MyResume'
 
@@ -9,7 +8,7 @@ interface PageLayoutProps {
 const PageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
   const tag = useRef<any>(null)
   return (
-    <div id="pageLayout" className="relative  flex h-screen   ">
+    <div id="pageLayout" className="builderPage  relative flex  h-screen ">
       <div className="w-[95px] ">
         <SideBar />
       </div>
@@ -20,11 +19,8 @@ const PageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
       <div
         id="resumeViews"
         ref={tag}
-        className="fixed right-0 top-[-11%] h-[100vh] w-5/12 flex-1 scale-[70%] py-5"
+        className="fixed right-[-2%] top-[-11%] h-[100vh] w-5/12 flex-1 scale-[70%] py-24"
       >
-        <h2 className=" mb-5 text-center font-form-family text-2xl font-bold tracking-wider  text-white">
-          PDF Preview
-        </h2>
         <MyResume />
       </div>
     </div>

@@ -35,7 +35,7 @@ const EmploymentHistory: React.FC = () => {
       </p>
       <button
         type="button"
-        className="ml-11 flex w-[20%]  items-center gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color"
+        className="ml-11 flex w-[22%]  items-center gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color"
         onClick={handleBtnAddTrigger}
       >
         {!btnAddTrigger ? (

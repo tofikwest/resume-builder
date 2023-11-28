@@ -12,6 +12,7 @@ const Skeletom = () => {
               alt=""
             />
           </div>
+
           <h3 className="card__header header__title" id="card-title">
             <div className="skeleton skeleton-text"></div>
             <div className="skeleton skeleton-text"></div>

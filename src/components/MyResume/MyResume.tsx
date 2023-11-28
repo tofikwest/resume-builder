@@ -434,7 +434,7 @@ const MyResume = () => {
             fileName={fileName + '.pdf'}
             style={{
               position: 'absolute',
-              top: '125%',
+              top: '128%',
               right: '50%',
               fontWeight: 'semibold',
               width: '25%',
