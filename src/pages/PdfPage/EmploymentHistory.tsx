@@ -27,15 +27,15 @@ const EmploymentHistory: React.FC = () => {
   }
   return (
     <>
-      <h2 className="my-2 mb-1 ml-11 block text-xl font-semibold">
+      <h2 className="my-2 mb-1 ml-4 block text-xl font-semibold lg:ml-11">
         Employment History
       </h2>
-      <p className=" mb-2 ml-11 w-10/12 text-sm text-gray-400">
+      <p className=" mb-2 ml-4 w-10/12 text-sm text-gray-400 lg:ml-11">
         Show your relevant experience
       </p>
       <button
         type="button"
-        className="ml-11 flex w-[22%]  items-center gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color"
+        className="ml-4 flex w-fit items-center  gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color lg:ml-11"
         onClick={handleBtnAddTrigger}
       >
         {!btnAddTrigger ? (
@@ -82,7 +82,7 @@ const EmploymentHistory: React.FC = () => {
             <div className="flex items-start">
               <UIEmploymentForm el={el} />
               <button
-                className="ml-4 mt-8 h-full text-gray-300 hover:text-additional-hover-color"
+                className="absolute top-0 h-full text-gray-300 hover:text-additional-hover-color lg:mt-8"
                 id={el.id}
                 onClick={handleDelEducation}
               >

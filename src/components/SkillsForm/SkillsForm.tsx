@@ -33,7 +33,7 @@ const SkillsForm: React.FC = () => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className=" mx-10 my-4 flex h-full w-7/12 select-none   justify-between rounded-xl  border border-dashed border-gray-300 p-4 font-form-family"
+      className=" mx-4 ml-4 flex h-full select-none flex-col justify-between rounded-xl border   border-dashed border-gray-300  p-4 font-form-family lg:mx-10 lg:w-7/12 lg:flex-row"
     >
       <div className="">
         <label htmlFor="skill" className="font-light text-gray-400">
@@ -51,7 +51,7 @@ const SkillsForm: React.FC = () => {
 
       {/* ====== */}
       <div>
-        <label htmlFor="level" className="block font-light text-gray-400">
+        <label htmlFor="level" className="mt-2 block font-light text-gray-400 ">
           Level
         </label>
         <input
@@ -65,7 +65,7 @@ const SkillsForm: React.FC = () => {
       </div>
       <button
         onClick={handleSubmit}
-        className=" h-[42px] self-end rounded  bg-additional-color p-2 text-gray-100"
+        className=" mt-4 h-[42px] w-full  self-end rounded  bg-additional-color p-2 text-gray-100"
       >
         Save
       </button>

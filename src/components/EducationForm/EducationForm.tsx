@@ -55,7 +55,7 @@ const EducationForm: React.FC = () => {
       <form
         id={edu.at(-1)?.id}
         onSubmit={(e) => e.preventDefault()}
-        className={` my-2 ml-12 flex h-auto w-9/12 select-none flex-col items-center rounded-xl border border-dashed   border-additional-color  p-4 font-form-family`}
+        className="mx-2 my-2 flex h-auto select-none flex-col items-center rounded-xl border border-dashed border-additional-color p-4   font-form-family  lg:ml-12 lg:w-9/12"
       >
         <div className="my-2 flex w-11/12 items-center justify-between">
           <legend className="self-start text-left font-bold">

@@ -123,14 +123,16 @@ a {
   width: 30%;
 }
 
-.builderPage::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 46.6%; /* Adjust this value based on your desired width */
+@media screen and (min-width: 1440px) {
+  .builderPage::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 46.6%;
 
-  background: rgb(61 73 100) top right / cover no-repeat fixed;
-  z-index: -1;
+    background: rgb(61 73 100) top right / cover no-repeat fixed;
+    z-index: -1;
+  }
 }
