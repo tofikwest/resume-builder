@@ -2,7 +2,6 @@ import { ChangeEvent, useState } from 'react'
 import TextArea from '../TextArea/TextArea'
 import { useDispatch } from 'react-redux'
 import { ADD } from '../../redux/pdf/pdfSlice'
-import TextAreaBtns from '../TextAreaBTNS/TextAreaBtns'
 import { EMPLOYMENT_HISTORY } from '../../redux/pdf/constants'
 
 const EmploymentForm: React.FC = () => {
@@ -48,7 +47,7 @@ const EmploymentForm: React.FC = () => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className={` my-2 ml-12 flex h-auto w-9/12 select-none flex-col items-center rounded-xl border border-dashed   border-additional-color  p-4 font-form-family`}
+      className={` my-2 ml-4 flex h-auto w-11/12 select-none flex-col items-center rounded-xl border border-dashed border-additional-color p-4   font-form-family  lg:ml-12 lg:w-9/12`}
     >
       <div className="my-2 flex w-11/12 items-center justify-between">
         <legend className="self-start text-left font-bold">

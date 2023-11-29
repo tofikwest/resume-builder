@@ -5,10 +5,9 @@ interface PageLayoutProps {
   Component: ElementType
 }
 const HomePageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
-  const tag = useRef<any>(null)
   return (
     <div id="pageLayout" className="relative  flex h-screen  ">
-      <div className="w-[95px] ">
+      <div className="hidden w-[95px] lg:block">
         <SideBar />
       </div>
 

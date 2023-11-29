@@ -5,8 +5,7 @@ import { PERSONAL_DETAILS } from '../../redux/pdf/constants'
 
 const PersonalDetails: React.FC = () => {
   // ? PHOTO input
-  const [isDisable, setisDisable] = useState<boolean>(true)
-
+  const [currentWidth, setCurrentWidth] = useState(window.innerWidth)
   const [isNeedAdditionalForm, setIsNeedAdditionalForm] =
     useState<Boolean>(false)
 
@@ -44,6 +43,16 @@ const PersonalDetails: React.FC = () => {
     }, 300)
   }, [mainFormData, additionalFormData])
 
+  useEffect(() => {
+    setCurrentWidth(window.innerWidth)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [currentWidth])
+
+  function handleResize() {
+    setCurrentWidth(window.innerWidth)
+  }
+
   function handleMainFormData(e: ChangeEvent<HTMLInputElement>) {
     setMainFormdata((prev) => ({
       ...prev,
@@ -64,10 +73,10 @@ const PersonalDetails: React.FC = () => {
 
   return (
     <>
-      <h2 className="my-2 ml-11 block text-xl font-semibold">
+      <h2 className="my-2 ml-3 block text-xl font-semibold">
         Personal Details
       </h2>
-      <form className=" mx-auto my-0 flex h-[371px] w-11/12 select-none  flex-col flex-wrap justify-between font-form-family">
+      <form className="flex h-full select-none flex-col justify-between px-4  font-form-family lg:mx-auto lg:my-0 lg:w-11/12 lg:flex-wrap">
         <label
           htmlFor="jobTitle"
           className="inline font-extralight text-gray-400"
@@ -76,7 +85,7 @@ const PersonalDetails: React.FC = () => {
         </label>
         <input
           onChange={handleMainFormData}
-          className={`mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none `}
+          className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color  focus:outline-none lg:w-5/12"
           type="text"
           id="jobTitle"
           name="jobTitle"
@@ -90,7 +99,7 @@ const PersonalDetails: React.FC = () => {
         </label>
         <input
           onChange={handleMainFormData}
-          className="mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+          className="mb-4 mt-1 block h-12  w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
           type="text"
           id="first_name"
           name="first_name"
@@ -98,12 +107,28 @@ const PersonalDetails: React.FC = () => {
           value={mainFormData.first_name}
         />
         {/* ======== */}
+        <label
+          htmlFor="last_name"
+          className=" font-extralight text-gray-400 lg:ml-[70px]"
+        >
+          Last Name
+        </label>
+        <input
+          onChange={handleMainFormData}
+          className="mb-4 mt-1 block h-12 w-full self-end rounded border border-solid bg-input-bg  p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
+          type="text"
+          id="last_name"
+          name="last_name"
+          value={mainFormData.last_name}
+          required
+        />
+        {/* ======== */}
         <label htmlFor="email" className="font-extralight text-gray-400">
           Email
         </label>
         <input
           onChange={handleMainFormData}
-          className=" mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+          className=" mb-4 mt-1 block h-12  w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
           type="email"
           id="email"
           inputMode="email"
@@ -117,7 +142,7 @@ const PersonalDetails: React.FC = () => {
         </label>
         <input
           onChange={handleMainFormData}
-          className="mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+          className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
           type="text"
           id="country"
           name="country"
@@ -127,8 +152,8 @@ const PersonalDetails: React.FC = () => {
         {/* ====== */}
         <label
           htmlFor="photo"
-          className={`mb-4 mt-[28px] flex h-12 w-5/12 items-center gap-2 self-end rounded border border-solid border-gray-200 bg-input-bg p-2 text-sm font-extralight text-gray-400 hover:bg-[#553692] hover:text-white focus:border-b-2
-           ${isDisable ? 'cursor-not-allowed' : 'cursor-pointer'}
+          className={`mb-4 mt-[28px] flex  h-12  w-full cursor-not-allowed items-center justify-center gap-2 rounded border border-solid border-gray-200 bg-input-bg p-2  text-sm font-extralight text-gray-400 hover:bg-[#553692] hover:text-white focus:border-b-2
+           lg:w-5/12 lg:self-end
           `}
         >
           <svg
@@ -137,7 +162,7 @@ const PersonalDetails: React.FC = () => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="inline h-6 w-6 text-center"
+            className=" h-8 w-8 text-center"
           >
             <path
               strokeLinecap="round"
@@ -150,44 +175,32 @@ const PersonalDetails: React.FC = () => {
               d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"
             />
           </svg>
-          {/* <p>Upload photo</p> */}
-          <p>This template doesn't support photo upload</p>
+
           <input
             onChange={handleMainFormData}
-            className=" mb-4 mt-1 hidden h-12 w-5/12 rounded bg-input-bg  p-2 focus:border-b-additional-color focus:outline-none "
+            className=" mb-4 mt-1 hidden h-12  w-full rounded  bg-input-bg p-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
             type="file"
             id="photo"
             name="photo"
-            disabled={isDisable}
+            disabled={true}
             value={mainFormData.photo}
           />
+          <p className="inline w-10/12 text-center ">
+            This template doesn't support photo upload
+          </p>
         </label>
+
         {/* ====== */}
-        <label
-          htmlFor="last_name"
-          className="ml-[70px] font-extralight text-gray-400"
-        >
-          Last Name
-        </label>
-        <input
-          onChange={handleMainFormData}
-          className="mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2  focus:border-b-2 focus:border-b-additional-color focus:outline-none"
-          type="text"
-          id="last_name"
-          name="last_name"
-          value={mainFormData.last_name}
-          required
-        />
-        {/* ===== */}
+
         <label
           htmlFor="phone"
-          className="ml-[70px] font-extralight text-gray-400"
+          className="font-extralight text-gray-400 lg:ml-[70px]"
         >
           Phone
         </label>
         <input
           onChange={handleMainFormData}
-          className="mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+          className="mb-4 mt-1 block h-12 w-full self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
           type="tel"
           inputMode="tel"
           id="phone"
@@ -199,13 +212,13 @@ const PersonalDetails: React.FC = () => {
         {/* ====== */}
         <label
           htmlFor="city"
-          className="ml-[70px] font-extralight text-gray-400"
+          className="font-extralight text-gray-400 lg:ml-[70px]"
         >
           City
         </label>
         <input
           onChange={handleMainFormData}
-          className=" mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+          className=" mb-4 mt-1 block h-12  w-full self-end rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
           type="text"
           id="city"
           name="city"
@@ -216,7 +229,7 @@ const PersonalDetails: React.FC = () => {
       {/* Additional detail BTN */}
       <button
         type="button"
-        className="ml-11 w-[20%] text-left text-sm text-additional-color hover:text-additional-hover-color"
+        className=" ml-4 w-fit text-left text-sm text-additional-color hover:text-additional-hover-color"
         onClick={handleShowAdditionalForm}
       >
         {isNeedAdditionalForm ? (
@@ -258,13 +271,13 @@ const PersonalDetails: React.FC = () => {
         )}
       </button>
       {isNeedAdditionalForm && (
-        <form className="mx-auto my-4 flex h-[294px] w-11/12 select-none flex-col flex-wrap font-form-family">
+        <form className="flex h-full select-none flex-col justify-between px-4  font-form-family lg:mx-auto lg:my-0 lg:w-11/12 lg:flex-wrap">
           <label htmlFor="address" className="font-extralight text-gray-400">
             Address
           </label>
           <input
             onChange={handleAdditionalFormData}
-            className="mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 placeholder:font-light focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+            className="mb-4 mt-1 block h-12  w-full rounded border border-solid bg-input-bg p-2 placeholder:font-light focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
             type="text"
             id="address"
             name="address"
@@ -279,7 +292,7 @@ const PersonalDetails: React.FC = () => {
           </label>
           <input
             onChange={handleAdditionalFormData}
-            className="mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
             type="text"
             id="driving_license"
             name="driving_license"
@@ -294,7 +307,7 @@ const PersonalDetails: React.FC = () => {
           </label>
           <input
             onChange={handleAdditionalFormData}
-            className="mb-4 mt-1 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
             type="text"
             id="place_birth"
             name="place_birth"
@@ -302,13 +315,13 @@ const PersonalDetails: React.FC = () => {
           {/* ======== */}
           <label
             htmlFor="postalCode"
-            className="ml-[70px] font-extralight text-gray-400"
+            className="font-extralight text-gray-400 lg:ml-[70px]"
           >
             Postal Code
           </label>
           <input
             onChange={handleAdditionalFormData}
-            className="mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+            className="mb-4 mt-1 block h-12  w-full self-end rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
             type="text"
             id="postalCode"
             name="postalCode"
@@ -317,13 +330,13 @@ const PersonalDetails: React.FC = () => {
           {/* ====== */}
           <label
             htmlFor="nationality"
-            className="ml-[70px] font-extralight text-gray-400"
+            className="font-extralight text-gray-400 lg:ml-[70px]"
           >
             Nationality
           </label>
           <input
             onChange={handleAdditionalFormData}
-            className="mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+            className="mb-4 mt-1 block h-12 w-full self-end rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
             type="text"
             id="nationality"
             name="nationality"
@@ -332,13 +345,13 @@ const PersonalDetails: React.FC = () => {
           {/* ====== */}
           <label
             htmlFor="date_birth"
-            className="ml-[70px] font-extralight text-gray-400"
+            className="font-extralight text-gray-400 lg:ml-[70px]"
           >
             Date Of Birth
           </label>
           <input
             onChange={handleAdditionalFormData}
-            className=" mb-4 mt-1 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 text-gray-400 focus:border-b-2  focus:border-b-additional-color focus:outline-none"
+            className=" mb-4 mt-1 block h-12  w-full self-end rounded border border-solid bg-input-bg p-2 text-gray-400  focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
             type="month"
             lang="en"
             id="date_birth"

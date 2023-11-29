@@ -45,11 +45,13 @@ const Languages = () => {
 
   return (
     <>
-      <h2 className="my-2 mb-2 ml-11 block text-xl font-semibold">Languages</h2>
+      <h2 className="my-2 mb-2 ml-4 block text-xl font-semibold lg:ml-11">
+        Languages
+      </h2>
 
       <ul
         id="languages-list"
-        className=" mb-4 ml-11 flex w-full max-w-xl flex-wrap gap-2"
+        className=" mb-4 ml-4 flex w-full max-w-xl flex-wrap gap-2 lg:ml-11"
       >
         {suggestionLangList.map((el) => (
           <li
@@ -65,7 +67,7 @@ const Languages = () => {
       <button
         onClick={handleBtnAddTrigger}
         type="button"
-        className="mb-3 ml-11 flex w-[20%]  items-center gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color"
+        className="mb-3 ml-4 flex w-fit items-center  gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color lg:ml-11"
       >
         {!btnAddTrigger ? (
           <>
@@ -107,7 +109,7 @@ const Languages = () => {
 
       <ul
         id="skills-list"
-        className=" ml-11 flex w-full max-w-xl flex-wrap gap-2"
+        className="ml-4 flex w-full max-w-xl flex-wrap gap-2 lg:ml-11"
       >
         {languageList.map(({ id, language }: ILanguage) => (
           <li

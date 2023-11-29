@@ -28,6 +28,8 @@ export interface ICountObj {
 }
 const ProgresBar = () => {
   const [questionMark, setQuestionMark] = useState<boolean>(false)
+  const [currentWidth, setCurrentWidth] = useState(window.innerWidth)
+
   const allState = useSelector((state: RootState) => state.pdf)
 
   const [countObj, setCountObj] = useState<ICountObj>({
@@ -43,6 +45,16 @@ const ProgresBar = () => {
   useEffect(() => {
     calculateBar()
   }, [allState])
+
+  useEffect(() => {
+    setCurrentWidth(window.innerWidth)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [currentWidth])
+
+  function handleResize() {
+    setCurrentWidth(window.innerWidth)
+  }
 
   function calculateBar() {
     let persent = 0
@@ -80,22 +92,24 @@ const ProgresBar = () => {
 
   return (
     <>
-      <div className=" mb-2 flex flex-col px-11">
+      <div className=" mx-4 mb-2 flex flex-col lg:px-11">
         <div className=" flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="rounded bg-additional-color p-1 text-center text-sm text-white">
+            <div className="rounded bg-additional-color p-1 text-center text-xs  text-white lg:text-sm">
               {countObj.left}%
             </div>
-            <div className="text-sm text-gray-500">Resume score</div>
+            <div className="gray-500 text-xs lg:text-sm">Resume score</div>
           </div>
 
           <div className="flex w-4/12 items-center justify-end gap-2">
-            <div className="rounded bg-primary-green p-1 text-center text-sm text-primary-green">
+            <div className="rounded bg-primary-green p-1 text-center text-xs text-primary-green lg:text-sm">
               +{countObj.right}%
             </div>
-            <div className="animated-text text-sm text-gray-500">
-              {countObj.nextSect}
-            </div>
+            {currentWidth >= 768 && (
+              <div className="animated-text text-xs text-gray-500 lg:text-sm">
+                {countObj.nextSect}
+              </div>
+            )}
             <div className="group relative">
               <button
                 className="rounded-xl pt-2 text-center"
@@ -126,9 +140,9 @@ const ProgresBar = () => {
           </div>
         </div>
 
-        <div className="mt-2 h-1 bg-gray-200">
+        <div className="mt-2  h-1  bg-gray-200">
           <div
-            className={`h-full bg-additional-color transition-all duration-700  ease-in-out`}
+            className={`h-full bg-additional-color transition-all  duration-700 ease-in-out`}
             style={progressBarStyle}
           ></div>
         </div>

@@ -46,7 +46,7 @@ const UIEmploymentForm: React.FC<IProps> = ({ el }) => {
     <form
       id={el.id}
       onSubmit={handleSubmit}
-      className={` my-2 ml-12 flex h-auto w-9/12 select-none flex-col items-center rounded-xl border border-dashed   border-gray-300  p-4 font-form-family`}
+      className={` my-2 ml-4 flex h-auto w-full select-none flex-col items-center rounded-xl border border-dashed border-gray-300 p-4   font-form-family  lg:ml-12 lg:w-9/12`}
     >
       <div className="my-2 flex w-11/12 items-center justify-between">
         <legend className="self-start text-left font-bold">
