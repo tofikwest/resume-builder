@@ -41,8 +41,10 @@ const Skills = () => {
 
   return (
     <>
-      <h2 className="my-2 mb-1 block pl-5 text-xl font-semibold ">Skills</h2>
-      <p className=" mb-2 w-10/12 pl-4 text-sm text-gray-400 ">
+      <h2 className="my-2 mb-1 block pl-5 text-xl font-semibold 2xl:text-3xl">
+        Skills
+      </h2>
+      <p className=" mb-2 w-10/12 pl-4 text-sm text-gray-400 2xl:text-lg">
         Choose 5 important skills that show you fit the position. Make sure they
         match the key skills mentioned in the job listing (especially when
         applying via an online system).
@@ -50,7 +52,7 @@ const Skills = () => {
 
       <ul
         id="skills-to-suggest"
-        className="mb-4 flex w-full max-w-xl flex-wrap gap-2 pl-5 "
+        className="mb-4 flex w-full max-w-xl flex-wrap gap-2 pl-5 2xl:text-lg"
       >
         {suggestionsList.map((el) => (
           <li
@@ -66,7 +68,7 @@ const Skills = () => {
       <button
         onClick={handleBtnAddTrigger}
         type="button"
-        className="mb-3 ml-4 flex w-fit items-center  gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color "
+        className="mb-3 ml-4 flex w-fit items-center  gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color 2xl:text-lg"
       >
         {!btnAddTrigger ? (
           <>
@@ -108,7 +110,7 @@ const Skills = () => {
 
       <ul
         id="skills-list"
-        className=" mb-4 ml-5 flex w-full max-w-xl flex-wrap gap-2 "
+        className=" mb-4 ml-5 flex w-full max-w-xl flex-wrap gap-2 2xl:text-lg"
       >
         {skillsList.map(({ skill, id }: ISkills) => (
           <li

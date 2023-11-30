@@ -72,18 +72,18 @@ const PersonalDetails: React.FC = () => {
 
   return (
     <section className="">
-      <h2 className="my-2 ml-3 block text-xl font-semibold">
+      <h2 className="my-2 ml-3 block text-xl font-semibold 2xl:text-3xl">
         Personal Details
       </h2>
       <form className="flex h-full select-none flex-col justify-between  px-4 font-form-family md:flex-row md:flex-wrap md:items-center ">
         <label
           htmlFor="jobTitle"
-          className="inline w-full font-extralight text-gray-400   md:w-[50%]"
+          className="inline w-full font-extralight text-gray-400   md:w-[50%] 2xl:text-lg"
         >
           Wanted Job Title
           <input
             onChange={handleMainFormData}
-            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color  focus:outline-none md:w-10/12"
+            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color  focus:outline-none md:w-10/12 2xl:text-lg"
             type="text"
             id="jobTitle"
             name="jobTitle"
@@ -95,12 +95,14 @@ const PersonalDetails: React.FC = () => {
 
         <label
           htmlFor="city"
-          className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
+          className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
         >
-          <p className="md:ml-16 md:self-start lg:ml-20 xl:ml-14">City</p>
+          <p className="md:ml-16 md:self-start lg:ml-20 xl:ml-14 2xl:ml-[100px]">
+            City
+          </p>
           <input
             onChange={handleMainFormData}
-            className=" mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 "
+            className=" mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12  2xl:text-lg "
             type="text"
             id="city"
             name="city"
@@ -111,12 +113,12 @@ const PersonalDetails: React.FC = () => {
 
         <label
           htmlFor="first_name"
-          className="w-full font-extralight  text-gray-400 md:flex md:w-[50%] md:flex-col"
+          className="w-full font-extralight  text-gray-400 md:flex md:w-[50%] md:flex-col 2xl:text-lg"
         >
           First Name
           <input
             onChange={handleMainFormData}
-            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 focus:border-b-2 focus:border-b-additional-color   focus:outline-none md:w-10/12"
+            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 focus:border-b-2 focus:border-b-additional-color   focus:outline-none md:w-10/12 2xl:text-lg"
             type="text"
             id="first_name"
             name="first_name"
@@ -127,12 +129,14 @@ const PersonalDetails: React.FC = () => {
 
         <label
           htmlFor="last_name"
-          className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
+          className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
         >
-          <p className="md:ml-16 md:self-start lg:ml-20 xl:ml-14">Last Name</p>
+          <p className="md:ml-16 md:self-start lg:ml-20 xl:ml-14 2xl:ml-[100px]">
+            Last Name
+          </p>
           <input
             onChange={handleMainFormData}
-            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800  focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 "
+            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800  focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12  2xl:text-lg "
             type="text"
             id="last_name"
             name="last_name"
@@ -143,12 +147,12 @@ const PersonalDetails: React.FC = () => {
 
         <label
           htmlFor="email"
-          className="w-full font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col "
+          className="w-full font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col 2xl:text-lg"
         >
           Email
           <input
             onChange={handleMainFormData}
-            className=" mb-4 mt-1 block h-12 w-full  rounded border border-solid bg-input-bg p-2 text-gray-800 focus:border-b-2 focus:border-b-additional-color   focus:outline-none md:w-10/12"
+            className=" mb-4 mt-1 block h-12 w-full  rounded border border-solid bg-input-bg p-2 text-gray-800 focus:border-b-2 focus:border-b-additional-color focus:outline-none  md:w-10/12 2xl:text-lg"
             type="email"
             id="email"
             inputMode="email"
@@ -160,12 +164,14 @@ const PersonalDetails: React.FC = () => {
 
         <label
           htmlFor="country"
-          className=" w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
+          className=" w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
         >
-          <p className="md:ml-16 md:self-start lg:ml-20 xl:ml-14">Country</p>
+          <p className="md:ml-16 md:self-start lg:ml-20 xl:ml-14 2xl:ml-[100px]">
+            Country
+          </p>
           <input
             onChange={handleMainFormData}
-            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 focus:border-b-2 focus:border-b-additional-color   focus:outline-none md:w-10/12"
+            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 focus:border-b-2 focus:border-b-additional-color focus:outline-none  md:w-10/12 2xl:text-lg"
             type="text"
             id="country"
             name="country"
@@ -177,7 +183,7 @@ const PersonalDetails: React.FC = () => {
         <label
           htmlFor="photo"
           className={`mb-4 mt-[28px] flex  h-12  w-full cursor-not-allowed items-center justify-center gap-2 rounded border border-solid border-gray-200 bg-input-bg p-2  text-sm font-extralight text-gray-400 hover:bg-[#d75151] hover:text-white focus:border-b-2
-           md:w-5/12 
+           md:w-5/12 2xl:text-lg 
           `}
         >
           <svg
@@ -186,7 +192,7 @@ const PersonalDetails: React.FC = () => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className=" h-8 w-8 text-center"
+            className=" h-8 w-8 text-center 2xl:h-10 2xl:w-10"
           >
             <path
               strokeLinecap="round"
@@ -209,19 +215,21 @@ const PersonalDetails: React.FC = () => {
             disabled={true}
             value={mainFormData.photo}
           />
-          <p className="inline w-10/12 text-center text-gray-500 lg:text-sm ">
+          <p className="inline w-10/12 text-center text-gray-500 lg:text-sm 2xl:text-lg">
             This template doesn't support photo upload
           </p>
         </label>
 
         <label
           htmlFor="phone"
-          className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end "
+          className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
         >
-          <p className="md:ml-16 md:self-start lg:ml-20 xl:ml-14">Phone</p>
+          <p className="md:ml-16 md:self-start lg:ml-20 xl:ml-14 2xl:ml-[100px]">
+            Phone
+          </p>
           <input
             onChange={handleMainFormData}
-            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 "
+            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 2xl:text-lg"
             type="tel"
             inputMode="tel"
             id="phone"
@@ -280,12 +288,12 @@ const PersonalDetails: React.FC = () => {
         <form className="flex h-full select-none flex-col justify-between  px-4 font-form-family md:flex-row md:flex-wrap md:items-center ">
           <label
             htmlFor="address"
-            className="inline font-extralight text-gray-400 md:w-[50%]"
+            className="inline font-extralight text-gray-400 md:w-[50%] 2xl:text-lg"
           >
             Address
             <input
               onChange={handleAdditionalFormData}
-              className="mb-4 mt-1 block h-12 w-full  rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-light focus:border-b-2 focus:border-b-additional-color   focus:outline-none md:w-10/12"
+              className="mb-4 mt-1 block h-12 w-full  rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-light focus:border-b-2 focus:border-b-additional-color  focus:outline-none  md:w-10/12 2xl:text-lg"
               type="text"
               id="address"
               name="address"
@@ -295,14 +303,14 @@ const PersonalDetails: React.FC = () => {
 
           <label
             htmlFor="driving_license"
-            className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
+            className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
           >
-            <p className="md:ml-16 md:self-start lg:ml-20 xl:ml-14">
+            <p className="md:ml-16 md:self-start lg:ml-20 xl:ml-14 2xl:ml-[100px]">
               Driving License
             </p>
             <input
               onChange={handleAdditionalFormData}
-              className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 focus:border-b-2 focus:border-b-additional-color   focus:outline-none md:w-10/12"
+              className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 2xl:text-lg"
               type="text"
               id="driving_license"
               name="driving_license"
@@ -312,12 +320,12 @@ const PersonalDetails: React.FC = () => {
 
           <label
             htmlFor="place_birth"
-            className="w-full font-extralight text-gray-400 md:w-[50%]"
+            className="w-full font-extralight text-gray-400 md:w-[50%] 2xl:text-lg"
           >
             Place Of Birth
             <input
               onChange={handleAdditionalFormData}
-              className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 focus:border-b-2 focus:border-b-additional-color  focus:outline-none md:w-10/12"
+              className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12 2xl:text-lg"
               type="text"
               id="place_birth"
               name="place_birth"
@@ -326,9 +334,9 @@ const PersonalDetails: React.FC = () => {
 
           <label
             htmlFor="postalCode"
-            className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
+            className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
           >
-            <p className="md:ml-16 md:self-start lg:ml-20 xl:ml-14">
+            <p className="md:ml-16 md:self-start lg:ml-20 xl:ml-14 2xl:ml-[100px]">
               Postal Code
             </p>
             <input
@@ -343,7 +351,7 @@ const PersonalDetails: React.FC = () => {
 
           <label
             htmlFor="nationality"
-            className="inline w-full font-extralight text-gray-400 md:w-[50%]"
+            className="inline w-full font-extralight text-gray-400 md:w-[50%] 2xl:text-lg"
           >
             Nationality
             <input
@@ -358,9 +366,9 @@ const PersonalDetails: React.FC = () => {
 
           <label
             htmlFor="date_birth"
-            className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
+            className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
           >
-            <p className="md:ml-16 md:self-start lg:ml-20 xl:ml-14">
+            <p className="md:ml-16 md:self-start lg:ml-20 xl:ml-14 2xl:ml-[100px]">
               Date Of Birth
             </p>
             <input

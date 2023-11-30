@@ -30,13 +30,13 @@ const TitleResume: FC = () => {
         onChange={handleTitle}
         type="text"
         value={title}
-        className=" rounded border border-x-0 border-t-0 border-solid bg-slate-50 p-2 text-sm shadow-sm focus:outline-none focus:outline"
+        className=" rounded border border-x-0 border-t-0 border-solid bg-slate-50 p-2 text-sm shadow-sm focus:outline-none focus:outline 2xl:text-lg"
       />
       <div className="group relative">
         <button
           onMouseEnter={() => setQuestionMark(true)}
           onMouseLeave={() => setQuestionMark(false)}
-          className="absolute right-[-130px]  top-[-25px] rounded-xl text-center  transition-all duration-300 ease-in-out hover:bg-gray-200"
+          className="absolute right-[-130px]  top-[-25px] rounded-xl text-center  transition-all duration-300 ease-in-out hover:bg-gray-200 "
           type="button"
         >
           <svg
@@ -53,7 +53,7 @@ const TitleResume: FC = () => {
           </svg>
         </button>
         {questionMark && (
-          <div className="absolute right-[-65px] top-[13px] h-auto w-[90px] rounded-lg bg-gray-200 p-1 text-xs   shadow-md transition duration-300 ease-in-out ">
+          <div className="absolute right-[-65px] top-[13px] h-auto w-[90px] rounded-lg bg-gray-200 p-1 text-xs   shadow-md transition duration-300 ease-in-out 2xl:w-60 2xl:text-lg">
             Your resume title name.
           </div>
         )}

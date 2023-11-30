@@ -72,10 +72,10 @@ const UIEducationForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
       ref={formRef}
       id={el.id}
       onSubmit={handleSubmit}
-      className="relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-solid border-additional-color p-4   md:flex-wrap lg:ml-3 "
+      className="relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-solid border-additional-color p-4   md:flex-wrap lg:ml-3 2xl:text-lg"
     >
       <div className="my-2 flex w-11/12 items-center justify-between">
-        <legend className="self-start text-left font-bold">
+        <legend className="self-start text-left font-bold 2xl:text-xl">
           {input.school}
         </legend>
         <button
@@ -88,7 +88,7 @@ const UIEducationForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
-              className="h-5 w-5"
+              className="h-5 w-5 2xl:h-8 2xl:w-8"
             >
               <path
                 fill-rule="evenodd"
@@ -101,7 +101,7 @@ const UIEducationForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
-              className="h-5 w-5"
+              className="h-5 w-5 2xl:h-8 2xl:w-8"
             >
               <path
                 fill-rule="evenodd"
@@ -114,9 +114,9 @@ const UIEducationForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
 
         <button
           className={`absolute hidden ${
-            height <= 78
-              ? 'md:right-[-8%] md:top-[30%] md:block'
-              : 'md:right-[-8%] md:top-[4%] md:block'
+            height <= 90
+              ? 'md:right-[-8%] md:top-[30%] md:block 2xl:right-[-8%] 2xl:top-[24%]'
+              : 'md:right-[-8%] md:top-[4%] md:block 2xl:right-[-8%] 2xl:top-[4%]'
           }  h-auto text-red-500 hover:text-additional-hover-color `}
           id={el.id}
           onClick={handleDelEducation}
@@ -127,7 +127,7 @@ const UIEducationForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="h-8 w-8  "
+            className="h-8 w-8  2xl:h-12 2xl:w-12"
           >
             <path
               strokeLinecap="round"
@@ -164,7 +164,9 @@ const UIEducationForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
               htmlFor="degree_edu_ren"
               className="mb-2 w-full font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end "
             >
-              <p className="mb-1 md:ml-14 lg:ml-[65px] xl:ml-12">Degree</p>
+              <p className="mb-1 md:ml-14 lg:ml-[65px] xl:ml-12 2xl:ml-[86px]">
+                Degree
+              </p>
               <input
                 className="mb-2 block h-12 w-full self-end rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12 "
                 type="text"
@@ -221,7 +223,9 @@ const UIEducationForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
               htmlFor="city_edu_ren"
               className="mb-2  font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end "
             >
-              <p className="mb-1 md:ml-14 lg:ml-[65px] xl:ml-12">City</p>
+              <p className="mb-1 md:ml-14 lg:ml-[65px] xl:ml-12 2xl:ml-[86px]">
+                City
+              </p>
               <input
                 className="mb-10 block h-12 w-full rounded border border-solid bg-input-bg p-2 py-1 text-gray-800 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12 md:self-end "
                 type="text"
