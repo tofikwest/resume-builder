@@ -52,7 +52,7 @@ const ProgresBar = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [currentWidth])
 
-  function handleResize() {
+  function handleResize(): void {
     setCurrentWidth(window.innerWidth)
   }
 
@@ -62,12 +62,13 @@ const ProgresBar = () => {
 
     const nextSectionTip = findSectionForAdding(sectionsData) // witch section need to add next
 
-    // console.log(sectionsData, 'sectionsData')
-    // console.log(nextSectionTip, 'nextSectionTip')
-
     for (const item in sectionsData) {
       if (sectionsData[item]) {
         console.log(sectionsData, item)
+        if (item === TITLE) {
+          continue
+        }
+
         if (item === PERSONAL_DETAILS || item === PROF_SUMMARY) {
           persent += 10
         } else {
@@ -94,19 +95,19 @@ const ProgresBar = () => {
     <>
       <div className="  mb-2 flex flex-col px-3 ">
         <div className=" flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2  xl:w-full">
             <div className="rounded bg-additional-color p-1 text-center text-xs  text-white md:text-sm">
               {countObj.left}%
             </div>
             <div className="gray-500 text-xs md:text-sm">Resume score</div>
           </div>
 
-          <div className="flex w-4/12 items-center justify-end gap-2">
+          <div className="flex w-4/12 items-center justify-end gap-2 xl:w-full">
             <div className="rounded bg-primary-green p-1 text-center text-xs text-primary-green md:text-sm">
               +{countObj.right}%
             </div>
             {currentWidth >= 768 && (
-              <div className="animated-text text-xs text-gray-500 md:text-sm">
+              <div className="animated-text text-xs text-gray-500 md:text-sm ">
                 {countObj.nextSect}
               </div>
             )}
