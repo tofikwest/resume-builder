@@ -53,7 +53,7 @@ const TitleResume: FC = () => {
           </svg>
         </button>
         {questionMark && (
-          <div className="absolute right-[-65px] top-[13px] h-auto w-[90px] rounded-lg bg-gray-200 p-1 text-xs   shadow-md transition duration-300 ease-in-out 2xl:w-60 2xl:text-lg">
+          <div className="absolute right-[-65px] top-[13px] h-auto w-[90px] rounded-lg bg-gray-200 p-1 text-xs   shadow-md transition duration-300 ease-in-out 2xl:w-60 2xl:text-base">
             Your resume title name.
           </div>
         )}

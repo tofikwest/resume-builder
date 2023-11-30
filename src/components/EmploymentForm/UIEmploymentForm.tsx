@@ -74,7 +74,7 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
       className="relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-solid border-additional-color p-4  lg:ml-3 2xl:text-lg"
     >
       <div className="my-2 flex w-11/12 items-center justify-between">
-        <legend className="self-start text-left font-bold 2xl:text-xl">
+        <legend className="self-start text-left font-bold 2xl:text-lg">
           {input.jobTitleHistory}
         </legend>
         <button
@@ -87,7 +87,7 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
-              className="h-5 w-5 2xl:h-8 2xl:w-8"
+              className="h-5 w-5 2xl:h-6 2xl:w-6"
             >
               <path
                 fill-rule="evenodd"
@@ -100,7 +100,7 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
-              className="h-5 w-5 2xl:h-8 2xl:w-8"
+              className="h-5 w-5 2xl:h-6 2xl:w-6"
             >
               <path
                 fill-rule="evenodd"
@@ -125,7 +125,7 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="h-8 w-8  2xl:h-12 2xl:w-12"
+            className="h-8 w-8   2xl:h-10 2xl:w-10"
           >
             <path
               strokeLinecap="round"
@@ -162,7 +162,7 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
               htmlFor="employer"
               className="mb-2 font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end "
             >
-              <p className="mb-1 md:ml-14 lg:ml-[65px] xl:ml-12 2xl:ml-[86px]">
+              <p className="mb-1 md:ml-14 lg:ml-[65px] xl:ml-12 2xl:ml-[62px]">
                 Employer
               </p>
               <input
@@ -221,7 +221,7 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
               htmlFor="city_employment_ren"
               className="mb-2  font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end"
             >
-              <p className="mb-1 md:ml-14 lg:ml-[65px] xl:ml-12 2xl:ml-[86px]">
+              <p className="mb-1 md:ml-14 lg:ml-[65px] xl:ml-12 2xl:ml-[62px]">
                 City
               </p>
               <input

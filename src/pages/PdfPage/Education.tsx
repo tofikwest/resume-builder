@@ -27,17 +27,17 @@ const Education = () => {
 
   return (
     <>
-      <h2 className="my-2 mb-1 ml-4 block text-xl font-semibold 2xl:text-3xl ">
+      <h2 className="my-2 mb-1 ml-4 block text-xl font-semibold 2xl:text-2xl ">
         Education
       </h2>
-      <p className=" mb-2 ml-4 w-10/12 text-sm text-gray-400 2xl:text-lg">
+      <p className=" mb-2 ml-4 w-10/12 text-sm text-gray-400 2xl:text-base">
         A varied education on your resume sums up the value that your learnings
         and background will bring to job.
       </p>
       <button
         onClick={handleBtnAddTrigger}
         type="button"
-        className="ml-4 flex  w-fit items-center  gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color 2xl:text-lg"
+        className="ml-4 flex  w-fit items-center  gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color 2xl:text-base"
       >
         {!btnAddTrigger ? (
           <>
@@ -80,7 +80,7 @@ const Education = () => {
       <ul className="relative">
         {edu.map((el) => (
           <li key={el.id} className="mb-2">
-            <div className="relative flex items-start px-2 md:mr-20 xl:mr-[53px] 2xl:mr-[99px]">
+            <div className="relative flex items-start px-4 md:mr-20 xl:mr-[53px] 2xl:mr-[72px]">
               <UIEducationForm
                 el={el}
                 handleDelEducation={handleDelEducation}
@@ -90,7 +90,7 @@ const Education = () => {
         ))}
       </ul>
 
-      <div className="px-2 ">{btnAddTrigger && <EducationForm />}</div>
+      <div className="px-4 ">{btnAddTrigger && <EducationForm />}</div>
     </>
   )
 }
