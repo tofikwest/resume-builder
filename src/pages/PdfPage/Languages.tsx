@@ -45,13 +45,13 @@ const Languages = () => {
 
   return (
     <>
-      <h2 className="my-2 mb-2 ml-4 block text-xl font-semibold lg:ml-11">
+      <h2 className="my-2 mb-2 block pl-6 text-xl font-semibold lg:ml-11">
         Languages
       </h2>
 
       <ul
         id="languages-list"
-        className=" mb-4 ml-4 flex w-full max-w-xl flex-wrap gap-2 lg:ml-11"
+        className=" mb-4 flex w-full max-w-xl flex-wrap gap-2 pl-5 lg:ml-11"
       >
         {suggestionLangList.map((el) => (
           <li
@@ -109,7 +109,7 @@ const Languages = () => {
 
       <ul
         id="skills-list"
-        className="ml-4 flex w-full max-w-xl flex-wrap gap-2 lg:ml-11"
+        className="mb-5 flex w-full max-w-xl flex-wrap gap-2 pl-5 lg:ml-11"
       >
         {languageList.map(({ id, language }: ILanguage) => (
           <li

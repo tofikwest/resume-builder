@@ -1,20 +1,40 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import EmploymentForm from '../../components/EmploymentForm/EmploymentForm'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
 import UIEmploymentForm from '../../components/EmploymentForm/UIEmploymentForm'
 import { DEL } from '../../redux/pdf/pdfSlice'
 import { EMPLOYMENT_HISTORY } from '../../redux/pdf/constants'
+import { bk } from '../../helpers/breakpoints'
 
 const EmploymentHistory: React.FC = () => {
   const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(false)
+  const [isUnfold, setIsUnfold] = useState(false)
+  const [currentWidth, setCurremtWidth] = useState<number>(window.innerWidth)
+
   const employmnetList = useSelector(
     (state: RootState) => state.pdf.employmentHistory,
   )
+
+  useEffect(() => {
+    window.addEventListener('resize', getCurrentWidth)
+
+    return () => window.removeEventListener('resize', getCurrentWidth)
+  }, [currentWidth])
+
   const dispatch = useDispatch()
 
   function handleBtnAddTrigger() {
     setBtnAddTrigger((prev) => !prev)
+  }
+
+  function btnClicked() {
+    setIsUnfold((prev) => !prev)
+  }
+
+  function getCurrentWidth() {
+    setCurremtWidth(window.innerWidth)
+    console.log(window.innerWidth)
   }
 
   function handleDelEducation(e: React.MouseEvent<HTMLButtonElement>) {
@@ -76,37 +96,42 @@ const EmploymentHistory: React.FC = () => {
         )}
       </button>
 
-      <ul>
+      <ul className="relative">
         {employmnetList.map((el) => (
           <li key={el.id}>
-            <div className="flex items-start">
-              <UIEmploymentForm el={el} />
-              <button
-                className="absolute top-0 h-full text-gray-300 hover:text-additional-hover-color lg:mt-8"
-                id={el.id}
-                onClick={handleDelEducation}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="h-8 w-8  "
+            <div className=" flex items-start px-2">
+              <UIEmploymentForm
+                el={el}
+                btnClicked={btnClicked}
+                isUnfold={isUnfold}
+              />
+              {isUnfold && currentWidth <= bk.mobile.big && (
+                <button
+                  className="absolute bottom-[-45%] right-[10%] h-full text-gray-300 hover:text-additional-hover-color lg:mt-8"
+                  id={el.id}
+                  onClick={handleDelEducation}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 9.75L14.25 12m0 0l2.25 2.25M14.25 12l2.25-2.25M14.25 12L12 14.25m-2.58 4.92l-6.375-6.375a1.125 1.125 0 010-1.59L9.42 4.83c.211-.211.498-.33.796-.33H19.5a2.25 2.25 0 012.25 2.25v10.5a2.25 2.25 0 01-2.25 2.25h-9.284c-.298 0-.585-.119-.796-.33z"
-                  />
-                </svg>
-              </button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="h-8 w-8  "
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 9.75L14.25 12m0 0l2.25 2.25M14.25 12l2.25-2.25M14.25 12L12 14.25m-2.58 4.92l-6.375-6.375a1.125 1.125 0 010-1.59L9.42 4.83c.211-.211.498-.33.796-.33H19.5a2.25 2.25 0 012.25 2.25v10.5a2.25 2.25 0 01-2.25 2.25h-9.284c-.298 0-.585-.119-.796-.33z"
+                    />
+                  </svg>
+                </button>
+              )}
             </div>
           </li>
         ))}
       </ul>
-
-      {btnAddTrigger && <EmploymentForm />}
+      <div className="px-1">{btnAddTrigger && <EmploymentForm />}</div>
     </>
   )
 }
