@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import EmploymentForm from '../../components/EmploymentForm/EmploymentForm'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
 import UIEmploymentForm from '../../components/EmploymentForm/UIEmploymentForm'
 import { DEL } from '../../redux/pdf/pdfSlice'
 import { EMPLOYMENT_HISTORY } from '../../redux/pdf/constants'
-import { bk } from '../../helpers/breakpoints'
 
 const EmploymentHistory: React.FC = () => {
   const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(false)
@@ -30,15 +29,15 @@ const EmploymentHistory: React.FC = () => {
   }
   return (
     <>
-      <h2 className="my-2 mb-1 ml-4 block text-xl font-semibold lg:ml-11">
+      <h2 className="my-2 mb-1 ml-4 block text-xl font-semibold ">
         Employment History
       </h2>
-      <p className=" mb-2 ml-4 w-10/12 text-sm text-gray-400 lg:ml-11">
+      <p className=" mb-2 ml-4 w-10/12 text-sm text-gray-400">
         Show your relevant experience
       </p>
       <button
         type="button"
-        className="ml-4 flex w-fit items-center  gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color lg:ml-11"
+        className="ml-4 flex w-fit items-center  gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color "
         onClick={handleBtnAddTrigger}
       >
         {!btnAddTrigger ? (

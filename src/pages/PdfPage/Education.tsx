@@ -28,17 +28,15 @@ const Education = () => {
 
   return (
     <>
-      <h2 className="my-2 mb-1 ml-4 block text-xl font-semibold lg:ml-11">
-        Education
-      </h2>
-      <p className=" mb-2 ml-4 w-10/12 text-sm text-gray-400 lg:ml-11">
+      <h2 className="my-2 mb-1 ml-4 block text-xl font-semibold ">Education</h2>
+      <p className=" mb-2 ml-4 w-10/12 text-sm text-gray-400 ">
         A varied education on your resume sums up the value that your learnings
         and background will bring to job.
       </p>
       <button
         onClick={handleBtnAddTrigger}
         type="button"
-        className="ml-4 flex  w-fit items-center  gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color lg:ml-11"
+        className="ml-4 flex  w-fit items-center  gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color "
       >
         {!btnAddTrigger ? (
           <>

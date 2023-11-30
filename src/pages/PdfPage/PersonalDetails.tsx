@@ -71,11 +71,11 @@ const PersonalDetails: React.FC = () => {
   }
 
   return (
-    <>
+    <section className="">
       <h2 className="my-2 ml-3 block text-xl font-semibold">
         Personal Details
       </h2>
-      <form className="flex h-full select-none flex-col justify-between  px-4 font-form-family md:flex-row md:flex-wrap md:items-center lg:w-11/12">
+      <form className="flex h-full select-none flex-col justify-between  px-4 font-form-family md:flex-row md:flex-wrap md:items-center ">
         <label
           htmlFor="jobTitle"
           className="inline w-full font-extralight text-gray-400   md:w-[50%]"
@@ -97,10 +97,10 @@ const PersonalDetails: React.FC = () => {
           htmlFor="city"
           className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
         >
-          <p className="md:ml-16 md:self-start">City</p>
+          <p className="md:ml-16 md:self-start lg:ml-20">City</p>
           <input
             onChange={handleMainFormData}
-            className=" mb-4 mt-1 block h-12  w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 lg:self-end"
+            className=" mb-4 mt-1 block h-12  w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 "
             type="text"
             id="city"
             name="city"
@@ -129,10 +129,10 @@ const PersonalDetails: React.FC = () => {
           htmlFor="last_name"
           className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
         >
-          <p className="md:ml-16 md:self-start">Last Name</p>
+          <p className="md:ml-16 md:self-start lg:ml-20">Last Name</p>
           <input
             onChange={handleMainFormData}
-            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2  focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 lg:self-end"
+            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2  focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 "
             type="text"
             id="last_name"
             name="last_name"
@@ -143,7 +143,7 @@ const PersonalDetails: React.FC = () => {
 
         <label
           htmlFor="email"
-          className="w-full font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col lg:ml-[70px]"
+          className="w-full font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col "
         >
           Email
           <input
@@ -162,7 +162,7 @@ const PersonalDetails: React.FC = () => {
           htmlFor="country"
           className=" w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
         >
-          <p className="md:ml-16 md:self-start">Country</p>
+          <p className="md:ml-16 md:self-start lg:ml-20">Country</p>
           <input
             onChange={handleMainFormData}
             className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none md:w-10/12"
@@ -177,7 +177,7 @@ const PersonalDetails: React.FC = () => {
         <label
           htmlFor="photo"
           className={`mb-4 mt-[28px] flex  h-12  w-full cursor-not-allowed items-center justify-center gap-2 rounded border border-solid border-gray-200 bg-input-bg p-2  text-sm font-extralight text-gray-400 hover:bg-[#553692] hover:text-white focus:border-b-2
-           md:w-5/12 lg:self-end
+           md:w-5/12 
           `}
         >
           <svg
@@ -202,14 +202,14 @@ const PersonalDetails: React.FC = () => {
 
           <input
             onChange={handleMainFormData}
-            className=" mb-4 mt-1 hidden h-12  w-full rounded  bg-input-bg p-2 focus:border-b-additional-color   focus:outline-none md:w-5/12"
+            className=" mb-4 mt-1 hidden h-12  w-full rounded  bg-input-bg p-2 focus:border-b-additional-color    focus:outline-none md:w-5/12"
             type="file"
             id="photo"
             name="photo"
             disabled={true}
             value={mainFormData.photo}
           />
-          <p className="inline w-10/12 text-center ">
+          <p className="inline w-10/12 text-center lg:text-base ">
             This template doesn't support photo upload
           </p>
         </label>
@@ -218,10 +218,10 @@ const PersonalDetails: React.FC = () => {
           htmlFor="phone"
           className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
         >
-          <p className="md:ml-16 md:self-start">Phone</p>
+          <p className="md:ml-16 md:self-start lg:ml-20">Phone</p>
           <input
             onChange={handleMainFormData}
-            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 lg:self-end"
+            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 "
             type="tel"
             inputMode="tel"
             id="phone"
@@ -235,7 +235,7 @@ const PersonalDetails: React.FC = () => {
       {/* Additional detail BTN */}
       <button
         type="button"
-        className=" ml-4 w-fit text-left text-sm text-additional-color hover:text-additional-hover-color"
+        className=" mb-2 ml-4 w-fit text-left text-sm text-additional-color hover:text-additional-hover-color"
         onClick={handleShowAdditionalForm}
       >
         {isNeedAdditionalForm ? (
@@ -277,7 +277,7 @@ const PersonalDetails: React.FC = () => {
         )}
       </button>
       {isNeedAdditionalForm && (
-        <form className="flex h-full select-none flex-col justify-between  px-4 font-form-family md:flex-row md:flex-wrap md:items-center lg:w-11/12">
+        <form className="flex h-full select-none flex-col justify-between  px-4 font-form-family md:flex-row md:flex-wrap md:items-center ">
           <label
             htmlFor="address"
             className="inline font-extralight text-gray-400 md:w-[50%]"
@@ -297,7 +297,7 @@ const PersonalDetails: React.FC = () => {
             htmlFor="driving_license"
             className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
           >
-            <p className="md:ml-16 md:self-start">Driving License</p>
+            <p className="md:ml-16 md:self-start lg:ml-20">Driving License</p>
             <input
               onChange={handleAdditionalFormData}
               className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none md:w-10/12"
@@ -326,10 +326,10 @@ const PersonalDetails: React.FC = () => {
             htmlFor="postalCode"
             className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
           >
-            <p className="md:ml-16 md:self-start">Postal Code</p>
+            <p className="md:ml-16 md:self-start lg:ml-20">Postal Code</p>
             <input
               onChange={handleAdditionalFormData}
-              className="mb-4 mt-1 block h-12  w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 lg:self-end"
+              className="d mb-4 mt-1 block  h-12 w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none md:w-10/12"
               type="text"
               id="postalCode"
               name="postalCode"
@@ -344,7 +344,7 @@ const PersonalDetails: React.FC = () => {
             Nationality
             <input
               onChange={handleAdditionalFormData}
-              className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 lg:self-end"
+              className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 "
               type="text"
               id="nationality"
               name="nationality"
@@ -356,10 +356,10 @@ const PersonalDetails: React.FC = () => {
             htmlFor="date_birth"
             className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
           >
-            <p className="md:ml-16 md:self-start">Date Of Birth</p>
+            <p className="md:ml-16 md:self-start lg:ml-20">Date Of Birth</p>
             <input
               onChange={handleAdditionalFormData}
-              className=" mb-4 mt-1 block h-12  w-full rounded border border-solid bg-input-bg p-2 text-gray-400 focus:border-b-2  focus:border-b-additional-color focus:outline-none   md:w-10/12 lg:self-end"
+              className=" mb-4 mt-1 block h-12  w-full rounded border border-solid bg-input-bg p-2 text-gray-400 focus:border-b-2  focus:border-b-additional-color focus:outline-none   md:w-10/12 "
               type="month"
               lang="en"
               id="date_birth"
@@ -369,7 +369,7 @@ const PersonalDetails: React.FC = () => {
           </label>
         </form>
       )}
-    </>
+    </section>
   )
 }
 
