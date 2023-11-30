@@ -4,7 +4,6 @@ import { ADD } from '../../redux/pdf/pdfSlice'
 import { PERSONAL_DETAILS } from '../../redux/pdf/constants'
 
 const PersonalDetails: React.FC = () => {
-  // ? PHOTO input
   const [currentWidth, setCurrentWidth] = useState(window.innerWidth)
   const [isNeedAdditionalForm, setIsNeedAdditionalForm] =
     useState<Boolean>(false)
@@ -76,84 +75,109 @@ const PersonalDetails: React.FC = () => {
       <h2 className="my-2 ml-3 block text-xl font-semibold">
         Personal Details
       </h2>
-      <form className="flex h-full select-none flex-col justify-between px-4  font-form-family lg:mx-auto lg:my-0 lg:w-11/12 lg:flex-wrap">
+      <form className="flex h-full select-none flex-col justify-between  px-4 font-form-family md:flex-row md:flex-wrap md:items-center lg:w-11/12">
         <label
           htmlFor="jobTitle"
-          className="inline font-extralight text-gray-400"
+          className="inline w-full font-extralight text-gray-400   md:w-[50%]"
         >
           Wanted Job Title
+          <input
+            onChange={handleMainFormData}
+            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color  focus:outline-none md:w-10/12"
+            type="text"
+            id="jobTitle"
+            name="jobTitle"
+            required
+            placeholder="e.g HR"
+            value={mainFormData.jobTitle}
+          />
         </label>
-        <input
-          onChange={handleMainFormData}
-          className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color  focus:outline-none lg:w-5/12"
-          type="text"
-          id="jobTitle"
-          name="jobTitle"
-          required
-          placeholder="e.g HR"
-          value={mainFormData.jobTitle}
-        />
-        {/* ======== */}
-        <label htmlFor="first_name" className="font-extralight text-gray-400">
+
+        <label
+          htmlFor="city"
+          className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
+        >
+          <p className="md:ml-16 md:self-start">City</p>
+          <input
+            onChange={handleMainFormData}
+            className=" mb-4 mt-1 block h-12  w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 lg:self-end"
+            type="text"
+            id="city"
+            name="city"
+            value={mainFormData.city}
+            required
+          />
+        </label>
+
+        <label
+          htmlFor="first_name"
+          className="w-full font-extralight  text-gray-400 md:flex md:w-[50%] md:flex-col"
+        >
           First Name
+          <input
+            onChange={handleMainFormData}
+            className="mb-4 mt-1 block h-12  w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none md:w-10/12"
+            type="text"
+            id="first_name"
+            name="first_name"
+            required
+            value={mainFormData.first_name}
+          />
         </label>
-        <input
-          onChange={handleMainFormData}
-          className="mb-4 mt-1 block h-12  w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
-          type="text"
-          id="first_name"
-          name="first_name"
-          required
-          value={mainFormData.first_name}
-        />
-        {/* ======== */}
+
         <label
           htmlFor="last_name"
-          className=" font-extralight text-gray-400 lg:ml-[70px]"
+          className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
         >
-          Last Name
+          <p className="md:ml-16 md:self-start">Last Name</p>
+          <input
+            onChange={handleMainFormData}
+            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2  focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 lg:self-end"
+            type="text"
+            id="last_name"
+            name="last_name"
+            value={mainFormData.last_name}
+            required
+          />
         </label>
-        <input
-          onChange={handleMainFormData}
-          className="mb-4 mt-1 block h-12 w-full self-end rounded border border-solid bg-input-bg  p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
-          type="text"
-          id="last_name"
-          name="last_name"
-          value={mainFormData.last_name}
-          required
-        />
-        {/* ======== */}
-        <label htmlFor="email" className="font-extralight text-gray-400">
+
+        <label
+          htmlFor="email"
+          className="w-full font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col lg:ml-[70px]"
+        >
           Email
+          <input
+            onChange={handleMainFormData}
+            className=" mb-4 mt-1 block h-12  w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none md:w-10/12"
+            type="email"
+            id="email"
+            inputMode="email"
+            name="email"
+            required
+            value={mainFormData.email}
+          />
         </label>
-        <input
-          onChange={handleMainFormData}
-          className=" mb-4 mt-1 block h-12  w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
-          type="email"
-          id="email"
-          inputMode="email"
-          name="email"
-          required
-          value={mainFormData.email}
-        />
-        {/* ======== */}
-        <label htmlFor="country" className="font-extralight text-gray-400">
-          Country
+
+        <label
+          htmlFor="country"
+          className=" w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
+        >
+          <p className="md:ml-16 md:self-start">Country</p>
+          <input
+            onChange={handleMainFormData}
+            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none md:w-10/12"
+            type="text"
+            id="country"
+            name="country"
+            required
+            value={mainFormData.country}
+          />
         </label>
-        <input
-          onChange={handleMainFormData}
-          className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
-          type="text"
-          id="country"
-          name="country"
-          required
-          value={mainFormData.country}
-        />
-        {/* ====== */}
+
         <label
           htmlFor="photo"
           className={`mb-4 mt-[28px] flex  h-12  w-full cursor-not-allowed items-center justify-center gap-2 rounded border border-solid border-gray-200 bg-input-bg p-2  text-sm font-extralight text-gray-400 hover:bg-[#553692] hover:text-white focus:border-b-2
-           lg:w-5/12 lg:self-end
+           md:w-5/12 lg:self-end
           `}
         >
           <svg
@@ -178,7 +202,7 @@ const PersonalDetails: React.FC = () => {
 
           <input
             onChange={handleMainFormData}
-            className=" mb-4 mt-1 hidden h-12  w-full rounded  bg-input-bg p-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
+            className=" mb-4 mt-1 hidden h-12  w-full rounded  bg-input-bg p-2 focus:border-b-additional-color   focus:outline-none md:w-5/12"
             type="file"
             id="photo"
             name="photo"
@@ -190,41 +214,23 @@ const PersonalDetails: React.FC = () => {
           </p>
         </label>
 
-        {/* ====== */}
-
         <label
           htmlFor="phone"
-          className="font-extralight text-gray-400 lg:ml-[70px]"
+          className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
         >
-          Phone
+          <p className="md:ml-16 md:self-start">Phone</p>
+          <input
+            onChange={handleMainFormData}
+            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 lg:self-end"
+            type="tel"
+            inputMode="tel"
+            id="phone"
+            name="phone"
+            placeholder="e.g +380 96 156 75 13"
+            required
+            value={mainFormData.phone}
+          />
         </label>
-        <input
-          onChange={handleMainFormData}
-          className="mb-4 mt-1 block h-12 w-full self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
-          type="tel"
-          inputMode="tel"
-          id="phone"
-          name="phone"
-          placeholder="e.g +380 96 156 75 13"
-          required
-          value={mainFormData.phone}
-        />
-        {/* ====== */}
-        <label
-          htmlFor="city"
-          className="font-extralight text-gray-400 lg:ml-[70px]"
-        >
-          City
-        </label>
-        <input
-          onChange={handleMainFormData}
-          className=" mb-4 mt-1 block h-12  w-full self-end rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
-          type="text"
-          id="city"
-          name="city"
-          value={mainFormData.city}
-          required
-        />
       </form>
       {/* Additional detail BTN */}
       <button
@@ -271,93 +277,96 @@ const PersonalDetails: React.FC = () => {
         )}
       </button>
       {isNeedAdditionalForm && (
-        <form className="flex h-full select-none flex-col justify-between px-4  font-form-family lg:mx-auto lg:my-0 lg:w-11/12 lg:flex-wrap">
-          <label htmlFor="address" className="font-extralight text-gray-400">
+        <form className="flex h-full select-none flex-col justify-between  px-4 font-form-family md:flex-row md:flex-wrap md:items-center lg:w-11/12">
+          <label
+            htmlFor="address"
+            className="inline font-extralight text-gray-400 md:w-[50%]"
+          >
             Address
+            <input
+              onChange={handleAdditionalFormData}
+              className="mb-4 mt-1 block h-12  w-full rounded border border-solid bg-input-bg p-2 placeholder:font-light focus:border-b-2 focus:border-b-additional-color   focus:outline-none md:w-10/12"
+              type="text"
+              id="address"
+              name="address"
+              value={additionalFormData.address}
+            />
           </label>
-          <input
-            onChange={handleAdditionalFormData}
-            className="mb-4 mt-1 block h-12  w-full rounded border border-solid bg-input-bg p-2 placeholder:font-light focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
-            type="text"
-            id="address"
-            name="address"
-            value={additionalFormData.address}
-          />
-          {/* ======== */}
+
           <label
             htmlFor="driving_license"
-            className="font-extralight text-gray-400"
+            className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
           >
-            Driving License
+            <p className="md:ml-16 md:self-start">Driving License</p>
+            <input
+              onChange={handleAdditionalFormData}
+              className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none md:w-10/12"
+              type="text"
+              id="driving_license"
+              name="driving_license"
+              value={additionalFormData.driving_license}
+            />
           </label>
-          <input
-            onChange={handleAdditionalFormData}
-            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
-            type="text"
-            id="driving_license"
-            name="driving_license"
-            value={additionalFormData.driving_license}
-          />
-          {/* ======== */}
+
           <label
             htmlFor="place_birth"
-            className="font-extralight text-gray-400"
+            className="w-full font-extralight text-gray-400 md:w-[50%]"
           >
             Place Of Birth
+            <input
+              onChange={handleAdditionalFormData}
+              className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none md:w-10/12"
+              type="text"
+              id="place_birth"
+              name="place_birth"
+            />
           </label>
-          <input
-            onChange={handleAdditionalFormData}
-            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
-            type="text"
-            id="place_birth"
-            name="place_birth"
-          />
-          {/* ======== */}
+
           <label
             htmlFor="postalCode"
-            className="font-extralight text-gray-400 lg:ml-[70px]"
+            className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
           >
-            Postal Code
+            <p className="md:ml-16 md:self-start">Postal Code</p>
+            <input
+              onChange={handleAdditionalFormData}
+              className="mb-4 mt-1 block h-12  w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 lg:self-end"
+              type="text"
+              id="postalCode"
+              name="postalCode"
+              value={additionalFormData.postalCode}
+            />
           </label>
-          <input
-            onChange={handleAdditionalFormData}
-            className="mb-4 mt-1 block h-12  w-full self-end rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
-            type="text"
-            id="postalCode"
-            name="postalCode"
-            value={additionalFormData.postalCode}
-          />
-          {/* ====== */}
+
           <label
             htmlFor="nationality"
-            className="font-extralight text-gray-400 lg:ml-[70px]"
+            className="inline w-full font-extralight text-gray-400 md:w-[50%]"
           >
             Nationality
+            <input
+              onChange={handleAdditionalFormData}
+              className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 lg:self-end"
+              type="text"
+              id="nationality"
+              name="nationality"
+              value={additionalFormData.nationality}
+            />
           </label>
-          <input
-            onChange={handleAdditionalFormData}
-            className="mb-4 mt-1 block h-12 w-full self-end rounded border border-solid bg-input-bg p-2 focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
-            type="text"
-            id="nationality"
-            name="nationality"
-            value={additionalFormData.nationality}
-          />
-          {/* ====== */}
+
           <label
             htmlFor="date_birth"
-            className="font-extralight text-gray-400 lg:ml-[70px]"
+            className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end"
           >
-            Date Of Birth
+            <p className="md:ml-16 md:self-start">Date Of Birth</p>
+            <input
+              onChange={handleAdditionalFormData}
+              className=" mb-4 mt-1 block h-12  w-full rounded border border-solid bg-input-bg p-2 text-gray-400 focus:border-b-2  focus:border-b-additional-color focus:outline-none   md:w-10/12 lg:self-end"
+              type="month"
+              lang="en"
+              id="date_birth"
+              name="date_birth"
+              value={additionalFormData.date_birth}
+            />
           </label>
-          <input
-            onChange={handleAdditionalFormData}
-            className=" mb-4 mt-1 block h-12  w-full self-end rounded border border-solid bg-input-bg p-2 text-gray-400  focus:border-b-2 focus:border-b-additional-color   focus:outline-none lg:w-5/12"
-            type="month"
-            lang="en"
-            id="date_birth"
-            name="date_birth"
-            value={additionalFormData.date_birth}
-          />
         </form>
       )}
     </>
