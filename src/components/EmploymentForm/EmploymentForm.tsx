@@ -58,7 +58,7 @@ const EmploymentForm: React.FC = () => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className="relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-dashed border-additional-color p-4   font-form-family lg:ml-12 lg:w-9/12"
+      className="relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-dashed border-additional-color p-4 font-form-family   md:flex-wrap lg:ml-12 lg:w-9/12"
     >
       <div className="my-2 flex w-11/12 items-center justify-between">
         <legend className="self-start text-left font-bold">
@@ -101,95 +101,93 @@ const EmploymentForm: React.FC = () => {
 
       {isUnfold && (
         <>
-          <div className=" flex h-auto w-11/12 select-none flex-col rounded   border-blue-300  font-form-family lg:my-20">
+          <div className=" flex h-auto w-11/12 select-none flex-col rounded border-blue-300   font-form-family  md:flex-row md:flex-wrap lg:my-20">
             <label
               htmlFor="jobTitleHistory"
-              className="mb-2 inline font-extralight text-gray-400"
+              className="mb-2 inline font-extralight  text-gray-400 md:w-[50%]"
             >
               Job Title
+              <input
+                className={` mb-2 mt-1 block h-12 w-full  rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12 `}
+                type="text"
+                id="jobTitleHistory"
+                name="jobTitleHistory"
+                onChange={handleForm}
+                value={localData.jobTitleHistory}
+              />
             </label>
-            <input
-              className={` mb-2 block h-12 w-full  rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none lg:w-5/12 `}
-              type="text"
-              id="jobTitleHistory"
-              name="jobTitleHistory"
-              onChange={handleForm}
-              value={localData.jobTitleHistory}
-            />
-            {/* ======== */}
 
-            {/* ====== */}
             <label
               htmlFor="employer"
-              className="mb-2 font-extralight text-gray-400 lg:ml-[50px]"
+              className="mb-2 font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end lg:ml-[50px]"
             >
-              Employer
+              <p className="mb-1 md:ml-14">Employer</p>
+              <input
+                className="mb-2 block h-12 w-full self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12"
+                type="text"
+                id="employer"
+                name="employer"
+                onChange={handleForm}
+                value={localData.employer}
+              />
             </label>
-            <input
-              className="mb-2 block h-12 w-full self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none lg:w-5/12 "
-              type="text"
-              id="employer"
-              name="employer"
-              onChange={handleForm}
-              value={localData.employer}
-            />
 
             <label
               htmlFor="date"
-              className="mb-2 font-extralight text-gray-400"
+              className="mb-2 font-extralight text-gray-400 md:w-[50%]"
             >
               Start & End Date
-            </label>
-            <div className="mb-4 flex items-center justify-between lg:w-5/12">
-              <input
-                className="mr-2 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 text-center text-sm text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
-                type="month"
-                lang="en"
-                id="date"
-                name="start_date"
-                onChange={handleForm}
-                value={localData.start_date}
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="mr-2 h-6 w-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"
+              <div className="mb-4 flex items-center justify-between pt-1 md:flex md:w-10/12 ">
+                <input
+                  className="mr-2  block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 text-center text-sm text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+                  type="month"
+                  lang="en"
+                  id="date"
+                  name="start_date"
+                  onChange={handleForm}
+                  value={localData.start_date}
                 />
-              </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="mr-2 h-6 w-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"
+                  />
+                </svg>
 
-              <input
-                className=" block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 text-center text-sm text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
-                type="month"
-                lang="en"
-                id="end_date"
-                name="end_date"
-                onChange={handleForm}
-                value={localData.end_date}
-              />
-            </div>
+                <input
+                  className=" block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 text-center text-sm text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+                  type="month"
+                  lang="en"
+                  id="end_date"
+                  name="end_date"
+                  onChange={handleForm}
+                  value={localData.end_date}
+                />
+              </div>
+            </label>
 
             <label
               htmlFor="city_employment"
-              className="mb-2 font-extralight text-gray-400 lg:ml-[50px]"
+              className="mb-2  font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end lg:ml-[50px]"
             >
-              City
+              <p className="mb-1 md:ml-14">City</p>
+              <input
+                className="mb-10 block h-12 w-full rounded border border-solid bg-input-bg p-2 py-1 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12 md:self-end "
+                type="text"
+                id="city_employment"
+                name="city"
+                onChange={handleForm}
+                value={localData.city}
+              />
             </label>
-            <input
-              className="mb-10 block h-12 rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none lg:w-5/12 lg:self-end "
-              type="text"
-              id="city_employment"
-              name="city"
-              onChange={handleForm}
-              value={localData.city}
-            />
           </div>
           <TextArea
             mx=""

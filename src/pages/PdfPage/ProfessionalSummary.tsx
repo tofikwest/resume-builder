@@ -34,11 +34,11 @@ const ProfessionalSummary: React.FC = () => {
 
       <TextArea
         handle={handleTextArea}
-        mx="mx-auto"
+        mx="mx-auto md:ml-4 md:w-[95.8%]"
         name="profSummary"
         value={textArea}
       />
-      <p className="ml-4 mt-[-20px] text-xs text-gray-500 lg:ml-10">
+      <p className="ml-4 mt-[-20px] text-xs text-gray-500 md:ml-5 lg:ml-10">
         * Recruiter tip: write 50-500 characters to increase interview chances
       </p>
     </>
