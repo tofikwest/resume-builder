@@ -1,11 +1,13 @@
-import { ChangeEvent, useState } from 'react'
-import TextArea from '../TextArea/TextArea'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { ADD } from '../../redux/pdf/pdfSlice'
 import { EMPLOYMENT_HISTORY } from '../../redux/pdf/constants'
+import TextArea from '../TextArea/TextArea'
 
 const EmploymentForm: React.FC = () => {
   const [isUnfold, setIsUnfold] = useState(false)
+  const [currentWidth, setCurremtWidth] = useState<number>(window.innerWidth)
+  const dispatch = useDispatch()
 
   const [localData, setLocalData] = useState({
     jobTitleHistory: '',
@@ -16,7 +18,11 @@ const EmploymentForm: React.FC = () => {
     description: '',
   })
 
-  const dispatch = useDispatch()
+  useEffect(() => {
+    window.addEventListener('resize', getCurrentWidth)
+
+    return () => window.removeEventListener('resize', getCurrentWidth)
+  }, [currentWidth])
 
   function handleSubmit() {
     if (Object.values(localData).some(Boolean)) {
@@ -44,10 +50,15 @@ const EmploymentForm: React.FC = () => {
     }))
   }
 
+  function getCurrentWidth() {
+    setCurremtWidth(window.innerWidth)
+    console.log(window.innerWidth)
+  }
+
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className={` my-2 ml-4 flex h-auto w-11/12 select-none flex-col items-center rounded-xl border border-dashed border-additional-color p-4   font-form-family  lg:ml-12 lg:w-9/12`}
+      className="relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-dashed border-additional-color p-4   font-form-family lg:ml-12 lg:w-9/12"
     >
       <div className="my-2 flex w-11/12 items-center justify-between">
         <legend className="self-start text-left font-bold">
@@ -90,7 +101,7 @@ const EmploymentForm: React.FC = () => {
 
       {isUnfold && (
         <>
-          <div className=" my-2 flex h-[210px] w-11/12 select-none flex-col flex-wrap  rounded  border-blue-300 font-form-family">
+          <div className=" flex h-auto w-11/12 select-none flex-col rounded   border-blue-300  font-form-family lg:my-20">
             <label
               htmlFor="jobTitleHistory"
               className="mb-2 inline font-extralight text-gray-400"
@@ -98,7 +109,7 @@ const EmploymentForm: React.FC = () => {
               Job Title
             </label>
             <input
-              className={` mb-2 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none `}
+              className={` mb-2 block h-12 w-full  rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none lg:w-5/12 `}
               type="text"
               id="jobTitleHistory"
               name="jobTitleHistory"
@@ -106,15 +117,32 @@ const EmploymentForm: React.FC = () => {
               value={localData.jobTitleHistory}
             />
             {/* ======== */}
+
+            {/* ====== */}
+            <label
+              htmlFor="employer"
+              className="mb-2 font-extralight text-gray-400 lg:ml-[50px]"
+            >
+              Employer
+            </label>
+            <input
+              className="mb-2 block h-12 w-full self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none lg:w-5/12 "
+              type="text"
+              id="employer"
+              name="employer"
+              onChange={handleForm}
+              value={localData.employer}
+            />
+
             <label
               htmlFor="date"
               className="mb-2 font-extralight text-gray-400"
             >
               Start & End Date
             </label>
-            <div className="mb-4 flex w-5/12 items-center justify-between">
+            <div className="mb-4 flex items-center justify-between lg:w-5/12">
               <input
-                className="block h-12 w-6/12  rounded border border-solid bg-input-bg p-2 text-center text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+                className="mr-2 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 text-center text-sm text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
                 type="month"
                 lang="en"
                 id="date"
@@ -128,7 +156,7 @@ const EmploymentForm: React.FC = () => {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="mb-2 h-6 w-6"
+                className="mr-2 h-6 w-6"
               >
                 <path
                   strokeLinecap="round"
@@ -138,7 +166,7 @@ const EmploymentForm: React.FC = () => {
               </svg>
 
               <input
-                className=" block h-12 w-6/12 rounded border border-solid bg-input-bg p-2 text-center text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+                className=" block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 text-center text-sm text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
                 type="month"
                 lang="en"
                 id="end_date"
@@ -147,29 +175,15 @@ const EmploymentForm: React.FC = () => {
                 value={localData.end_date}
               />
             </div>
-            {/* ====== */}
-            <label
-              htmlFor="employer"
-              className="mb-2 ml-[50px] font-extralight text-gray-400"
-            >
-              Employer
-            </label>
-            <input
-              className="mb-2 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none "
-              type="text"
-              id="employer"
-              name="employer"
-              onChange={handleForm}
-              value={localData.employer}
-            />
+
             <label
               htmlFor="city_employment"
-              className="mb-2 ml-[50px] font-extralight text-gray-400"
+              className="mb-2 font-extralight text-gray-400 lg:ml-[50px]"
             >
               City
             </label>
             <input
-              className="block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none "
+              className="mb-10 block h-12 rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none lg:w-5/12 lg:self-end "
               type="text"
               id="city_employment"
               name="city"

@@ -55,7 +55,7 @@ const EducationForm: React.FC = () => {
       <form
         id={edu.at(-1)?.id}
         onSubmit={(e) => e.preventDefault()}
-        className="mx-2 my-2 flex h-auto select-none flex-col items-center rounded-xl border border-dashed border-additional-color p-4   font-form-family  lg:ml-12 lg:w-9/12"
+        className="relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-dashed border-additional-color p-4   font-form-family lg:ml-12 lg:w-9/12"
       >
         <div className="my-2 flex w-11/12 items-center justify-between">
           <legend className="self-start text-left font-bold">
@@ -98,7 +98,7 @@ const EducationForm: React.FC = () => {
 
         {isUnfold && (
           <>
-            <div className="  flex h-[210px] w-11/12 select-none flex-col flex-wrap  rounded  border-blue-300 font-form-family">
+            <div className="  mb-10 flex h-auto w-11/12 select-none flex-col rounded  border-blue-300  font-form-family lg:h-[210px] lg:flex-wrap">
               <label
                 htmlFor="school"
                 className="mb-2 inline font-extralight text-gray-400"
@@ -106,7 +106,7 @@ const EducationForm: React.FC = () => {
                 School
               </label>
               <input
-                className={`mb-2 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none `}
+                className={`mb-2 block h-12 w-full rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none lg:w-5/12 `}
                 type="text"
                 id="school"
                 name="school"
@@ -120,9 +120,9 @@ const EducationForm: React.FC = () => {
               >
                 Start & End Date
               </label>
-              <div className="mb-4 flex w-5/12 items-center justify-between">
+              <div className="mb-4 flex items-center justify-between lg:w-5/12">
                 <input
-                  className="block h-12 w-5/12  rounded border border-solid bg-input-bg p-2 text-center text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+                  className="block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 text-center text-sm text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
                   type="month"
                   lang="en"
                   id="edu_date"
@@ -130,7 +130,7 @@ const EducationForm: React.FC = () => {
                   onChange={handleForm}
                   value={localData.start_date}
                 />
-                <svg
+                {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -143,10 +143,10 @@ const EducationForm: React.FC = () => {
                     strokeLinejoin="round"
                     d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"
                   />
-                </svg>
+                </svg> */}
 
                 <input
-                  className=" block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 text-center text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+                  className=" block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 text-center text-sm text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
                   type="month"
                   lang="en"
                   id="end_date"
@@ -158,12 +158,12 @@ const EducationForm: React.FC = () => {
               {/* ====== */}
               <label
                 htmlFor="degree"
-                className="mb-2 ml-[50px] font-extralight text-gray-400"
+                className="mb-2 font-extralight text-gray-400 lg:ml-[50px]"
               >
                 Degree
               </label>
               <input
-                className="mb-2 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none "
+                className="mb-2 block h-12 w-full self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none lg:w-5/12 "
                 type="text"
                 id="degree"
                 name="degree"
@@ -172,12 +172,12 @@ const EducationForm: React.FC = () => {
               />
               <label
                 htmlFor="city_edu"
-                className="mb-2 ml-[50px] font-extralight text-gray-400"
+                className="mb-2 font-extralight text-gray-400 lg:ml-[50px]"
               >
                 City
               </label>
               <input
-                className="block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none "
+                className="block h-12 w-full self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none lg:w-5/12 "
                 type="text"
                 id="city_edu"
                 name="city"

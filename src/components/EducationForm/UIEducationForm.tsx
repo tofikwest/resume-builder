@@ -6,8 +6,10 @@ import { EDUCATION } from '../../redux/pdf/constants'
 
 interface IProps {
   el: IEducation
+  btnClicked: () => void
+  isUnfold: boolean
 }
-const UIEducationForm: React.FC<IProps> = ({ el }) => {
+const UIEducationForm: React.FC<IProps> = ({ el, isUnfold, btnClicked }) => {
   const dispatch = useDispatch()
 
   const [input, setChangeInput] = useState<IEducation>({
@@ -18,8 +20,6 @@ const UIEducationForm: React.FC<IProps> = ({ el }) => {
     city: el.city,
     description: el.description,
   })
-
-  const [isUnfold, setIsUnfold] = useState(false)
 
   function handleInput(
     e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
@@ -46,14 +46,14 @@ const UIEducationForm: React.FC<IProps> = ({ el }) => {
     <form
       id={el.id}
       onSubmit={handleSubmit}
-      className={` mx-2 my-2 flex h-auto w-full select-none flex-col items-center rounded-xl border border-dashed border-gray-300 p-4   font-form-family  lg:ml-12 lg:w-9/12`}
+      className="flex h-auto w-full select-none flex-col items-center rounded-xl border border-solid border-additional-color p-4 font-form-family lg:mx-2 lg:ml-12   lg:w-9/12 lg:rounded-xl lg:border-dashed"
     >
       <div className="my-2 flex w-11/12 items-center justify-between">
         <legend className="self-start text-left font-bold">
           {input.school}
         </legend>
         <button
-          onClick={() => setIsUnfold((prev) => !prev)}
+          onClick={btnClicked}
           type="button"
           className=" rounded-xl bg-additional-color p-1 text-white"
         >
@@ -91,7 +91,7 @@ const UIEducationForm: React.FC<IProps> = ({ el }) => {
         <>
           <div
             className={
-              'flex h-[210px] w-11/12 select-none flex-col flex-wrap  rounded  border-blue-300 font-form-family'
+              'mb-4 flex h-auto w-11/12 select-none flex-col rounded  border-blue-300  font-form-family lg:flex-wrap'
             }
           >
             <label
@@ -101,7 +101,7 @@ const UIEducationForm: React.FC<IProps> = ({ el }) => {
               School
             </label>
             <input
-              className={`mb-2 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none `}
+              className={`mb-2 block h-12 w-full rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none lg:w-5/12 `}
               type="text"
               id="school"
               name="school"
@@ -115,9 +115,9 @@ const UIEducationForm: React.FC<IProps> = ({ el }) => {
             >
               Start & End Date
             </label>
-            <div className="mb-4 flex w-5/12 items-center justify-between">
+            <div className="mb-4 flex items-center justify-between lg:w-5/12">
               <input
-                className="block h-12 w-5/12  rounded border border-solid bg-input-bg p-2 text-center text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+                className="block h-12 w-5/12 rounded  border border-solid bg-input-bg p-2 text-center text-sm text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
                 type="month"
                 lang="en"
                 id="edu_date"
@@ -141,7 +141,7 @@ const UIEducationForm: React.FC<IProps> = ({ el }) => {
               </svg>
 
               <input
-                className=" block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 text-center text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+                className=" block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 text-center text-sm text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
                 type="month"
                 lang="en"
                 id="end_date"
@@ -153,12 +153,12 @@ const UIEducationForm: React.FC<IProps> = ({ el }) => {
             {/* ====== */}
             <label
               htmlFor="degree_edu_ren"
-              className="mb-2 ml-[50px] font-extralight text-gray-400"
+              className="mb-2 font-extralight text-gray-400 lg:ml-[50px]"
             >
               Degree
             </label>
             <input
-              className="mb-2 block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none "
+              className="mb-2 block h-12 w-full self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none lg:w-5/12 "
               type="text"
               id="degree_edu_ren"
               name="degree_edu_ren"
@@ -167,12 +167,12 @@ const UIEducationForm: React.FC<IProps> = ({ el }) => {
             />
             <label
               htmlFor="city_edu_ren"
-              className="mb-2 ml-[50px] font-extralight text-gray-400"
+              className="mb-2 font-extralight text-gray-400 lg:ml-[50px]"
             >
               City
             </label>
             <input
-              className="block h-12 w-5/12 self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none "
+              className="block h-12 w-full self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none lg:w-5/12 "
               type="text"
               id="city_edu_ren"
               name="city"
