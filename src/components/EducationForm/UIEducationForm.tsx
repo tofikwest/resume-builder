@@ -72,7 +72,7 @@ const UIEducationForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
       ref={formRef}
       id={el.id}
       onSubmit={handleSubmit}
-      className="relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-solid border-additional-color p-4 font-form-family  md:flex-wrap lg:ml-12 lg:w-9/12"
+      className="relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-solid border-additional-color p-4 font-form-family  md:flex-wrap lg:ml-3 "
     >
       <div className="my-2 flex w-11/12 items-center justify-between">
         <legend className="self-start text-left font-bold">
@@ -117,7 +117,7 @@ const UIEducationForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
             height <= 78
               ? 'md:right-[-8%] md:top-[30%] md:block'
               : 'md:right-[-8%] md:top-[4%] md:block'
-          }  h-auto text-gray-300 hover:text-additional-hover-color lg:mt-8`}
+          }  h-auto text-gray-300 hover:text-additional-hover-color `}
           id={el.id}
           onClick={handleDelEducation}
         >
@@ -142,7 +142,7 @@ const UIEducationForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
         <>
           <div
             className={
-              'flex h-auto w-11/12 select-none flex-col rounded border-blue-300 font-form-family     md:flex-row md:flex-wrap lg:my-20'
+              'flex h-auto w-11/12 select-none flex-col rounded border-blue-300 font-form-family md:flex-row md:flex-wrap'
             }
           >
             <label
@@ -162,9 +162,9 @@ const UIEducationForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
 
             <label
               htmlFor="degree_edu_ren"
-              className="mb-2 w-full font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end lg:ml-[50px]"
+              className="mb-2 w-full font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end "
             >
-              <p className="mb-1 md:ml-14">Degree</p>
+              <p className="mb-1 md:ml-14 lg:ml-[65px]">Degree</p>
               <input
                 className="mb-2 block h-12 w-full self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12"
                 type="text"
@@ -219,9 +219,9 @@ const UIEducationForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
 
             <label
               htmlFor="city_edu_ren"
-              className="mb-2  font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end lg:ml-[50px]"
+              className="mb-2  font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end "
             >
-              <p className="mb-1 md:ml-14">City</p>
+              <p className="mb-1 md:ml-14 lg:ml-[65px]">City</p>
               <input
                 className="mb-10 block h-12 w-full rounded border border-solid bg-input-bg p-2 py-1 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12 md:self-end "
                 type="text"

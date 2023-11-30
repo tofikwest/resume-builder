@@ -55,7 +55,7 @@ const EducationForm: React.FC = () => {
       <form
         id={edu.at(-1)?.id}
         onSubmit={(e) => e.preventDefault()}
-        className="relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-dashed border-additional-color p-4 font-form-family  md:flex-wrap lg:ml-12 lg:w-9/12"
+        className="relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-dashed border-additional-color p-4 font-form-family  md:flex-wrap lg:ml-3 lg:w-[91.6%] "
       >
         <div className="my-2 flex w-11/12 items-center justify-between">
           <legend className="self-start text-left font-bold">
@@ -98,7 +98,7 @@ const EducationForm: React.FC = () => {
 
         {isUnfold && (
           <>
-            <div className="flex h-auto w-11/12 select-none flex-col rounded border-blue-300 font-form-family     md:flex-row md:flex-wrap lg:my-20">
+            <div className="flex h-auto w-11/12 select-none flex-col rounded border-blue-300 font-form-family md:flex-row md:flex-wrap ">
               <label
                 htmlFor="school"
                 className="mb-2 inline w-full font-extralight text-gray-400 md:w-[50%]"
@@ -116,9 +116,9 @@ const EducationForm: React.FC = () => {
 
               <label
                 htmlFor="degree"
-                className="mb-2 w-full font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end lg:ml-[50px]"
+                className="mb-2 w-full font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end "
               >
-                <p className="mb-1 md:ml-14">Degree</p>
+                <p className="mb-1 md:ml-14 lg:ml-[65px]">Degree</p>
                 <input
                   className="mb-2 block h-12 w-full self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12"
                   type="text"
@@ -173,9 +173,9 @@ const EducationForm: React.FC = () => {
 
               <label
                 htmlFor="city_edu"
-                className="mb-2  font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end lg:ml-[50px]"
+                className="mb-2  font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end "
               >
-                <p className="mb-1 md:ml-14">City</p>
+                <p className="mb-1 md:ml-14 lg:ml-[65px]">City</p>
                 <input
                   className="mb-10 block h-12 w-full rounded border border-solid bg-input-bg p-2 py-1 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12 md:self-end "
                   type="text"

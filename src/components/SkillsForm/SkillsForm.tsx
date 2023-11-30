@@ -33,39 +33,39 @@ const SkillsForm: React.FC = () => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className=" mx-4 ml-4 flex h-full select-none flex-col justify-between rounded-xl border   border-dashed border-gray-300  p-4 font-form-family lg:mx-10 lg:w-7/12 lg:flex-row"
+      className=" mx-4 ml-4 flex h-full select-none flex-col justify-between rounded-xl border   border-dashed border-gray-300  p-4 font-form-family  lg:w-6/12 "
     >
-      <div className="">
+      <div className="lg:flex lg:gap-20">
         <label htmlFor="skill" className="font-light text-gray-400">
           Skill
+          <input
+            className={`  block w-full rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none `}
+            type="text"
+            id="skill"
+            name="skill"
+            onChange={handleForm}
+            value={localData.skill}
+          />
         </label>
-        <input
-          className={`  block w-full rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none `}
-          type="text"
-          id="skill"
-          name="skill"
-          onChange={handleForm}
-          value={localData.skill}
-        />
-      </div>
 
-      {/* ====== */}
-      <div>
-        <label htmlFor="level" className="mt-2 block font-light text-gray-400 ">
+        <label
+          htmlFor="level"
+          className="mt-2 block font-light text-gray-400 lg:mt-0 "
+        >
           Level
+          <input
+            className="  block w-full self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none "
+            type="text"
+            id="level"
+            name="level"
+            onChange={handleForm}
+            value={localData.level}
+          />
         </label>
-        <input
-          className="  block w-full self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none "
-          type="text"
-          id="level"
-          name="level"
-          onChange={handleForm}
-          value={localData.level}
-        />
       </div>
       <button
         onClick={handleSubmit}
-        className=" mt-4 h-[42px] w-full  self-end rounded  bg-additional-color p-2 text-gray-100"
+        className=" mt-4 h-[42px] w-full  self-end rounded  bg-additional-color p-2 text-gray-100 lg:self-center"
       >
         Save
       </button>

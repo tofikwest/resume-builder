@@ -92,7 +92,7 @@ const ProgresBar = () => {
 
   return (
     <>
-      <div className=" mx-4 mb-2 flex flex-col lg:px-11">
+      <div className="  mb-2 flex flex-col px-3 ">
         <div className=" flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="rounded bg-additional-color p-1 text-center text-xs  text-white md:text-sm">

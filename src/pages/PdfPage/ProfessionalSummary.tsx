@@ -23,10 +23,10 @@ const ProfessionalSummary: React.FC = () => {
   return (
     <>
       {/* // * Professional Summary */}
-      <h2 className="my-2 mb-1 ml-4 block text-xl font-semibold lg:ml-11">
+      <h2 className="my-2 mb-1 ml-4 block text-xl font-semibold ">
         Professional Summary
       </h2>
-      <p className=" mb-2 ml-4 w-11/12 text-sm text-gray-400 lg:ml-11">
+      <p className=" mb-2 ml-4 w-11/12 text-sm text-gray-400 ">
         Write 2-4 short & energetic sentences to interest the reader! Mention
         your role, experience & most importantly - your biggest achievements,
         best qualities and skills.
@@ -34,11 +34,11 @@ const ProfessionalSummary: React.FC = () => {
 
       <TextArea
         handle={handleTextArea}
-        mx="mx-auto md:ml-4 md:w-[95.8%]"
+        mx="mx-auto md:ml-4 md:w-[95.8%] lg:w-[97%]"
         name="profSummary"
         value={textArea}
       />
-      <p className="ml-4 mt-[-20px] text-xs text-gray-500 md:ml-5 lg:ml-10">
+      <p className="ml-4 mt-[-20px] text-xs text-gray-500 md:ml-5 ">
         * Recruiter tip: write 50-500 characters to increase interview chances
       </p>
     </>
