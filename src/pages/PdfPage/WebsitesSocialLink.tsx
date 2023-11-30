@@ -33,10 +33,10 @@ const WebsitesSocialLink = () => {
 
   return (
     <>
-      <h2 className="my-2 mb-1 block pl-4 text-xl font-semibold 2xl:text-3xl">
+      <h2 className="my-2 mb-1 block pl-4 text-xl font-semibold 2xl:text-2xl">
         Websites & Social Links
       </h2>
-      <p className=" mb-2 w-10/12 pl-4 text-sm text-gray-400 2xl:text-lg">
+      <p className=" mb-2 w-10/12 pl-4 text-sm text-gray-400 2xl:text-base">
         You can add links to websites you want hiring managers to see! Perhaps
         It will be a link to your portfolio, LinkedIn profile, or personal
         website
@@ -44,7 +44,7 @@ const WebsitesSocialLink = () => {
       <button
         onClick={handleBtnAddTrigger}
         type="button"
-        className="ml-4 flex w-fit items-center  gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color 2xl:text-lg"
+        className="ml-4 flex w-fit items-center  gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color 2xl:text-base"
       >
         {!btnAddTrigger ? (
           <>
@@ -86,7 +86,7 @@ const WebsitesSocialLink = () => {
       {btnAddTrigger && <WebSitesSocLinkForm />}
       <ul
         id="websitesLink-list"
-        className=" ml-5 flex w-full max-w-xl flex-wrap gap-2 2xl:text-lg "
+        className=" ml-5 flex w-full max-w-xl flex-wrap gap-2 2xl:text-base "
       >
         {socLinks.map(({ id, label, link }: IWebSitesSocLink) => (
           <li

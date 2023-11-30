@@ -61,7 +61,7 @@ const EmploymentForm: React.FC = () => {
       className="relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-dashed border-additional-color p-4 md:w-[89.5%] md:flex-wrap lg:ml-3 lg:w-[90.6%] 2xl:text-lg"
     >
       <div className="my-2 flex w-11/12 items-center justify-between">
-        <legend className="self-start text-left font-bold 2xl:text-xl">
+        <legend className="self-start text-left font-bold 2xl:text-lg">
           (Not specified)
         </legend>
         <button
@@ -74,7 +74,7 @@ const EmploymentForm: React.FC = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
-              className="h-5 w-5 2xl:h-8 2xl:w-8"
+              className="h-5 w-5 2xl:h-6 2xl:w-6"
             >
               <path
                 fill-rule="evenodd"
@@ -87,7 +87,7 @@ const EmploymentForm: React.FC = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
-              className="h-5 w-5 2xl:h-8 2xl:w-8"
+              className="h-5 w-5 2xl:h-6 2xl:w-6"
             >
               <path
                 fill-rule="evenodd"
@@ -121,7 +121,7 @@ const EmploymentForm: React.FC = () => {
               htmlFor="employer"
               className="mb-2 font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end "
             >
-              <p className="mb-1 md:ml-14 lg:ml-[65px] xl:ml-12 2xl:ml-[85px]">
+              <p className="mb-1 md:ml-14 lg:ml-[65px] xl:ml-12 2xl:ml-[62px]">
                 Employer
               </p>
               <input
@@ -180,7 +180,7 @@ const EmploymentForm: React.FC = () => {
               htmlFor="city_employment"
               className="mb-2  font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end "
             >
-              <p className="mb-1 md:ml-14 lg:ml-[65px] xl:ml-12 2xl:ml-[85px]">
+              <p className="mb-1 md:ml-14 lg:ml-[65px] xl:ml-12 2xl:ml-[62px]">
                 City
               </p>
               <input

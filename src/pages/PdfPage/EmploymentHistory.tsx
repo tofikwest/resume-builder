@@ -29,15 +29,15 @@ const EmploymentHistory: React.FC = () => {
   }
   return (
     <>
-      <h2 className="my-2 mb-1 ml-4 block text-xl font-semibold 2xl:text-3xl">
+      <h2 className="my-2 mb-1 ml-4 block text-xl font-semibold 2xl:text-2xl">
         Employment History
       </h2>
-      <p className=" mb-2 ml-4 w-10/12 text-sm text-gray-400 2xl:text-lg">
+      <p className=" mb-2 ml-4 w-10/12 text-sm text-gray-400 2xl:text-base">
         Show your relevant experience
       </p>
       <button
         type="button"
-        className="ml-4 flex w-fit items-center  gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color 2xl:text-lg"
+        className="ml-4 flex w-fit items-center  gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color 2xl:text-base"
         onClick={handleBtnAddTrigger}
       >
         {!btnAddTrigger ? (
@@ -81,7 +81,7 @@ const EmploymentHistory: React.FC = () => {
       <ul className="relative">
         {employmnetList.map((el) => (
           <li key={el.id} className="mb-2">
-            <div className=" flex items-start px-2 md:mr-20 xl:mr-[53px] 2xl:mr-[99px]">
+            <div className=" flex items-start px-4 md:mr-20  xl:mr-[53px] 2xl:mr-[72px]">
               <UIEmploymentForm
                 el={el}
                 handleDelEducation={handleDelEducation}
@@ -90,7 +90,7 @@ const EmploymentHistory: React.FC = () => {
           </li>
         ))}
       </ul>
-      <div className="px-2 md:px-2">{btnAddTrigger && <EmploymentForm />}</div>
+      <div className="px-4 ">{btnAddTrigger && <EmploymentForm />}</div>
     </>
   )
 }

@@ -95,20 +95,20 @@ const ProgresBar = () => {
       <div className="  mb-2 flex flex-col px-3 ">
         <div className=" flex items-center justify-between">
           <div className="flex items-center gap-2  xl:w-full">
-            <div className="rounded bg-additional-color p-1 text-center text-xs  text-white md:text-sm 2xl:text-lg">
+            <div className="rounded bg-additional-color p-1 text-center text-xs  text-white md:text-sm 2xl:text-base">
               {countObj.left}%
             </div>
-            <div className="gray-500 text-xs md:text-sm 2xl:text-lg">
+            <div className="gray-500 text-xs md:text-sm 2xl:text-base">
               Resume score
             </div>
           </div>
 
           <div className="flex w-4/12 items-center justify-end gap-2 xl:w-full">
-            <div className="rounded bg-primary-green p-1 text-center text-xs text-primary-green md:text-sm 2xl:text-lg">
+            <div className="rounded bg-primary-green p-1 text-center text-xs text-primary-green md:text-sm 2xl:text-base">
               +{countObj.right}%
             </div>
             {currentWidth >= 768 && (
-              <div className="animated-text text-xs text-gray-500 md:text-sm 2xl:text-lg">
+              <div className="animated-text text-xs text-gray-500 md:text-sm 2xl:text-base">
                 {countObj.nextSect}
               </div>
             )}
@@ -134,7 +134,7 @@ const ProgresBar = () => {
               </button>
 
               {questionMark && (
-                <div className="absolute left-[-450%] top-[180%] max-w-[100px] rounded-xl bg-gray-200 p-2 text-xs shadow-md 2xl:max-w-[200px] 2xl:text-lg">
+                <div className="absolute left-[-450%] top-[180%] max-w-[100px] rounded-xl bg-gray-200 p-2 text-xs shadow-md 2xl:max-w-[200px] 2xl:text-base">
                   Your resume is evaluated every time
                 </div>
               )}

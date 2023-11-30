@@ -72,7 +72,7 @@ const PersonalDetails: React.FC = () => {
 
   return (
     <section className="">
-      <h2 className="my-2 ml-3 block text-xl font-semibold 2xl:text-3xl">
+      <h2 className="my-2 ml-3 block text-xl font-semibold 2xl:text-2xl">
         Personal Details
       </h2>
       <form className="flex h-full select-none flex-col justify-between  px-4 font-form-family md:flex-row md:flex-wrap md:items-center ">
@@ -183,7 +183,7 @@ const PersonalDetails: React.FC = () => {
         <label
           htmlFor="photo"
           className={`mb-4 mt-[28px] flex  h-12  w-full cursor-not-allowed items-center justify-center gap-2 rounded border border-solid border-gray-200 bg-input-bg p-2  text-sm font-extralight text-gray-400 hover:bg-[#d75151] hover:text-white focus:border-b-2
-           md:w-5/12 2xl:text-lg 
+           md:w-5/12 2xl:h-16 2xl:text-lg
           `}
         >
           <svg
@@ -243,7 +243,7 @@ const PersonalDetails: React.FC = () => {
       {/* Additional detail BTN */}
       <button
         type="button"
-        className=" mb-2 ml-4 w-fit text-left text-sm text-additional-color hover:text-additional-hover-color"
+        className=" mb-2 ml-4 w-fit text-left text-sm text-additional-color hover:text-additional-hover-color 2xl:text-base"
         onClick={handleShowAdditionalForm}
       >
         {isNeedAdditionalForm ? (
