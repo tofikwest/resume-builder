@@ -1,7 +1,6 @@
-import { ChangeEvent, useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { ChangeEvent, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { ADD } from '../../redux/pdf/pdfSlice'
-import { RootState } from '../../redux/store'
 import { ILanguage } from '../../redux/pdf/types'
 import { LANGUAGES } from '../../redux/pdf/constants'
 
@@ -36,9 +35,9 @@ const LanguageForm: React.FC = () => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className=" mx-4 ml-4 flex h-full select-none flex-col justify-between rounded-xl border   border-dashed border-gray-300  p-4 lg:w-6/12 "
+      className=" mx-4 ml-4 flex h-full select-none flex-col justify-between rounded-xl border   border-dashed border-gray-300  p-4 lg:w-6/12 2xl:text-lg"
     >
-      <div className="lg:flex lg:gap-20 xl:gap-5">
+      <div className="lg:flex lg:gap-20 xl:gap-5 2xl:gap-20">
         <label htmlFor="language" className="font-light text-gray-400">
           Language
           <input

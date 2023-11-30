@@ -39,7 +39,7 @@ const WebSitesSocLinkForm: React.FC = () => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className=" my-4 ml-4 flex h-full w-11/12 select-none flex-col justify-between  rounded-xl border  border-dashed border-gray-300 p-4 font-form-family lg:w-6/12"
+      className=" my-4 ml-4 flex h-full w-11/12 select-none flex-col justify-between  rounded-xl border  border-dashed border-gray-300 p-4 font-form-family lg:w-6/12 2xl:text-lg"
     >
       <div className="lg:flex lg:gap-20 xl:gap-5">
         <label htmlFor="label" className="w-full font-light text-gray-400 ">
