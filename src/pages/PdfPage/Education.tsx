@@ -79,7 +79,7 @@ const Education = () => {
       <ul className="relative">
         {edu.map((el) => (
           <li key={el.id} className="mb-2">
-            <div className="relative mx-2 flex items-start md:mr-20">
+            <div className="relative mx-2 flex items-start md:mr-20 xl:mr-[51px]">
               <UIEducationForm
                 el={el}
                 handleDelEducation={handleDelEducation}

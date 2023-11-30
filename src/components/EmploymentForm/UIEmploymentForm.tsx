@@ -71,7 +71,7 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
       ref={formRef}
       id={el.id}
       onSubmit={handleSubmit}
-      className="relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-solid border-additional-color p-4 font-form-family lg:ml-3"
+      className="relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-solid border-additional-color p-4  lg:ml-3 "
     >
       <div className="my-2 flex w-11/12 items-center justify-between">
         <legend className="self-start text-left font-bold">
@@ -115,7 +115,7 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
             height <= 78
               ? 'md:right-[-8%] md:top-[30%] md:block'
               : 'md:right-[-8%] md:top-[4%] md:block'
-          }  h-auto text-gray-300 hover:text-additional-hover-color `}
+          }  h-auto text-red-500 hover:text-additional-hover-color `}
           id={el.id}
           onClick={handleDelEducation}
         >
@@ -140,7 +140,7 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
         <>
           <div
             className={
-              'flex h-auto w-11/12 select-none flex-col rounded border-blue-300   font-form-family  md:flex-row md:flex-wrap '
+              'flex h-auto w-11/12 select-none flex-col rounded border-blue-300     md:flex-row md:flex-wrap '
             }
           >
             <label
@@ -149,7 +149,7 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
             >
               Job Title
               <input
-                className={` mb-2 mt-1 block h-12 w-full  rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12 `}
+                className={` mb-2 mt-1 block h-12 w-full  rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12  `}
                 type="text"
                 id="jobTitleHistory"
                 name="jobTitleHistory"
@@ -162,9 +162,9 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
               htmlFor="employer"
               className="mb-2 font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end "
             >
-              <p className="mb-1 md:ml-14 lg:ml-[65px]">Employer</p>
+              <p className="mb-1 md:ml-14 lg:ml-[65px] xl:ml-12">Employer</p>
               <input
-                className="mb-2 block h-12 w-full self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12"
+                className="mb-2 block h-12 w-full self-end rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12 "
                 type="text"
                 id="employer"
                 name="employer"
@@ -180,7 +180,7 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
               Start & End Date
               <div className="mb-4 flex items-center justify-between pt-1 md:flex md:w-10/12 ">
                 <input
-                  className="mr-2 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 text-center text-sm text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+                  className="mr-2 block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 text-center text-sm text-gray-800 focus:border-b-2 focus:border-b-additional-color  focus:outline-none"
                   type="month"
                   lang="en"
                   id="edu_date_ren"
@@ -204,7 +204,7 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
                 </svg>
 
                 <input
-                  className=" block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 text-center text-sm  text-gray-400 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+                  className=" block h-12 w-5/12 rounded border border-solid bg-input-bg p-2 text-center text-sm  text-gray-800 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
                   type="month"
                   lang="en"
                   id="end_date"
@@ -219,9 +219,9 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
               htmlFor="city_employment_ren"
               className="mb-2  font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end"
             >
-              <p className="mb-1 md:ml-14 lg:ml-[65px]">City</p>
+              <p className="mb-1 md:ml-14 lg:ml-[65px] xl:ml-12">City</p>
               <input
-                className="mb-10 block h-12 w-full rounded border border-solid bg-input-bg p-2 py-1 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12 md:self-end"
+                className="mb-10 block h-12 w-full rounded border border-solid bg-input-bg p-2 py-1 text-gray-800 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12 md:self-end "
                 type="text"
                 id="city_employment_ren"
                 name="city_employment_ren"
@@ -234,7 +234,7 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
           <textarea
             name={'description'}
             id={'description'}
-            className={` mx-0 mb-4  w-11/12 rounded border border-solid bg-input-bg p-4 pt-2 font-light  focus:outline-none`}
+            className={` mx-0 mb-4  w-11/12 rounded border border-solid bg-input-bg p-4 pt-2 font-light  text-gray-800 focus:outline-none `}
             rows={10}
             placeholder={'something e.g'}
             maxLength={200}
@@ -249,7 +249,7 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
           </button>
           <button
             className={`absolute right-[10%] top-[93.5%]
-                 h-auto text-gray-300
+                 h-auto text-red-500
               hover:text-additional-hover-color  md:hidden `}
             id={el.id}
             onClick={handleDelEducation}
