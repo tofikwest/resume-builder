@@ -1,9 +1,14 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ADD } from '../../redux/pdf/pdfSlice'
 import { IEducation } from '../../redux/pdf/types'
 import { EDUCATION } from '../../redux/pdf/constants'
 import { RootState } from '../../redux/store'
+import useSelectText from '../../customHooks/useSelectText'
+import {
+  addDotToSelectedLine,
+  selectedTextFunc,
+} from '../../helpers/handleSelectText'
 
 const EducationForm: React.FC = () => {
   const edu = useSelector((state: RootState) => state.pdf.education)
@@ -18,6 +23,21 @@ const EducationForm: React.FC = () => {
     city: '',
     description: '',
   })
+
+  // custom hook
+  const [selectedText, setSelectedText] = useSelectText()
+
+  // * SELECTED TEXT EXEC
+  function executeSelectDataToStore() {
+    const modifiedDescription = addDotToSelectedLine(
+      localData.description,
+      selectedText,
+    )
+    setLocalData((prev) => ({
+      ...prev,
+      description: modifiedDescription,
+    }))
+  }
 
   const dispatch = useDispatch()
 
@@ -53,7 +73,7 @@ const EducationForm: React.FC = () => {
       <form
         id={edu.at(-1)?.id}
         onSubmit={(e) => e.preventDefault()}
-        className="relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-dashed border-additional-color p-4  md:w-[89.5%] md:flex-wrap lg:ml-3 lg:w-[90.6%] 2xl:text-lg"
+        className="relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-dashed border-additional-color p-4  md:w-[89.5%] md:flex-wrap  lg:w-[90.6%] 2xl:text-lg"
       >
         <div className="my-2 flex w-11/12 items-center justify-between">
           <legend className="self-start text-left font-bold 2xl:text-lg">
@@ -188,9 +208,29 @@ const EducationForm: React.FC = () => {
                 />
               </label>
             </div>
-
+            <div>
+              <button
+                onClick={executeSelectDataToStore}
+                type="button"
+                className=" w-fit rounded-sm border border-solid border-gray-300 bg-slate-200 px-1 text-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="h-5 w-5"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6 4.75A.75.75 0 016.75 4h10.5a.75.75 0 010 1.5H6.75A.75.75 0 016 4.75zM6 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H6.75A.75.75 0 016 10zm0 5.25a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H6.75a.75.75 0 01-.75-.75zM1.99 4.75a1 1 0 011-1H3a1 1 0 011 1v.01a1 1 0 01-1 1h-.01a1 1 0 01-1-1v-.01zM1.99 15.25a1 1 0 011-1H3a1 1 0 011 1v.01a1 1 0 01-1 1h-.01a1 1 0 01-1-1v-.01zM1.99 10a1 1 0 011-1H3a1 1 0 011 1v.01a1 1 0 01-1 1h-.01a1 1 0 01-1-1V10z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
             <textarea
               onChange={handleForm}
+              onSelect={() => selectedTextFunc(setSelectedText)}
               name="description"
               id="description"
               className={`mx-0 mb-4  w-11/12 rounded border border-solid bg-input-bg p-4 pt-10 font-light  text-gray-800 focus:outline-none `}

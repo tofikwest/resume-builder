@@ -4,7 +4,7 @@ import { routes_list } from '../routes/routesList'
 
 const HomePage = () => {
   return (
-    <section className="relative mt-9 flex h-80 select-none flex-col justify-between gap-64 rounded-2xl bg-slate-100 pt-2 shadow-xl lg:h-4/6">
+    <section className="relative mt-9 flex h-80 select-none flex-col justify-between gap-80 rounded-2xl bg-slate-100 pt-2 shadow-xl lg:h-4/6">
       <div className="md:ml-5 md:mt-2 md:flex md:justify-between lg:ml-10 lg:mt-8 xl:mt-16">
         <h1 className=" shadow-3xl w-full text-6xl font-bold tracking-wide underline md:w-4/12 md:text-6xl lg:w-28 lg:text-center lg:text-7xl ">
           <span className="animated-text text-additional-color">S</span>tart b
