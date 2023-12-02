@@ -10,6 +10,7 @@ export default {
         'primary-red': '#fe7d8b',
         'primary-green': 'rgb(231, 244, 237)',
         'input-bg': 'rgb(239, 242, 249)',
+        'browser-pdf': 'rgb(42 42 46)',
       },
       borderColor: {
         'primary-color': 'black',

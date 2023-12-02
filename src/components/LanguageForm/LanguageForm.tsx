@@ -35,13 +35,13 @@ const LanguageForm: React.FC = () => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className=" mx-4 ml-4 flex h-full select-none flex-col justify-between rounded-xl border   border-dashed border-gray-300  p-4 lg:w-6/12 2xl:text-lg"
+      className=" mx-4 ml-4 flex h-full select-none flex-col justify-between rounded-xl border border-dashed   border-gray-300 p-4  md:w-[58%] lg:w-[48%] 2xl:text-lg"
     >
-      <div className="lg:flex lg:gap-20 xl:gap-5 ">
+      <div className="lg:flex lg:gap-14 xl:gap-5 ">
         <label htmlFor="language" className="font-light text-gray-400">
           Language
           <input
-            className={`  block w-full rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none `}
+            className={`mt-1  block w-full rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none `}
             type="text"
             id="language"
             name="language"
@@ -56,7 +56,7 @@ const LanguageForm: React.FC = () => {
         >
           Level
           <input
-            className="  block w-full self-end rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+            className="mt-1  block w-full self-end rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none"
             type="text"
             id="levelLang"
             name="level"

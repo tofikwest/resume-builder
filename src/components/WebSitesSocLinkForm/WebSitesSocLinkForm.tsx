@@ -39,13 +39,13 @@ const WebSitesSocLinkForm: React.FC = () => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className=" my-4 ml-4 flex h-full w-11/12 select-none flex-col justify-between  rounded-xl border  border-dashed border-gray-300 p-4 font-form-family lg:w-6/12 2xl:text-lg"
+      className=" my-4 ml-4 flex h-full w-11/12 select-none flex-col justify-between  rounded-xl border  border-dashed border-gray-300 p-4 font-form-family md:w-[58%]  2xl:text-lg"
     >
-      <div className="lg:flex lg:gap-20 xl:gap-5">
+      <div className="lg:flex lg:gap-14 xl:gap-5">
         <label htmlFor="label" className="w-full font-light text-gray-400 ">
           Label
           <input
-            className={`  block w-full rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none `}
+            className={`mt-1  block w-full rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none `}
             type="text"
             id="label"
             name="label"
@@ -60,7 +60,7 @@ const WebSitesSocLinkForm: React.FC = () => {
         >
           Link
           <input
-            className="block  w-full self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none   "
+            className="mt-1 block  w-full self-end rounded border border-solid bg-input-bg p-2 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none   "
             type="text"
             id="levelWebSites"
             name="link"

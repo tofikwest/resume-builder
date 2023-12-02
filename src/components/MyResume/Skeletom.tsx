@@ -3,7 +3,11 @@ import React from 'react'
 const Skeletom = () => {
   return (
     <>
-      <a className="card mt-40" id="card-link" target="_blank">
+      <a
+        className="card mt-40 px-10 lg:px-20 xl:px-0"
+        id="card-link"
+        target="_blank"
+      >
         <div className="card__header">
           <div>
             <img

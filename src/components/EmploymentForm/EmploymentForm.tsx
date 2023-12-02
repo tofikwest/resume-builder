@@ -3,13 +3,27 @@ import { useDispatch } from 'react-redux'
 import { ADD } from '../../redux/pdf/pdfSlice'
 import { EMPLOYMENT_HISTORY } from '../../redux/pdf/constants'
 import TextArea from '../TextArea/TextArea'
+import useSelectText from '../../customHooks/useSelectText'
+import {
+  addDotToSelectedLine,
+  findLastMatchSelectTextIndex,
+} from '../../helpers/handleSelectText'
+
+export interface ILocalData {
+  jobTitleHistory: string
+  start_date: string
+  end_date: string
+  employer: string
+  city: string
+  description: string
+}
 
 const EmploymentForm: React.FC = () => {
   const [isUnfold, setIsUnfold] = useState(false)
   const [currentWidth, setCurremtWidth] = useState<number>(window.innerWidth)
   const dispatch = useDispatch()
 
-  const [localData, setLocalData] = useState({
+  const [localData, setLocalData] = useState<ILocalData>({
     jobTitleHistory: '',
     start_date: '',
     end_date: '',
@@ -17,6 +31,9 @@ const EmploymentForm: React.FC = () => {
     city: '',
     description: '',
   })
+
+  // custom hook
+  const [selectedText, setSelectedText] = useSelectText()
 
   useEffect(() => {
     window.addEventListener('resize', getCurrentWidth)
@@ -50,6 +67,18 @@ const EmploymentForm: React.FC = () => {
     }))
   }
 
+  // * SELECTED TEXT EXEC
+  function executeSelectDataToStore() {
+    const modifiedDescription = addDotToSelectedLine(
+      localData.description,
+      selectedText,
+    )
+    setLocalData((prev) => ({
+      ...prev,
+      description: modifiedDescription,
+    }))
+  }
+
   function getCurrentWidth() {
     setCurremtWidth(window.innerWidth)
     console.log(window.innerWidth)
@@ -58,7 +87,7 @@ const EmploymentForm: React.FC = () => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className="relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-dashed border-additional-color p-4 md:w-[89.5%] md:flex-wrap lg:ml-3 lg:w-[90.6%] 2xl:text-lg"
+      className="relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-dashed border-additional-color p-4 md:w-[89.5%] md:flex-wrap  lg:w-[90.6%] 2xl:text-lg"
     >
       <div className="my-2 flex w-11/12 items-center justify-between">
         <legend className="self-start text-left font-bold 2xl:text-lg">
@@ -196,6 +225,8 @@ const EmploymentForm: React.FC = () => {
           <TextArea
             mx="text-gray-800"
             handle={handleForm}
+            setData={(val: string) => setSelectedText(val)}
+            executeSelectDataToStore={executeSelectDataToStore}
             value={localData.description}
             name="description"
             placeholder={

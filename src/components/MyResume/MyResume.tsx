@@ -215,9 +215,16 @@ const styles = StyleSheet.create({
   },
 })
 
+interface IProps {
+  style?: { [key: string]: string | number }
+  style_download_link?: { [key: string]: string | number }
+}
 const PRESENT_STR = 'Present'
 
-const MyResume = () => {
+const MyResume: React.FC<IProps> = ({
+  style = {},
+  style_download_link = {},
+}) => {
   const [isPdfLoading, setIsPdfLoading] = useState(false)
 
   const pdf = useSelector((state: RootState) => state.pdf)
@@ -408,6 +415,30 @@ const MyResume = () => {
       </Page>
     </Document>
   )
+  const stylesSet = Object.values(style).length
+    ? style
+    : {
+        width: '70%',
+        height: '87vh',
+        backgroundColor: 'white',
+        color: 'black',
+        transform: 'scale(1.4)',
+        marginTop: '100px',
+      }
+  const stylesSetBtn = Object.values(style_download_link).length
+    ? style_download_link
+    : {
+        position: 'absolute',
+        top: '118%',
+        right: '50%',
+        fontWeight: 'bold',
+        width: '25%',
+        color: 'white',
+        borderRadius: '5pt',
+        padding: '10pt',
+        textAlign: 'center',
+        backgroundColor: 'rgb(112 112 229)',
+      }
 
   return (
     <>
@@ -415,35 +446,14 @@ const MyResume = () => {
         <Skeletom />
       ) : (
         <>
-          <PDFViewer
-            style={{
-              width: '70%',
-              height: '87vh',
-              backgroundColor: 'white',
-              color: 'black',
-              transform: 'scale(1.4)',
-              marginTop: '100px',
-            }}
-            showToolbar={false}
-          >
+          <PDFViewer style={stylesSet} showToolbar={true}>
             <DocumentContent />
           </PDFViewer>
 
           <PDFDownloadLink
             document={<DocumentContent />}
             fileName={fileName + '.pdf'}
-            style={{
-              position: 'absolute',
-              top: '128%',
-              right: '50%',
-              fontWeight: 'semibold',
-              width: '25%',
-              color: 'white',
-              borderRadius: '5pt',
-              padding: '10pt',
-              textAlign: 'center',
-              backgroundColor: 'rgb(35 35 76)',
-            }}
+            style={stylesSetBtn}
           >
             Download PDF
           </PDFDownloadLink>
