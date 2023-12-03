@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { ADD } from '../../redux/pdf/pdfSlice'
 import { IEducation } from '../../redux/pdf/types'

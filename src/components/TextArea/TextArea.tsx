@@ -1,5 +1,4 @@
-import React, { ChangeEvent, Dispatch, SetStateAction } from 'react'
-import { ILocalData } from '../EmploymentForm/EmploymentForm'
+import React, { ChangeEvent } from 'react'
 import { selectedTextFunc } from '../../helpers/handleSelectText'
 
 interface IProps {

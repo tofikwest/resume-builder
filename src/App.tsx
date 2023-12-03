@@ -1,6 +1,6 @@
 import Header from './components/Header/Header'
 import SideBar from './components/SideBar/SideBar'
-import HomePage from './pages/HomePage'
+import HomePage from './pages/HomePage/HomePage'
 
 function App() {
   return (

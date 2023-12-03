@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent } from 'react'
+import React, { useState, ChangeEvent } from 'react'
 import TextArea from '../../components/TextArea/TextArea'
 import { ADD } from '../../redux/pdf/pdfSlice'
 import { useDispatch } from 'react-redux'

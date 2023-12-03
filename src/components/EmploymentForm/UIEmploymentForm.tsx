@@ -6,7 +6,6 @@ import { EMPLOYMENT_HISTORY } from '../../redux/pdf/constants'
 import useSelectText from '../../customHooks/useSelectText'
 import {
   addDotToSelectedLine,
-  findLastMatchSelectTextIndex,
   selectedTextFunc,
 } from '../../helpers/handleSelectText'
 

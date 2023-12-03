@@ -1,4 +1,4 @@
-import HomePage from '../pages/HomePage'
+import HomePage from '../pages/HomePage/HomePage'
 import BuilderPage from '../pages/BuilderPage/BuilderPage'
 import PageLayout from '../components/PageLayout/PageLayout'
 import HomePageLayout from '../components/PageLayout/HomePageLayout'
