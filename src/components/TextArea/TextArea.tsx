@@ -23,7 +23,7 @@ const TextArea: React.FC<IProps> = ({
 }) => {
   return (
     <>
-      <div>
+      <div className="flex w-11/12 items-center   py-2 ">
         <button
           onClick={executeSelectDataToStore}
           type="button"
@@ -42,6 +42,9 @@ const TextArea: React.FC<IProps> = ({
             />
           </svg>
         </button>
+        <p className="ml-2 text-xs text-gray-400">
+          - Select all line and click to button
+        </p>
       </div>
       <textarea
         onSelect={() => selectedTextFunc(setData)}
