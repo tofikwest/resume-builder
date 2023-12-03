@@ -294,35 +294,6 @@ const PersonalDetails: React.FC = () => {
           </label>
 
           <label
-            htmlFor="driving_license"
-            className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
-          >
-            <p className="w-10/12">Driving License</p>
-            <input
-              onChange={handleAdditionalFormData}
-              className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 2xl:text-lg"
-              type="text"
-              id="driving_license"
-              name="driving_license"
-              value={additionalFormData.driving_license}
-            />
-          </label>
-
-          <label
-            htmlFor="place_birth"
-            className="w-full font-extralight text-gray-400 md:w-[50%] 2xl:text-lg"
-          >
-            Place Of Birth
-            <input
-              onChange={handleAdditionalFormData}
-              className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12 2xl:text-lg"
-              type="text"
-              id="place_birth"
-              name="place_birth"
-            />
-          </label>
-
-          <label
             htmlFor="postalCode"
             className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
           >
@@ -338,35 +309,9 @@ const PersonalDetails: React.FC = () => {
           </label>
 
           <label
-            htmlFor="nationality"
-            className="inline w-full font-extralight text-gray-400 md:w-[50%] 2xl:text-lg"
-          >
-            Nationality
-            <input
-              onChange={handleAdditionalFormData}
-              className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 "
-              type="text"
-              id="nationality"
-              name="nationality"
-              value={additionalFormData.nationality}
-            />
-          </label>
-
-          <label
             htmlFor="date_birth"
             className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
-          >
-            <p className="w-10/12">Date Of Birth</p>
-            <input
-              onChange={handleAdditionalFormData}
-              className=" mb-4 mt-1 block h-12  w-full rounded border border-solid bg-input-bg p-2  text-gray-800  focus:border-b-2 focus:border-b-additional-color focus:outline-none  md:w-10/12 "
-              type="month"
-              lang="en"
-              id="date_birth"
-              name="date_birth"
-              value={additionalFormData.date_birth}
-            />
-          </label>
+          ></label>
         </form>
       )}
     </section>

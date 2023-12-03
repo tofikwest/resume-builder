@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { resume_img_base64 } from '../assets/icons/resume-icon.base64'
-import { routes_list } from '../routes/routesList'
+import { resume_img_base64 } from '../../assets/icons/resume-icon.base64'
+import { routes_list } from '../../routes/routesList'
 
 const HomePage = () => {
   return (
@@ -36,7 +36,6 @@ const HomePage = () => {
           />
         </div>
       </div>
-
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

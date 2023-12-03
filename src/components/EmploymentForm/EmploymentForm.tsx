@@ -4,10 +4,7 @@ import { ADD } from '../../redux/pdf/pdfSlice'
 import { EMPLOYMENT_HISTORY } from '../../redux/pdf/constants'
 import TextArea from '../TextArea/TextArea'
 import useSelectText from '../../customHooks/useSelectText'
-import {
-  addDotToSelectedLine,
-  findLastMatchSelectTextIndex,
-} from '../../helpers/handleSelectText'
+import { addDotToSelectedLine } from '../../helpers/handleSelectText'
 
 export interface ILocalData {
   jobTitleHistory: string
