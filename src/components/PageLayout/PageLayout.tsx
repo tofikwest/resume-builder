@@ -18,7 +18,6 @@ const PageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
 
   function currentWidth() {
     setWidth(window.innerWidth)
-    console.log(window.innerWidth)
   }
 
   let resume = (

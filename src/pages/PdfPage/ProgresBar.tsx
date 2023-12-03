@@ -63,7 +63,6 @@ const ProgresBar = () => {
 
     for (const item in sectionsData) {
       if (sectionsData[item]) {
-        console.log(sectionsData, item)
         if (item === TITLE) {
           continue
         }

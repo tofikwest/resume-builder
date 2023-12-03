@@ -81,7 +81,6 @@ const EmploymentForm: React.FC = () => {
 
   function getCurrentWidth() {
     setCurremtWidth(window.innerWidth)
-    console.log(window.innerWidth)
   }
 
   return (
