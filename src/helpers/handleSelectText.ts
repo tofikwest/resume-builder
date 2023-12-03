@@ -1,13 +1,20 @@
 export function selectedTextFunc(func: (value: string) => void) {
-  const selected = window.getSelection()?.toString() || ''
+  const activeElement: any = document.activeElement
+  console.log(activeElement)
+  let selected = ''
+
+  if (activeElement && activeElement.value!) {
+    selected = activeElement.value.substring(
+      activeElement.selectionStart,
+      activeElement.selectionEnd,
+    )
+  }
 
   if (selected !== '') {
     console.log(selected)
     func(selected)
     return selected
   }
-
-  return ''
 }
 
 export function findLastMatchSelectTextIndex(

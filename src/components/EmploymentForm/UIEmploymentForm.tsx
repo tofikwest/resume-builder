@@ -39,7 +39,6 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
     if (form) {
       const updateFormHeight = () => {
         setHeight(form.clientHeight)
-        console.log(height)
       }
 
       updateFormHeight()
@@ -280,7 +279,7 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
             onSelect={() => selectedTextFunc(setSelectedText)}
             name={'description'}
             id={'description'}
-            className={` mx-0 mb-4  w-11/12 rounded border border-solid bg-input-bg p-4 pt-2 font-light  text-gray-800 focus:outline-none `}
+            className={` mx-0 mb-4  w-11/12 rounded border border-solid bg-input-bg p-4  font-light  text-gray-800 focus:outline-none `}
             rows={10}
             placeholder={'something e.g'}
             maxLength={200}

@@ -233,7 +233,7 @@ const EducationForm: React.FC = () => {
               onSelect={() => selectedTextFunc(setSelectedText)}
               name="description"
               id="description"
-              className={`mx-0 mb-4  w-11/12 rounded border border-solid bg-input-bg p-4 pt-10 font-light  text-gray-800 focus:outline-none `}
+              className={`mx-0 mb-4  w-11/12 rounded border border-solid bg-input-bg p-4  font-light  text-gray-800 focus:outline-none `}
               rows={10}
               placeholder="e.g something"
               value={localData.description}
