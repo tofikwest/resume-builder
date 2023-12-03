@@ -255,7 +255,7 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
             </label>
           </div>
           {/* DOT LIST BTN */}
-          <div>
+          <div className="flex w-11/12 items-center   py-2 ">
             <button
               onClick={executeSelectDataToStore}
               type="button"
@@ -274,6 +274,9 @@ const UIEmploymentForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
                 />
               </svg>
             </button>
+            <p className="ml-2 text-xs text-gray-400">
+              - Select all line and click to button
+            </p>
           </div>
           <textarea
             onSelect={() => selectedTextFunc(setSelectedText)}
