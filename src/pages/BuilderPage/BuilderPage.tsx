@@ -8,10 +8,12 @@ import WebsitesSocialLink from '../PdfPage/WebsitesSocialLink'
 import Skills from '../PdfPage/Skills'
 import Languages from '../PdfPage/Languages'
 
-// * TODO response forms <EmploymentHistory /> <Education />
 const BuilderPage = () => {
   return (
-    <section className=" relative flex h-auto w-full select-none flex-col justify-center gap-2 pb-6 pt-3 lg:px-5 xl:pl-7">
+    <section
+      data-testid="builderPage"
+      className=" relative flex h-auto w-full select-none flex-col justify-center gap-2 pb-6 pt-3 lg:px-5 xl:pl-7"
+    >
       <TitleResume />
       <ProgresBar />
       <PersonalDetails />
