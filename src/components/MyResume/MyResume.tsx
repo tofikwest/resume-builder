@@ -218,12 +218,14 @@ const styles = StyleSheet.create({
 interface IProps {
   style?: { [key: string]: string | number }
   style_download_link?: { [key: string]: string | number }
+  getPdfComponent?: (component: any, status: boolean) => void
 }
 const PRESENT_STR = 'Present'
 
 const MyResume: React.FC<IProps> = ({
   style = {},
   style_download_link = {},
+  getPdfComponent,
 }) => {
   const [isPdfLoading, setIsPdfLoading] = useState(false)
 
@@ -233,8 +235,11 @@ const MyResume: React.FC<IProps> = ({
 
   useEffect(() => {
     setIsPdfLoading(true)
+    getPdfComponent!(DocumentContent, true)
+
     const delay = setTimeout(() => {
       setIsPdfLoading(false)
+      getPdfComponent!(DocumentContent, false)
     }, 1000)
 
     return () => clearTimeout(delay)
@@ -415,6 +420,7 @@ const MyResume: React.FC<IProps> = ({
       </Page>
     </Document>
   )
+
   const stylesSet = Object.values(style).length
     ? style
     : {

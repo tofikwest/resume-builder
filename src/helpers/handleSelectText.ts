@@ -1,6 +1,5 @@
 export function selectedTextFunc(func: (value: string) => void) {
   const activeElement: any = document.activeElement
-  console.log(activeElement)
   let selected = ''
 
   if (activeElement && activeElement.value!) {
@@ -11,7 +10,6 @@ export function selectedTextFunc(func: (value: string) => void) {
   }
 
   if (selected !== '') {
-    console.log(selected)
     func(selected)
     return selected
   }
