@@ -16,31 +16,25 @@ const PageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
   const titleResume = titleFromStore || 'resume'
 
   const [width, setWidth] = useState<number>(window.innerWidth)
-  const [PdfComponent, setPdfComponent] = useState<{
-    rendered: any
-    status: boolean
-  }>({
-    rendered: null,
-    status: false,
-  })
+  const [PdfComponent, setPdfComponent] = useState<any>(null)
+  const [pdfLoadStatus, setStatus] = useState<boolean>(true)
 
   const [isClicked, setIsClicked] = useState<boolean>(false)
   const tag = useRef<any>(null)
 
   useEffect(() => {
     window.addEventListener('resize', currentWidth)
+    console.log(PdfComponent)
     return () => window.removeEventListener('resize', currentWidth)
-  }, [width])
+  }, [width, PdfComponent])
 
   function currentWidth() {
     setWidth(window.innerWidth)
   }
 
   function getPdfComponent(component: any, status: boolean) {
-    setPdfComponent({
-      rendered: component,
-      status,
-    })
+    setPdfComponent(component)
+    setStatus(status)
   }
 
   let resume = (
@@ -202,13 +196,13 @@ const PageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
           )}
         </button>
 
-        {isClicked && !PdfComponent.status && (
+        {isClicked && !pdfLoadStatus && (
           <div
             id="downloadBtn"
             className="flex  cursor-pointer items-center justify-center rounded-2xl bg-additional-color p-2 text-blue-50 hover:bg-additional-hover-color focus:bg-additional-hover-color"
           >
             <PDFDownloadLink
-              document={PdfComponent.rendered}
+              document={PdfComponent}
               fileName={titleResume + '.pdf'}
               data-testid="downloadBtn"
             >

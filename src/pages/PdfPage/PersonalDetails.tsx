@@ -176,7 +176,7 @@ const PersonalDetails: React.FC = () => {
 
         <label
           htmlFor="photo"
-          className={`mb-4 mt-[28px] flex  h-12  w-full cursor-not-allowed items-center justify-center gap-2 rounded border border-solid border-gray-200 bg-input-bg p-2  text-sm font-extralight text-gray-400 hover:bg-[#d75151] hover:text-white  focus:border-b-2
+          className={`mb-4 mt-[28px] flex  h-12  w-full cursor-not-allowed items-center justify-center gap-2 rounded border border-solid border-gray-200 bg-input-bg p-2  text-sm font-extralight text-gray-600 hover:bg-[#d75151] hover:text-white  focus:border-b-2
            md:w-5/12 2xl:h-16 2xl:text-lg
           `}
         >
@@ -209,7 +209,7 @@ const PersonalDetails: React.FC = () => {
             disabled={true}
             value={mainFormData.photo}
           />
-          <p className="inline w-10/12 text-center text-gray-500 hover:text-white lg:text-sm 2xl:text-lg">
+          <p className="inline w-10/12 text-center   lg:text-sm 2xl:text-lg">
             This template doesn't support photo upload
           </p>
         </label>
