@@ -1,9 +1,5 @@
 function App() {
-  return (
-    <>
-      <div>Resume builder</div>
-    </>
-  )
+  return <></>
 }
 
 export default App
