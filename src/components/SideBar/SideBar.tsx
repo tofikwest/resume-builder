@@ -4,7 +4,7 @@ import Button from '../Button/Button'
 const SideBar: React.FC = () => {
   return (
     <div className="fixed z-[1] float-left inline-block  h-screen  w-[95px] select-none rounded-xl bg-white shadow-xl xl:w-[75px] xl:px-1">
-      <img src="src/assets/icons/logo.png" />
+      <img src={'/src/assets/icons/logo.png'} />
       <nav className="flex h-[82%] flex-col text-center uppercase  ">
         <p className="mb-5 text-xs text-gray-600">main menu</p>
         <ul className="mb-16 flex flex-1 select-none flex-col items-center justify-start  gap-2">
