@@ -15,7 +15,6 @@ describe('HomePage tests', () => {
 
     await user.click(buildBtn)
     await waitFor(() => {
-      console.log(window.location.pathname)
       expect(window.location.pathname).toBe('/builder')
     })
 
