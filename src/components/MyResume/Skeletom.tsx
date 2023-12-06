@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Skeletom = () => {
+const Skeletom: React.FC = () => {
   return (
     <>
       <a

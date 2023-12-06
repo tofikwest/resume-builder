@@ -1,10 +1,8 @@
-import { ChangeEvent, useState, useEffect } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { ADD } from '../../redux/pdf/pdfSlice'
 import { WEBSITE_SOC_LINK } from '../../redux/pdf/constants'
 import { IWebSitesSocLink } from '../../redux/pdf/types'
-
-const HTTP_STR = 'http'
 
 const WebSitesSocLinkForm: React.FC = () => {
   const [localData, setLocalData] = useState<IWebSitesSocLink>({

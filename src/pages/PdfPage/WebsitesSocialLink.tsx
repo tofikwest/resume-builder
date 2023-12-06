@@ -3,7 +3,6 @@ import WebSitesSocLinkForm from '../../components/WebSitesSocLinkForm/WebSitesSo
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
 import { IWebSitesSocLink } from '../../redux/pdf/types'
-import { Link } from 'react-router-dom'
 import { DEL } from '../../redux/pdf/pdfSlice'
 import { WEBSITE_SOC_LINK } from '../../redux/pdf/constants'
 

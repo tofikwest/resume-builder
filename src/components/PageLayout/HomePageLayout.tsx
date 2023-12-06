@@ -1,4 +1,4 @@
-import { ElementType, useRef } from 'react'
+import { ElementType } from 'react'
 import SideBar from '../SideBar/SideBar'
 
 interface PageLayoutProps {
