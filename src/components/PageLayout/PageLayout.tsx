@@ -26,7 +26,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
     window.addEventListener('resize', currentWidth)
     console.log(PdfComponent)
     return () => window.removeEventListener('resize', currentWidth)
-  }, [width, PdfComponent])
+  }, [width])
 
   function currentWidth() {
     setWidth(window.innerWidth)
