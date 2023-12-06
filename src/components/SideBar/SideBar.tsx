@@ -1,11 +1,12 @@
 import { routes_list } from '../../routes/routesList'
 import Button from '../Button/Button'
+import logoPng from '../../assets/icons/logo.png'
 
 const SideBar: React.FC = () => {
   return (
     <div className="fixed z-[1] float-left inline-block  h-screen  w-[95px] select-none rounded-xl bg-white shadow-xl xl:w-[75px] xl:px-1">
-      <img src={'/src/assets/icons/logo.png'} />
-      <nav className="flex h-[82%] flex-col text-center uppercase  ">
+      <img src={logoPng} />
+      <nav className="flex h-[87vh] flex-col text-center uppercase lg:h-[84vh] xl:h-[87vh] ">
         <p className="mb-5 text-xs text-gray-600">main menu</p>
         <ul className="mb-16 flex flex-1 select-none flex-col items-center justify-start  gap-2">
           <li id="homeBtn" className="">
@@ -46,8 +47,8 @@ const SideBar: React.FC = () => {
           </li>
         </ul>
 
-        <p className="mb-5 text-xs text-gray-600">other</p>
-        <ul className="flex flex-col gap-2 ">
+        {/* <p className="mb-5 text-xs text-gray-600">other</p>
+        <ul className="flex flex-col justify-end gap-2 ">
           <li className="">
             <button disabled>
               <svg
@@ -102,7 +103,7 @@ const SideBar: React.FC = () => {
               </svg>
             </button>
           </li>
-        </ul>
+        </ul> */}
       </nav>
     </div>
   )
