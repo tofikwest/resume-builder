@@ -4,11 +4,16 @@ import { ADD } from '../../redux/pdf/pdfSlice'
 import { TITLE } from '../../redux/pdf/constants'
 
 const TitleResume: FC = () => {
-  const [title, setTitle] = useState('')
+  const untitle = 'Untitled'
+  const [title, setTitle] = useState('Untitled')
   const [questionMark, setQuestionMark] = useState<boolean>(false)
 
   // const [needToShow, setToShow]= useState<boolean>(false)
   const dispatch = useDispatch()
+
+  function validateTitle(title: string) {
+    return !title ? untitle : title
+  }
 
   function handleTitle(e: ChangeEvent<HTMLInputElement>) {
     setTitle(e.target.value)
@@ -17,20 +22,21 @@ const TitleResume: FC = () => {
       dispatch(
         ADD({
           section: TITLE,
-          data: { title: e.target.value },
+          data: { title: validateTitle(e.target.value) },
         }),
       )
     }, 300)
   }
 
   return (
-    <div className="w-3/3 relative mb-2 flex h-10 flex-col items-center justify-center text-center text-xl">
+    <div className="relative mb-2  flex   flex-col items-center justify-center text-center text-xl">
       {/* Title Of Resume */}
       <input
         onChange={handleTitle}
         type="text"
         value={title}
-        className=" rounded border border-x-0 border-t-0 border-solid bg-slate-50 p-2 text-sm shadow-sm focus:outline-none focus:outline 2xl:text-lg"
+        placeholder={title}
+        className=" h-8  w-5/12 p-2 text-center text-sm font-bold uppercase tracking-wide outline-none placeholder:text-black focus:border-b-[1px]  md:w-3/12 md:p-1 md:text-base 2xl:w-2/12 2xl:text-lg"
       />
       <div className="group relative">
         <button
