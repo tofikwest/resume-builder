@@ -176,8 +176,8 @@ const PersonalDetails: React.FC = () => {
 
         <label
           htmlFor="photo"
-          className={`mb-4 mt-[28px] flex  h-12  w-full cursor-not-allowed items-center justify-center gap-2 rounded border border-solid border-gray-200 bg-input-bg p-2  text-sm font-extralight text-gray-600 hover:bg-[#d75151] hover:text-white  focus:border-b-2
-           md:w-5/12 2xl:h-16 2xl:text-lg
+          className={`mb-4 mt-[28px] flex  h-12  w-full items-center  gap-5 rounded     text-sm font-extralight text-gray-600 
+           md:w-5/12 2xl:h-20 2xl:text-lg
           `}
         >
           <svg
@@ -186,7 +186,7 @@ const PersonalDetails: React.FC = () => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className=" h-8 w-8 text-center 2xl:h-10 2xl:w-10"
+            className=" h-12 w-12 cursor-not-allowed bg-input-bg p-2 text-center  2xl:h-16 2xl:w-16"
           >
             <path
               strokeLinecap="round"
@@ -209,7 +209,7 @@ const PersonalDetails: React.FC = () => {
             disabled={true}
             value={mainFormData.photo}
           />
-          <p className="inline w-10/12 text-center   lg:text-sm 2xl:text-lg">
+          <p className="inline w-6/12   bg-white lg:w-5/12  lg:text-sm xl:w-7/12 2xl:text-lg">
             This template doesn't support photo upload
           </p>
         </label>
