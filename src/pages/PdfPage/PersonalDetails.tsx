@@ -78,12 +78,12 @@ const PersonalDetails: React.FC = () => {
       <form className="flex h-full select-none flex-col justify-between  px-4 font-form-family md:flex-row md:flex-wrap md:items-center ">
         <label
           htmlFor="jobTitle"
-          className="inline w-full font-extralight text-gray-400   md:w-[50%] 2xl:text-lg"
+          className="inline w-full font-light text-gray-400   md:w-[50%] 2xl:text-lg"
         >
           Wanted Job Title
           <input
             onChange={handleMainFormData}
-            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color  focus:outline-none md:w-10/12 2xl:text-lg"
+            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-light focus:border-b-2 focus:border-b-additional-color  focus:outline-none md:w-10/12 2xl:text-lg"
             type="text"
             id="jobTitle"
             name="jobTitle"
@@ -95,7 +95,7 @@ const PersonalDetails: React.FC = () => {
 
         <label
           htmlFor="city"
-          className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
+          className="w-full self-end font-light text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
         >
           <p className="w-10/12">City</p>
           <input
@@ -111,7 +111,7 @@ const PersonalDetails: React.FC = () => {
 
         <label
           htmlFor="first_name"
-          className="w-full font-extralight  text-gray-400 md:flex md:w-[50%] md:flex-col 2xl:text-lg"
+          className="w-full font-light  text-gray-400 md:flex md:w-[50%] md:flex-col 2xl:text-lg"
         >
           First Name
           <input
@@ -127,7 +127,7 @@ const PersonalDetails: React.FC = () => {
 
         <label
           htmlFor="last_name"
-          className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
+          className="w-full self-end font-light text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
         >
           <p className="w-10/12">Last Name</p>
           <input
@@ -143,7 +143,7 @@ const PersonalDetails: React.FC = () => {
 
         <label
           htmlFor="email"
-          className="w-full font-extralight text-gray-400 md:flex md:w-[50%] md:flex-col 2xl:text-lg"
+          className="w-full font-light text-gray-400 md:flex md:w-[50%] md:flex-col 2xl:text-lg"
         >
           Email
           <input
@@ -160,7 +160,7 @@ const PersonalDetails: React.FC = () => {
 
         <label
           htmlFor="country"
-          className=" w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
+          className=" w-full self-end font-light text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
         >
           <p className="w-10/12">Country</p>
           <input
@@ -176,7 +176,7 @@ const PersonalDetails: React.FC = () => {
 
         <label
           htmlFor="photo"
-          className={`mb-4 mt-[28px] flex  h-12  w-full items-center  gap-5 rounded     text-sm font-extralight text-gray-600 
+          className={`mb-4 mt-[28px] flex  h-12  w-full items-center  gap-5 rounded     text-sm font-light text-gray-600 
            md:w-5/12 2xl:h-20 2xl:text-lg
           `}
         >
@@ -216,12 +216,12 @@ const PersonalDetails: React.FC = () => {
 
         <label
           htmlFor="phone"
-          className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
+          className="w-full self-end font-light text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
         >
           <p className="w-10/12">Phone</p>
           <input
             onChange={handleMainFormData}
-            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 2xl:text-lg"
+            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-light focus:border-b-2 focus:border-b-additional-color focus:outline-none   md:w-10/12 2xl:text-lg"
             type="tel"
             inputMode="tel"
             id="phone"
@@ -280,7 +280,7 @@ const PersonalDetails: React.FC = () => {
         <form className="flex h-full select-none flex-col justify-between  px-4 font-form-family md:flex-row md:flex-wrap md:items-center ">
           <label
             htmlFor="address"
-            className="inline font-extralight text-gray-400 md:w-[50%] 2xl:text-lg"
+            className="inline font-light text-gray-400 md:w-[50%] 2xl:text-lg"
           >
             Address
             <input
@@ -295,7 +295,7 @@ const PersonalDetails: React.FC = () => {
 
           <label
             htmlFor="postalCode"
-            className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
+            className="w-full self-end font-light text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
           >
             <p className="w-10/12">Postal Code</p>
             <input
@@ -310,7 +310,7 @@ const PersonalDetails: React.FC = () => {
 
           <label
             htmlFor="date_birth"
-            className="w-full self-end font-extralight text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
+            className="w-full self-end font-light text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
           ></label>
         </form>
       )}
