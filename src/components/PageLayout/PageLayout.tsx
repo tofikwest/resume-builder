@@ -1,5 +1,4 @@
 import { ElementType, useEffect, useRef, useState } from 'react'
-import SideBar from '../SideBar/SideBar'
 import MyResume from '../MyResume/MyResume'
 import { bk } from '../../helpers/breakpoints'
 import { PDFDownloadLink } from '@react-pdf/renderer'
@@ -141,9 +140,9 @@ const PageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
 
   return (
     <div id="pageLayout" className="builderPage  relative flex  h-screen ">
-      <div className="hidden xl:block xl:w-[60px]">
+      {/* <div className="hidden xl:block xl:w-[60px]">
         <SideBar />
-      </div>
+      </div> */}
 
       <div id="contentPart" className="  h-screen w-full py-5 xl:w-6/12 ">
         <Component />
