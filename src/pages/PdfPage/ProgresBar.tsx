@@ -97,20 +97,19 @@ const ProgresBar = () => {
             <div className="rounded bg-additional-color p-1 text-center text-xs  text-white md:text-xs">
               {countObj.left}%
             </div>
-            <div className="gray-500 text-xs md:text-sm 2xl:text-sm">
+            <div className="gray-500 w-max  text-[12px] md:text-sm 2xl:text-sm">
               Resume score
             </div>
           </div>
 
-          <div className="flex w-4/12 items-center justify-end gap-2 xl:w-full">
-            <div className="rounded bg-primary-green p-1 text-center text-xs text-primary-green md:text-xs">
+          <div className="flex w-10/12 items-center justify-end gap-2 md:w-4/12 xl:w-full">
+            <div className="hidden rounded bg-primary-green p-1 text-center text-xs text-primary-green md:block md:text-xs">
               +{countObj.right}%
             </div>
-            {currentWidth >= 768 && (
-              <div className="animated-text text-xs text-gray-500 md:text-sm 2xl:text-sm">
-                {countObj.nextSect}
-              </div>
-            )}
+
+            <div className="animated-text text-xs text-gray-500 md:text-sm 2xl:text-sm">
+              {countObj.nextSect}
+            </div>
             <div className="group relative">
               <button
                 className="rounded-xl pt-2 text-center"

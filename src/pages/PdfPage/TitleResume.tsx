@@ -35,7 +35,7 @@ const TitleResume: FC = () => {
         type="text"
         value={title}
         placeholder={'E.g: HR Manager Resume'}
-        className=" bg-slate-150  h-8 w-5/12  border-b-[1px] p-2 text-center text-sm font-semibold uppercase tracking-wide outline-none placeholder:text-slate-400 focus:border-b-2 focus:border-additional-color md:w-3/12 md:pl-1 md:text-start md:text-xs 2xl:w-4/12 2xl:text-xs"
+        className=" bg-slate-150  h-8 w-5/12  border-b-[1px] p-2 text-center text-sm font-semibold uppercase tracking-wide outline-none placeholder:text-slate-400 focus:border-b-2 focus:border-additional-color md:w-3/12 md:pl-1 md:text-center md:text-xs lg:text-start 2xl:w-4/12 2xl:text-xs"
       />
       <label
         htmlFor="title"
