@@ -81,7 +81,7 @@ const EmploymentHistory: React.FC = () => {
       <ul className="relative">
         {employmnetList.map((el) => (
           <li key={el.id} className="mb-2">
-            <div className=" flex items-start px-4 md:mr-20  xl:mr-[53px] 2xl:mr-[72px]">
+            <div className=" flex items-start px-4 ">
               <UIEmploymentForm
                 el={el}
                 handleDelEmployment={handleDelEmployment}

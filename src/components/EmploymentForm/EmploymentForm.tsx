@@ -83,22 +83,24 @@ const EmploymentForm: React.FC = () => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className={`relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-dashed border-additional-color md:w-[89.5%]  md:flex-wrap lg:w-[90.6%] 2xl:text-lg ${
-        isUnfold && 'p-4 pb-6'
-      } `}
+      className={`relative flex h-auto w-full select-none flex-col items-center rounded-xl  ${
+        isUnfold && 'border border-dashed border-additional-color p-4 pb-6 '
+      }  2xl:text-lg`}
     >
       <div
-        className={`flex w-11/12 cursor-pointer items-center justify-between ${
-          !isUnfold ? 'p-4 py-6 ' : 'py-2'
+        className={`flex w-full cursor-pointer items-center justify-between  ${
+          !isUnfold
+            ? 'rounded-2xl border border-dashed border-additional-color  p-4 py-6 shadow-lg '
+            : 'py-2'
         }`}
         onClick={() => setIsUnfold((prev) => !prev)}
       >
-        <legend className="self-start text-left font-bold 2xl:text-lg">
+        <legend className="ml-3 self-start font-bold md:ml-7 lg:ml-11 xl:ml-5 2xl:ml-9 2xl:text-lg">
           (Not specified)
         </legend>
         <button
           type="button"
-          className=" rounded-xl bg-additional-color p-1 text-white"
+          className="rounded-xl bg-additional-color p-1 text-white hover:bg-additional-hover-color focus:bg-additional-hover-color"
         >
           {isUnfold ? (
             <svg
@@ -156,11 +158,9 @@ const EmploymentForm: React.FC = () => {
               htmlFor="employer"
               className="mb-2 font-light text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end "
             >
-              <p className="mb-1 md:ml-14 lg:ml-[65px] xl:ml-12 2xl:ml-[62px]">
-                Employer
-              </p>
+              <p className="mb-1">Employer</p>
               <input
-                className="mb-2 block h-12 w-full self-end rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-light focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12"
+                className="mb-2 block h-12 w-full self-end rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-light focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-full"
                 type="text"
                 id="employer"
                 name="employer"
@@ -176,7 +176,7 @@ const EmploymentForm: React.FC = () => {
               Start & End Date
               <div className="mb-4 flex items-center justify-between pt-1 md:flex md:w-10/12 ">
                 <input
-                  className="mr-2  block h-12 w-5/12 rounded border border-solid bg-input-bg p-1 text-center text-xs text-gray-800 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+                  className="mr-2  block h-12 w-5/12 rounded border border-solid bg-input-bg p-1 text-center text-[10px] text-gray-800 focus:border-b-2 focus:border-b-additional-color focus:outline-none md:text-xs"
                   type="date"
                   lang="en"
                   id="date"
@@ -200,7 +200,7 @@ const EmploymentForm: React.FC = () => {
                 </svg>
 
                 <input
-                  className=" block h-12 w-5/12 rounded border border-solid bg-input-bg p-1 text-center text-xs text-gray-800 focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+                  className=" block h-12 w-5/12 rounded border border-solid bg-input-bg p-1 text-center text-[10px] text-gray-800  focus:border-b-2 focus:border-b-additional-color focus:outline-none md:text-xs"
                   type="date"
                   lang="en"
                   id="end_date"
@@ -215,11 +215,9 @@ const EmploymentForm: React.FC = () => {
               htmlFor="city_employment"
               className="mb-2  font-light text-gray-400 md:flex md:w-[50%] md:flex-col md:self-end "
             >
-              <p className="mb-1 md:ml-14 lg:ml-[65px] xl:ml-12 2xl:ml-[62px]">
-                City
-              </p>
+              <p className="mb-1">City</p>
               <input
-                className="mb-10 block h-12 w-full rounded border border-solid bg-input-bg p-2 py-1 text-gray-800 placeholder:font-light focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-10/12 md:self-end"
+                className="mb-10 block h-12 w-full rounded border border-solid bg-input-bg p-2 py-1 text-gray-800 placeholder:font-light focus:border-b-2 focus:border-b-additional-color focus:outline-none md:w-full md:self-end"
                 type="text"
                 id="city_employment"
                 name="city"
