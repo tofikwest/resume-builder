@@ -4,7 +4,12 @@ import { ADD } from '../../redux/pdf/pdfSlice'
 import { WEBSITE_SOC_LINK } from '../../redux/pdf/constants'
 import { IWebSitesSocLink } from '../../redux/pdf/types'
 
-const WebSitesSocLinkForm: React.FC = () => {
+interface IProps {
+  handleBtnAddTrigger: () => void
+}
+
+const WebSitesSocLinkForm: React.FC<IProps> = (props: IProps) => {
+  const { handleBtnAddTrigger } = props
   const [localData, setLocalData] = useState<IWebSitesSocLink>({
     label: '',
     link: '',
@@ -37,7 +42,7 @@ const WebSitesSocLinkForm: React.FC = () => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className=" my-4 ml-4 flex h-full w-11/12 select-none flex-col justify-between  rounded-xl border  border-dashed border-gray-300 p-4 font-form-family md:w-[58%]  2xl:text-lg"
+      className=" my-4 ml-4 flex h-full w-11/12 select-none flex-col justify-between  rounded-xl border  border-dashed border-gray-300 p-4 font-form-family md:w-[58%] lg:w-[62%] 2xl:text-lg"
     >
       <div className="lg:flex lg:gap-14 xl:gap-5">
         <label htmlFor="label" className="w-full font-light text-gray-400 ">
@@ -67,12 +72,20 @@ const WebSitesSocLinkForm: React.FC = () => {
           />
         </label>
       </div>
-      <button
-        onClick={handleSubmit}
-        className=" mt-4 h-[42px] w-full self-end rounded bg-additional-color p-2  text-gray-100   lg:self-center"
-      >
-        Save
-      </button>
+      <div className="mt-4  flex gap-2 self-end  md:w-7/12">
+        <button
+          onClick={handleSubmit}
+          className=" mt-4 h-[42px] w-full rounded  bg-additional-color p-2  text-gray-100 hover:bg-additional-hover-color focus:bg-additional-hover-color"
+        >
+          Save
+        </button>
+        <button
+          onClick={handleBtnAddTrigger}
+          className=" mt-4 h-[42px]  rounded bg-red-400 p-2 text-gray-100 hover:bg-red-500 focus:bg-red-500 "
+        >
+          Cancel
+        </button>
+      </div>
     </form>
   )
 }

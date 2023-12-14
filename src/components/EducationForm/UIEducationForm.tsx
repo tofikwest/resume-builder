@@ -91,13 +91,15 @@ const UIEducationForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
       ref={formRef}
       id={el.id}
       onSubmit={handleSubmit}
-      className={`relative flex h-auto w-full select-none flex-col items-center rounded-xl border border-solid border-additional-color ${
-        isUnfold && 'p-4 pb-6'
+      className={`relative flex h-auto w-full select-none flex-col items-center rounded-xl ${
+        isUnfold && 'border border-solid border-additional-color p-4 pb-6 '
       }  2xl:text-lg`}
     >
       <div
         className={`flex w-11/12 cursor-pointer items-center justify-between  ${
-          !isUnfold ? 'p-4 py-6' : 'py-2'
+          !isUnfold
+            ? '-ml-6 rounded-2xl  bg-slate-300 p-4 py-6 shadow-lg md:-ml-14 xl:-ml-10 2xl:-ml-16'
+            : 'py-2'
         }`}
         onClick={() => setIsUnfold((prev) => !prev)}
       >
@@ -113,13 +115,13 @@ const UIEducationForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               className="h-5 w-5"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M19.5 12h-15"
               />
             </svg>
@@ -133,9 +135,9 @@ const UIEducationForm: React.FC<IProps> = ({ el, handleDelEducation }) => {
               className="h-5 w-5"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 4.5v15m7.5-7.5h-15"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
               />
             </svg>
           )}

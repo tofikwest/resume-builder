@@ -8,7 +8,7 @@ import { ADD, DEL } from '../../redux/pdf/pdfSlice'
 import { LANGUAGES } from '../../redux/pdf/constants'
 
 const Languages = () => {
-  const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(false)
+  const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(true)
 
   const dispatch = useDispatch()
 
@@ -53,15 +53,17 @@ const Languages = () => {
         id="languages-list"
         className=" mb-4 flex w-full max-w-xl flex-wrap gap-2 pl-5 2xl:text-base"
       >
-        {suggestionLangList.map((el) => (
-          <li
-            onClick={handleAddSuggestLang}
-            key={el}
-            className="flex cursor-pointer items-center justify-between  bg-gray-200 p-2"
-          >
-            {el}
-          </li>
-        ))}
+        {suggestionLangList
+          .filter((el) => !languageList.some((l) => l.language === el))
+          .map((el) => (
+            <li
+              onClick={handleAddSuggestLang}
+              key={el}
+              className="flex cursor-pointer items-center justify-between  bg-gray-200 p-2"
+            >
+              {el}
+            </li>
+          ))}
       </ul>
 
       <button
@@ -69,7 +71,7 @@ const Languages = () => {
         type="button"
         className="mb-3 ml-4 flex w-fit items-center  gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color 2xl:text-base"
       >
-        {!btnAddTrigger ? (
+        {!btnAddTrigger && (
           <>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -86,23 +88,6 @@ const Languages = () => {
               />
             </svg>
             <p>Add language</p>
-          </>
-        ) : (
-          <>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="h-5 w-5"
-            >
-              <path
-                fillRule="evenodd"
-                d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z"
-                clipRule="evenodd"
-              />
-            </svg>
-
-            <p>Hide language panel</p>
           </>
         )}
       </button>
@@ -137,7 +122,9 @@ const Languages = () => {
         ))}
       </ul>
 
-      {btnAddTrigger && <LanguageForm />}
+      {btnAddTrigger && (
+        <LanguageForm handleBtnAddTrigger={handleBtnAddTrigger} />
+      )}
     </>
   )
 }

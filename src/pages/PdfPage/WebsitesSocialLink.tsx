@@ -7,7 +7,7 @@ import { DEL } from '../../redux/pdf/pdfSlice'
 import { WEBSITE_SOC_LINK } from '../../redux/pdf/constants'
 
 const WebsitesSocialLink = () => {
-  const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(false)
+  const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(true)
 
   const socLinks = useSelector(
     (state: RootState) => state.pdf.websitesSocialLink,
@@ -45,7 +45,7 @@ const WebsitesSocialLink = () => {
         type="button"
         className="ml-4 flex w-fit items-center  gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color 2xl:text-base"
       >
-        {!btnAddTrigger ? (
+        {!btnAddTrigger && (
           <>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -63,26 +63,8 @@ const WebsitesSocialLink = () => {
             </svg>
             <p>Add link</p>
           </>
-        ) : (
-          <>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="h-5 w-5"
-            >
-              <path
-                fillRule="evenodd"
-                d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z"
-                clipRule="evenodd"
-              />
-            </svg>
-
-            <p>Hide link panel</p>
-          </>
         )}
       </button>
-      {btnAddTrigger && <WebSitesSocLinkForm />}
       <ul
         id="websitesLink-list"
         className=" ml-5 flex w-full max-w-xl flex-wrap gap-2 2xl:text-base "
@@ -118,6 +100,9 @@ const WebsitesSocialLink = () => {
           </li>
         ))}
       </ul>
+      {btnAddTrigger && (
+        <WebSitesSocLinkForm handleBtnAddTrigger={handleBtnAddTrigger} />
+      )}
     </>
   )
 }
