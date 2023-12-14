@@ -7,14 +7,24 @@ import { ADD, DEL } from '../../redux/pdf/pdfSlice'
 import { SKILLS } from '../../redux/pdf/constants'
 
 const Skills = () => {
-  const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(false)
+  const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(true)
   const skillsList = useSelector((state: RootState) => state.pdf.skills)
 
   const suggestionsList = [
-    'Project Management Skills',
-    'Communication',
-    'Highly Organized',
+    {
+      id: 1,
+      skill: 'Project Management Skills',
+    },
+    {
+      id: 2,
+      skill: 'Communication',
+    },
+    {
+      id: 3,
+      skill: 'Highly Organized',
+    },
   ]
+
   const dispatch = useDispatch()
 
   function handleBtnAddTrigger() {
@@ -54,15 +64,17 @@ const Skills = () => {
         id="skills-to-suggest"
         className="mb-4 flex w-full max-w-xl flex-wrap gap-2 pl-5 2xl:text-base"
       >
-        {suggestionsList.map((el) => (
-          <li
-            onClick={handleAddSuggestions}
-            className="flex cursor-pointer items-center justify-between gap-2 bg-gray-200 p-2"
-            key={el}
-          >
-            {el}
-          </li>
-        ))}
+        {suggestionsList
+          .filter((el) => !skillsList.some((s) => s.skill === el.skill))
+          .map(({ skill, id }) => (
+            <li
+              onClick={handleAddSuggestions}
+              className="flex cursor-pointer items-center justify-between gap-2 bg-gray-200 p-2"
+              key={id}
+            >
+              {skill}
+            </li>
+          ))}
       </ul>
 
       <button
@@ -70,7 +82,7 @@ const Skills = () => {
         type="button"
         className="mb-3 ml-4 flex w-fit items-center  gap-1 text-left text-sm text-additional-color hover:text-additional-hover-color 2xl:text-base"
       >
-        {!btnAddTrigger ? (
+        {!btnAddTrigger && (
           <>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -87,23 +99,6 @@ const Skills = () => {
               />
             </svg>
             <p>Add skill</p>
-          </>
-        ) : (
-          <>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="h-5 w-5"
-            >
-              <path
-                fillRule="evenodd"
-                d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z"
-                clipRule="evenodd"
-              />
-            </svg>
-
-            <p>Hide skill panel</p>
           </>
         )}
       </button>
@@ -137,7 +132,9 @@ const Skills = () => {
           </li>
         ))}
       </ul>
-      {btnAddTrigger && <SkillsForm />}
+      {btnAddTrigger && (
+        <SkillsForm handleBtnAddTrigger={handleBtnAddTrigger} />
+      )}
     </>
   )
 }

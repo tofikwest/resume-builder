@@ -7,7 +7,7 @@ import { DEL } from '../../redux/pdf/pdfSlice'
 import { EMPLOYMENT_HISTORY } from '../../redux/pdf/constants'
 
 const EmploymentHistory: React.FC = () => {
-  const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(false)
+  const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(true)
 
   const employmnetList = useSelector(
     (state: RootState) => state.pdf.employmentHistory,

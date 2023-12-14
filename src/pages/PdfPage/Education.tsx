@@ -7,7 +7,7 @@ import { DEL } from '../../redux/pdf/pdfSlice'
 import { EDUCATION } from '../../redux/pdf/constants'
 
 const Education = () => {
-  const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(false)
+  const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(true)
 
   const edu = useSelector((state: RootState) => state.pdf.education)
   const dispatch = useDispatch()

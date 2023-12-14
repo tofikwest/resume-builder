@@ -4,7 +4,12 @@ import { ADD } from '../../redux/pdf/pdfSlice'
 import { ILanguage } from '../../redux/pdf/types'
 import { LANGUAGES } from '../../redux/pdf/constants'
 
-const LanguageForm: React.FC = () => {
+interface IProps {
+  handleBtnAddTrigger: () => void
+}
+
+const LanguageForm: React.FC<IProps> = (props: IProps) => {
+  const { handleBtnAddTrigger } = props
   const [localData, setLocalData] = useState<ILanguage>({
     language: '',
     level: '',
@@ -35,7 +40,7 @@ const LanguageForm: React.FC = () => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className=" mx-4 ml-4 flex h-full select-none flex-col justify-between rounded-xl border border-dashed   border-gray-300 p-4  md:w-[58%] lg:w-[48%] 2xl:text-lg"
+      className=" mx-4 ml-4 flex h-full select-none flex-col justify-between rounded-xl border border-dashed   border-gray-300 p-4  md:w-[58%] lg:w-[62%] 2xl:text-lg"
     >
       <div className="lg:flex lg:gap-14 xl:gap-5 ">
         <label htmlFor="language" className="font-light text-gray-400">
@@ -65,12 +70,21 @@ const LanguageForm: React.FC = () => {
           />
         </label>
       </div>
-      <button
-        onClick={handleSubmit}
-        className=" mt-4 h-[42px] w-full  self-end rounded  bg-additional-color p-2 text-gray-100"
-      >
-        Save
-      </button>
+
+      <div className="mt-4  flex gap-2 self-end  md:w-7/12">
+        <button
+          onClick={handleSubmit}
+          className=" mt-4 h-[42px] w-full rounded  bg-additional-color p-2  text-gray-100 hover:bg-additional-hover-color focus:bg-additional-hover-color"
+        >
+          Save
+        </button>
+        <button
+          onClick={handleBtnAddTrigger}
+          className=" mt-4 h-[42px]  rounded bg-red-400 p-2 text-gray-100 hover:bg-red-500 focus:bg-red-500 "
+        >
+          Cancel
+        </button>
+      </div>
     </form>
   )
 }
