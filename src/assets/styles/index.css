@@ -136,3 +136,12 @@ a {
     z-index: -1;
   }
 }
+
+#sideBar {
+  left: -200px;
+  transition: left 0.3s ease;
+}
+
+#sideBar.open {
+  left: 0;
+}
