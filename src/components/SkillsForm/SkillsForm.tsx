@@ -38,13 +38,13 @@ const SkillsForm: React.FC<IProps> = (props) => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className=" mx-4 ml-4 flex h-full select-none flex-col justify-between rounded-xl border   border-dashed border-gray-300  p-4  md:w-[58%] lg:w-[62%] 2xl:text-lg"
+      className="my-4 ml-4 flex h-full w-11/12 select-none flex-col justify-between gap-4 rounded-xl border border-dashed border-gray-300  p-4 font-form-family  md:h-[105px]  md:w-[96%] md:flex-row lg:w-[96.4%] 2xl:text-lg"
     >
-      <div className=" lg:flex lg:gap-14 xl:gap-5">
+      <div className="md:flex md:gap-14 xl:gap-5">
         <label htmlFor="skill" className="font-light text-gray-400">
           Skill
           <input
-            className={`mt-1  block w-full rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none `}
+            className={` block w-full rounded border border-solid bg-input-bg p-2 text-black placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none `}
             type="text"
             id="skill"
             name="skill"
@@ -55,11 +55,11 @@ const SkillsForm: React.FC<IProps> = (props) => {
 
         <label
           htmlFor="level"
-          className="mt-2 block font-light text-gray-400 lg:mt-0 "
+          className=" mt-2 block w-full font-light text-gray-400  md:mt-0 lg:mt-0"
         >
           Level
           <input
-            className="mt-1  block w-full self-end rounded border border-solid bg-input-bg p-2 text-gray-800 placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none"
+            className="block w-full self-end rounded border border-solid bg-input-bg p-2 text-black placeholder:font-extralight focus:border-b-2 focus:border-b-additional-color focus:outline-none"
             type="text"
             id="level"
             name="level"
@@ -69,16 +69,16 @@ const SkillsForm: React.FC<IProps> = (props) => {
         </label>
       </div>
 
-      <div className="mt-4  flex gap-2 self-end  md:w-7/12">
+      <div className="flex justify-end gap-2 md:mb-[6px] md:w-7/12 md:self-end  lg:mb-[6px] 2xl:mb-[-1.5px]">
         <button
           onClick={handleSubmit}
-          className=" mt-4 h-[42px] w-full rounded  bg-additional-color p-2  text-gray-100 hover:bg-additional-hover-color focus:bg-additional-hover-color"
+          className="w-6/12 rounded bg-additional-color  p-1   text-gray-100 hover:bg-additional-hover-color focus:bg-additional-hover-color"
         >
           Save
         </button>
         <button
           onClick={handleBtnAddTrigger}
-          className=" mt-4 h-[42px]  rounded bg-red-400 p-2 text-gray-100 hover:bg-red-500 focus:bg-red-500 "
+          className="rounded bg-slate-600 p-2 text-gray-100 hover:bg-slate-700 focus:bg-slate-700 "
         >
           Cancel
         </button>

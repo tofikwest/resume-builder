@@ -12,6 +12,9 @@ export default {
         'input-bg': 'rgb(239, 242, 249)',
         'browser-pdf': 'rgb(42 42 46)',
       },
+      height: {
+        fullWithOne: 'calc(100% + 1px)',
+      },
       borderColor: {
         'primary-color': 'black',
         'additional-color': '#7070e5', //purple
