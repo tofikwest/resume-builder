@@ -4,7 +4,6 @@ import { bk } from '../../helpers/breakpoints'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
-import SideBar from '../SideBar/SideBar'
 
 interface PageLayoutProps {
   Component: ElementType
@@ -15,7 +14,6 @@ const PageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
   )
   const titleResume = titleFromStore || 'resume'
 
-  const [isOpen, setisOpen] = useState(false)
   const [width, setWidth] = useState<number>(window.innerWidth)
   const [PdfComponent, setPdfComponent] = useState<any>(null)
   const [pdfLoadStatus, setStatus] = useState<boolean>(true)
@@ -142,30 +140,6 @@ const PageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
 
   return (
     <div id="pageLayout" className="builderPage  relative flex  h-screen ">
-      <button
-        onClick={() => setisOpen((prev) => !prev)}
-        className="fixed left-6 top-4 z-[2]  xl:block"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="h-6 w-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-          />
-        </svg>
-      </button>
-
-      <div className="xl:block xl:w-[60px]">
-        <SideBar isOpen={isOpen} />
-      </div>
-
       <div id="contentPart" className="  h-screen w-full py-5 xl:w-6/12 ">
         <Component />
       </div>

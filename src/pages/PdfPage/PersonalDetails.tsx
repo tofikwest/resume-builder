@@ -176,7 +176,7 @@ const PersonalDetails: React.FC = () => {
 
         <label
           htmlFor="photo"
-          className={`mb-4 mt-[28px] flex  h-12  w-full items-center  gap-5 rounded     text-sm font-light text-gray-600 
+          className={`mb-4 mt-[28px] flex  h-12  w-full items-center  gap-5 rounded text-sm font-light text-gray-600 
            md:w-5/12 2xl:h-20 2xl:text-lg
           `}
         >
@@ -235,7 +235,7 @@ const PersonalDetails: React.FC = () => {
       {/* Additional detail BTN */}
       <button
         type="button"
-        className=" mb-2 ml-4 w-fit text-left text-sm text-additional-color hover:text-additional-hover-color 2xl:text-base"
+        className=" my-2 ml-4 w-fit text-left text-sm text-additional-color hover:text-additional-hover-color 2xl:text-base"
         onClick={handleShowAdditionalForm}
       >
         {isNeedAdditionalForm ? (
