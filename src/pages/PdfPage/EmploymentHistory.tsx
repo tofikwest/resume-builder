@@ -7,7 +7,7 @@ import { DEL } from '../../redux/pdf/pdfSlice'
 import { EMPLOYMENT_HISTORY } from '../../redux/pdf/constants'
 
 const EmploymentHistory: React.FC = () => {
-  const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(false)
+  const [btnAddTrigger, setBtnAddTrigger] = useState<boolean>(true)
 
   const employmnetList = useSelector(
     (state: RootState) => state.pdf.employmentHistory,
@@ -19,7 +19,7 @@ const EmploymentHistory: React.FC = () => {
     setBtnAddTrigger((prev) => !prev)
   }
 
-  function handleDelEducation(e: React.MouseEvent<HTMLButtonElement>) {
+  function handleDelEmployment(e: React.MouseEvent<HTMLButtonElement>) {
     dispatch(
       DEL({
         section: EMPLOYMENT_HISTORY,
@@ -84,7 +84,7 @@ const EmploymentHistory: React.FC = () => {
             <div className=" flex items-start px-4 md:mr-20  xl:mr-[53px] 2xl:mr-[72px]">
               <UIEmploymentForm
                 el={el}
-                handleDelEducation={handleDelEducation}
+                handleDelEmployment={handleDelEmployment}
               />
             </div>
           </li>

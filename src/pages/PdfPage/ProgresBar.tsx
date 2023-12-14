@@ -141,7 +141,7 @@ const ProgresBar = () => {
           </div>
         </div>
 
-        <div className="mt-2  h-1  bg-gray-200">
+        <div className="sticky  mt-2  h-1 bg-gray-200">
           <div
             className={`h-full bg-additional-color transition-all  duration-700 ease-in-out`}
             style={progressBarStyle}
