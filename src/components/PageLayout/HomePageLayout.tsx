@@ -1,5 +1,4 @@
 import { ElementType } from 'react'
-// import SideBar from '../SideBar/SideBar'
 
 interface PageLayoutProps {
   Component: ElementType
@@ -7,12 +6,8 @@ interface PageLayoutProps {
 
 const HomePageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
   return (
-    <div id="pageLayout" className="relative  flex h-screen  ">
-      {/* <div className="hidden w-[95px] lg:block">
-        <SideBar />
-      </div> */}
-
-      <div id="contentPart" className="mx-10  h-screen w-11/12   py-5 ">
+    <div id="pageLayout" className="relative h-screen w-screen ">
+      <div id="contentPart">
         <Component />
       </div>
     </div>
