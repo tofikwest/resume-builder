@@ -1,5 +1,5 @@
 import girlPic from '../../assets/icons/girl.png'
-import adj from '../../assets/icons/homePage/adjustment.svg'
+
 const HeroBlock = () => {
   return (
     <div className="relative flex h-[451px] flex-col rounded-3xl  border border-solid bg-[rgb(209,212,255)] md:h-[65%]">
