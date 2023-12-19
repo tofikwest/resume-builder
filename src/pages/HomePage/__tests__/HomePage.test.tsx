@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-import HomePage from '../HomePage'
+import HomePage from '../HomePage_ORIGINAL'
 import HomePageLayout from '../../../components/PageLayout/HomePageLayout'
 
 describe('HomePage tests', () => {
