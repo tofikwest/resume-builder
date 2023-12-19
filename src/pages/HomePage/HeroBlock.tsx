@@ -47,7 +47,7 @@ const HeroBlock = () => {
         viewBox="0 0 24 24"
         strokeWidth="1.5"
         stroke="currentColor"
-        className="absolute left-[88%] top-[45%] h-10 w-10 -translate-x-1/2 rounded-lg shadow-xl md:left-[47%] md:top-[50%] lg:left-[47%] lg:top-[19%] xl:left-[45%] xl:top-[10%] 2xl:left-[600px] 2xl:top-[10%]"
+        className="absolute left-[88%] top-[45%] h-10 w-10 -translate-x-1/2 rounded-lg shadow-xl md:left-[52%] md:top-[51%] lg:left-[47%] lg:top-[19%] xl:left-[45%] xl:top-[10%] 2xl:left-[600px] 2xl:top-[10%]"
       >
         <path
           strokeLinecap="round"
