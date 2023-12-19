@@ -1,22 +1,21 @@
 import girlPic from '../../assets/icons/girl.png'
-
+import adj from '../../assets/icons/homePage/adjustment.svg'
 const HeroBlock = () => {
   return (
-    <div className="relative h-[65%] rounded-3xl border border-solid bg-[rgb(209,212,255)]">
+    <div className="relative flex h-[451px] flex-col rounded-3xl  border border-solid bg-[rgb(209,212,255)] md:h-[65%]">
       <img
         src={girlPic}
-        height={400}
-        width={400}
-        alt="girl"
-        className="absolute bottom-0 left-[200px] z-10"
+        alt="girl with resume table in her hand"
+        className="absolute bottom-0 left-1/2 z-[1] h-5/6 -translate-x-1/2 transform md:left-5 md:h-[90%] md:-translate-x-0 lg:left-28 xl:left-[200px] "
       />
+      {/* right up */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
         strokeWidth="1.5"
         stroke="currentColor"
-        className="absolute left-[30%] top-[20%] h-10 w-10 rounded-lg shadow-xl"
+        className="absolute left-[75%] top-[22%] h-10 w-10 rounded-lg shadow-xl md:left-[45%] md:top-[12%] lg:left-[48%] lg:top-[48%] xl:left-[42%] xl:top-[40%] 2xl:left-[600px] 2xl:top-[45%]"
       >
         <path
           strokeLinecap="round"
@@ -24,13 +23,15 @@ const HeroBlock = () => {
           d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5"
         />
       </svg>
+
+      {/* left up */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
         strokeWidth="1.5"
         stroke="currentColor"
-        className="absolute left-[10%] top-[60%] h-10 w-10 rounded-lg shadow-xl"
+        className="absolute left-[2%] top-[39%] h-10 w-10 rounded-lg shadow-xl md:left-[2.5%] md:top-[9%] lg:left-[10%] lg:top-[10%] xl:left-[12%] xl:top-[10%] 2xl:left-[150px] 2xl:top-[10%]"
       >
         <path
           strokeLinecap="round"
@@ -39,13 +40,14 @@ const HeroBlock = () => {
         />
       </svg>
 
+      {/* right down */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
         strokeWidth="1.5"
         stroke="currentColor"
-        className="absolute left-[30%] top-[40%] h-10 w-10 rounded-lg shadow-xl"
+        className="absolute left-[88%] top-[45%] h-10 w-10 -translate-x-1/2 rounded-lg shadow-xl md:left-[47%] md:top-[50%] lg:left-[47%] lg:top-[19%] xl:left-[45%] xl:top-[10%] 2xl:left-[600px] 2xl:top-[10%]"
       >
         <path
           strokeLinecap="round"
@@ -54,13 +56,14 @@ const HeroBlock = () => {
         />
       </svg>
 
+      {/* left down */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
         strokeWidth="1.5"
         stroke="currentColor"
-        className="absolute left-[10%] top-[24%] h-10 w-10 rounded-lg shadow-xl"
+        className="absolute left-[10%] top-[54%] h-10 w-10 rounded-lg shadow-xl md:left-[2%] md:top-[44%] lg:left-[4%] lg:top-[44%] xl:left-[10%] xl:top-[40%] 2xl:left-[150px] 2xl:top-[44%]"
       >
         <path
           strokeLinecap="round"
@@ -69,8 +72,8 @@ const HeroBlock = () => {
         />
       </svg>
 
-      <div className="float-right flex h-full flex-col items-center justify-center gap-10 px-4">
-        <h1 className="shadow-3xl text-xl font-bold tracking-wide underline md:w-4/12 md:text-6xl lg:w-6/12 lg:text-7xl">
+      <div className="flex h-full flex-col items-center gap-10 px-4 md:float-right md:items-end md:justify-center md:pb-5 md:pr-20  lg:lg:justify-center">
+        <h1 className="shadow-3xl w-full pt-5 text-center text-sm font-bold tracking-wide underline md:w-4/12 md:text-left md:text-6xl lg:w-4/12 lg:text-6xl 2xl:w-4/12 2xl:text-7xl">
           <span className="animated-text text-additional-color">S</span>tart b
           <span className="animated-text text-additional-color">u</span>ilding
           you
@@ -78,7 +81,7 @@ const HeroBlock = () => {
           <span className="animated-text text-additional-color">e</span>
           <span className="text-additional-color ">.</span>
         </h1>
-        <p className="-ml-40 text-lg font-bold tracking-wide text-gray-700 md:w-4/12">
+        <p className="-mt-8 w-10/12  text-center text-[10px] font-bold leading-normal text-gray-700 md:mt-0 md:w-4/12 md:text-left md:text-xs lg:text-sm  xl:tracking-wide 2xl:text-lg">
           Create an awesome resume in minutes, without leaving your web browser.
         </p>
       </div>
