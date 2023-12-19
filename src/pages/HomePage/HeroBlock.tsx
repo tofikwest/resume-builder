@@ -81,7 +81,7 @@ const HeroBlock = () => {
           <span className="animated-text text-additional-color">e</span>
           <span className="text-additional-color ">.</span>
         </h1>
-        <p className="-mt-8 w-10/12  text-center text-[10px] font-bold leading-normal text-gray-700 md:mt-0 md:w-4/12 md:text-left md:text-xs lg:text-sm  xl:tracking-wide 2xl:text-lg">
+        <p className="-mt-8 w-10/12  text-center text-[10px] font-bold leading-normal text-gray-700 md:mt-0 md:w-4/12 md:text-left md:text-xs lg:text-sm  xl:tracking-wide 2xl:mb-12 2xl:text-lg">
           Create an awesome resume in minutes, without leaving your web browser.
         </p>
       </div>
