@@ -2,7 +2,7 @@ import graphicPic from '../../../assets/icons/graphic.png'
 
 const ResumeTracker = () => {
   return (
-    <div className="flex h-full flex-col items-center rounded-3xl border-4 border-solid border-black bg-[#515161] p-4 pt-6 text-center font-bold tracking-wide text-white blur-[0.5px] md:w-1/3">
+    <div className="flex h-full flex-col items-center rounded-3xl border-4  border-r-8 border-solid border-black bg-[#515161] p-4 pt-6 text-center font-bold tracking-wide text-white blur-[0.5px] md:w-1/3">
       <h3 className="mb-2 text-base blur-sm">Resume Tracker</h3>
 
       <div className="flex h-full w-full items-center justify-between">
@@ -34,6 +34,8 @@ const ResumeTracker = () => {
 
       <p className="absolute top-[45%] text-center text-3xl font-extrabold">
         Will be available soon
+        <br />
+        <p className="text-base">Resume Tracker</p>
       </p>
     </div>
   )

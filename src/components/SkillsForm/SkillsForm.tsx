@@ -55,7 +55,7 @@ const SkillsForm: React.FC<IProps> = (props) => {
 
         <label
           htmlFor="level"
-          className=" mt-2 block w-full font-light text-gray-400  md:mt-0 lg:mt-0"
+          className=" mt-2 block font-light text-gray-400  md:mt-0 lg:mt-0"
         >
           Level
           <input
@@ -69,7 +69,7 @@ const SkillsForm: React.FC<IProps> = (props) => {
         </label>
       </div>
 
-      <div className="flex justify-end gap-2 md:mb-[6px] md:w-7/12 md:self-end  lg:mb-[6px] 2xl:mb-[-1.5px]">
+      <div className="flex justify-center gap-2 md:mb-[6px] md:w-4/12 md:self-end  lg:mb-[6px] 2xl:mb-[-1.5px]">
         <button
           onClick={handleSubmit}
           className="w-6/12 rounded bg-additional-color  p-1   text-gray-100 hover:bg-additional-hover-color focus:bg-additional-hover-color"
