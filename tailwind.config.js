@@ -12,6 +12,10 @@ export default {
         'input-bg': 'rgb(239, 242, 249)',
         'browser-pdf': 'rgb(42 42 46)',
       },
+      backgroundSize: {
+        cover: 'cover',
+        mobSize: '150%',
+      },
       height: {
         fullWithOne: 'calc(100% + 1px)',
       },

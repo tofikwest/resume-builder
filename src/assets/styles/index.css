@@ -145,3 +145,10 @@ a {
 #sideBar.open {
   left: 0;
 }
+
+.homePage-resumeBlock {
+  background-image: url('../icons/resumeWithBG.png');
+  background-color: #7575e5;
+  background-position: 65% 50%;
+  background-repeat: no-repeat;
+}

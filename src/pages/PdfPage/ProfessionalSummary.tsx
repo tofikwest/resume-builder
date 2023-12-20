@@ -46,7 +46,7 @@ const ProfessionalSummary: React.FC = () => {
 
       <TextArea
         handle={handleTextArea}
-        mx="mx-auto   md:w-[95.8%] lg:w-[97%] 2xl:text-lg w-[95%]"
+        mx="mx-auto   w-[99.95%] "
         name="profSummary"
         value={textArea}
         setData={(val: string) => setSelectedText(val)}

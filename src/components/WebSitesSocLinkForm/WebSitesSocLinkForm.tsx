@@ -44,7 +44,7 @@ const WebSitesSocLinkForm: React.FC<IProps> = (props: IProps) => {
       onSubmit={(e) => e.preventDefault()}
       className="my-4 ml-4 flex h-full w-11/12 select-none flex-col justify-between gap-4 rounded-xl border border-dashed border-gray-300  p-4 font-form-family  md:h-[105px]  md:w-[96%] md:flex-row lg:w-[96.4%] 2xl:text-lg"
     >
-      <div className="md:flex md:gap-14 xl:gap-5">
+      <div className=" md:flex md:gap-14 xl:gap-5">
         <label htmlFor="label" className=" font-light text-gray-400 ">
           Label
           <input
@@ -59,7 +59,7 @@ const WebSitesSocLinkForm: React.FC<IProps> = (props: IProps) => {
 
         <label
           htmlFor="linkWebSites"
-          className="mt-2 block w-full font-light text-gray-400  md:mt-0 lg:mt-0"
+          className="mt-2 block  font-light text-gray-400  md:mt-0 lg:mt-0"
         >
           Link
           <input
@@ -72,7 +72,7 @@ const WebSitesSocLinkForm: React.FC<IProps> = (props: IProps) => {
           />
         </label>
       </div>
-      <div className="flex justify-end gap-2 md:mb-[6px] md:w-7/12 md:self-end  lg:mb-[6px] 2xl:mb-[-1.5px]">
+      <div className="flex justify-center gap-2 md:mb-[6px] md:w-4/12 md:self-end  lg:mb-[6px] 2xl:mb-[-1.5px]">
         <button
           onClick={handleSubmit}
           className="w-6/12 rounded bg-additional-color  p-1   text-gray-100 hover:bg-additional-hover-color focus:bg-additional-hover-color"
