@@ -1,7 +1,8 @@
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { ADD } from '../../redux/pdf/pdfSlice'
-import { PERSONAL_DETAILS } from '../../redux/pdf/constants'
+import { ADD } from '../../../redux/pdf/pdfSlice'
+import { PERSONAL_DETAILS } from '../../../redux/pdf/constants'
+import CountryDropDownInput from './CountryDropDownInput'
 
 const PersonalDetails: React.FC = () => {
   const [currentWidth, setCurrentWidth] = useState(window.innerWidth)
@@ -52,7 +53,9 @@ const PersonalDetails: React.FC = () => {
     setCurrentWidth(window.innerWidth)
   }
 
-  function handleMainFormData(e: ChangeEvent<HTMLInputElement>) {
+  function handleMainFormData(
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) {
     setMainFormdata((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -158,21 +161,7 @@ const PersonalDetails: React.FC = () => {
           />
         </label>
 
-        <label
-          htmlFor="country"
-          className=" w-full self-end font-light text-gray-400 md:flex  md:w-[50%] md:flex-col md:items-end 2xl:text-lg"
-        >
-          <p className="w-10/12">Country</p>
-          <input
-            onChange={handleMainFormData}
-            className="mb-4 mt-1 block h-12 w-full rounded border border-solid bg-input-bg p-2 text-gray-800 focus:border-b-2 focus:border-b-additional-color focus:outline-none  md:w-10/12 2xl:text-lg"
-            type="text"
-            id="country"
-            name="country"
-            required
-            value={mainFormData.country}
-          />
-        </label>
+        <CountryDropDownInput handleMainFormData={handleMainFormData} />
 
         <label
           htmlFor="photo"
