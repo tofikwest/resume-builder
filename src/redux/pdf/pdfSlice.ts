@@ -64,6 +64,7 @@ export const pdfSlice = createSlice({
         section === PROF_SUMMARY ||
         section === TITLE
       ) {
+        console.log(section, data)
         return {
           ...state,
           [section]: {

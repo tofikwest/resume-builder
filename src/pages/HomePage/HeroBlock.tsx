@@ -2,8 +2,8 @@ import girlPic from '../../assets/icons/girl.png'
 
 const HeroBlock = () => {
   return (
-    <div className="hr relative flex h-[451px] w-full   justify-center rounded-3xl border border-solid bg-[rgb(209,212,255)] md:h-[65%]">
-      <div className="relative flex h-full max-w-[1440px] flex-col-reverse  items-center  before:block before:h-5/6 before:w-10/12 before:content-[''] md:flex-row md:justify-between ">
+    <div className="relative flex h-[451px] w-full   justify-center rounded-3xl border border-solid bg-[rgb(209,212,255)] md:h-[65%]">
+      <div className="relative flex h-full max-w-[1440px] flex-col-reverse  items-center before:block before:h-5/6 before:w-10/12 before:content-[''] md:flex-row md:justify-between">
         <img
           src={girlPic}
           alt="girl with resume table in her hand"

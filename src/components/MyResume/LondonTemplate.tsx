@@ -222,7 +222,7 @@ interface IProps {
 }
 const PRESENT_STR = 'Present'
 
-const MyResume: React.FC<IProps> = ({
+const LondonTemplate: React.FC<IProps> = ({
   style = {},
   style_download_link = {},
   getPdfComponent,
@@ -469,4 +469,4 @@ const MyResume: React.FC<IProps> = ({
   )
 }
 
-export default MyResume
+export default LondonTemplate
