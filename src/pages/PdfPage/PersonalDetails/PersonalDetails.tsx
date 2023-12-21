@@ -17,7 +17,7 @@ const PersonalDetails: React.FC = () => {
     first_name: '',
     email: '',
     country: '',
-    photo: '',
+    photo: null,
     last_name: '',
     phone: '',
     city: '',
@@ -56,9 +56,17 @@ const PersonalDetails: React.FC = () => {
   function handleMainFormData(
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) {
+    let value: string = e.target.value,
+      file: File | null = null
+    const fileInput = e.target as HTMLInputElement
+
+    if (e.target.name === 'photo') {
+      file = fileInput.files?.[0]!
+      console.log(file, 'file')
+    }
     setMainFormdata((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.name !== 'photo' ? value : file,
     }))
   }
 
@@ -195,8 +203,7 @@ const PersonalDetails: React.FC = () => {
             type="file"
             id="photo"
             name="photo"
-            disabled={true}
-            value={mainFormData.photo}
+            disabled={false}
           />
           <p className="inline w-6/12   bg-white lg:w-5/12  lg:text-sm xl:w-7/12 2xl:text-lg">
             This template doesn't support photo upload

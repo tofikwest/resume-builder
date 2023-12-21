@@ -1,5 +1,7 @@
 import { ElementType, useEffect, useRef, useState } from 'react'
-import MyResume from '../MyResume/MyResume'
+// import LondonResume from '../MyResume/LondonTemplate'
+import DublinResume from '../MyResume/DublinTemplate'
+
 import { bk } from '../../helpers/breakpoints'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 import { useSelector } from 'react-redux'
@@ -41,7 +43,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
       ref={tag}
       className="lg:w-/12 fixed  left-0 top-0 h-[100vh] w-[100vw] flex-1 bg-browser-pdf md:hidden"
     >
-      <MyResume
+      <DublinResume
         style={{
           width: '110%',
           height: '100vh',
@@ -74,7 +76,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
       ref={tag}
       className="fixed left-0 top-0 h-[100vh] w-[100vw] flex-1 bg-browser-pdf  "
     >
-      <MyResume
+      <DublinResume
         getPdfComponent={getPdfComponent}
         style={{
           position: 'absolute',
@@ -110,7 +112,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
       ref={tag}
       className=" fixed right-[3%] top-[-11%]  w-5/12 flex-1 scale-[70%] "
     >
-      <MyResume
+      <DublinResume
         getPdfComponent={getPdfComponent}
         style={{
           width: '110%',
