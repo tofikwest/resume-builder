@@ -5,22 +5,24 @@ import { useDispatch } from 'react-redux'
 import { PROF_SUMMARY } from '../../redux/pdf/constants'
 import useSelectText from '../../customHooks/useSelectText'
 import { addDotToSelectedLine } from '../../helpers/handleSelectText'
+import debounce from 'debounce'
 
 const ProfessionalSummary: React.FC = () => {
   const [textArea, settextAreaValue] = useState('')
   const dispatch = useDispatch()
 
+  const debouncedDispatch = debounce((inputValue: string) => {
+    dispatch(
+      ADD({
+        section: PROF_SUMMARY,
+        data: { summary: inputValue },
+      }),
+    )
+  }, 500)
+
   function handleTextArea(e: ChangeEvent<HTMLTextAreaElement>) {
     settextAreaValue(e.target.value)
-
-    setTimeout(() => {
-      dispatch(
-        ADD({
-          section: PROF_SUMMARY,
-          data: { summary: e.target.value },
-        }),
-      )
-    }, 300)
+    debouncedDispatch(e.target.value)
   }
 
   // custom hook
