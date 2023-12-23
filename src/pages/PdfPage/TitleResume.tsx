@@ -2,6 +2,7 @@ import { ChangeEvent, useState, FC } from 'react'
 import { useDispatch } from 'react-redux'
 import { ADD } from '../../redux/pdf/pdfSlice'
 import { TITLE } from '../../redux/pdf/constants'
+import debounce from 'debounce'
 
 const TitleResume: FC = () => {
   const untitle = 'Untitled'
@@ -13,17 +14,18 @@ const TitleResume: FC = () => {
     return !title ? untitle : title
   }
 
+  const debouncedDispatch = debounce((inputValue: string) => {
+    dispatch(
+      ADD({
+        section: TITLE,
+        data: { title: validateTitle(inputValue) },
+      }),
+    )
+  }, 500)
+
   function handleTitle(e: ChangeEvent<HTMLInputElement>) {
     setTitle(e.target.value)
-
-    setTimeout(() => {
-      dispatch(
-        ADD({
-          section: TITLE,
-          data: { title: validateTitle(e.target.value) },
-        }),
-      )
-    }, 300)
+    debouncedDispatch(e.target.value)
   }
 
   return (

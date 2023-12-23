@@ -283,6 +283,13 @@ const DublinTemplate: React.FC<IProps> = ({
 
   const fileName = pdf.title.title ? pdf.title.title : 'resume'
 
+  const leftSide_details_section_checker = [
+    pdf.personalDetails.country,
+    pdf.personalDetails.city,
+    pdf.personalDetails.address,
+    pdf.personalDetails.postalCode,
+    pdf.personalDetails.email,
+  ]
   useEffect(() => {
     setIsPdfLoading(true)
     getPdfComponent!(DocumentContent, true)
@@ -333,37 +340,41 @@ const DublinTemplate: React.FC<IProps> = ({
                   {pdf.personalDetails.jobTitle && pdf.personalDetails.jobTitle}
                 </Text>
 
-                <Text
-                  style={{
-                    textAlign: 'left',
-                    fontWeight: 'bold',
-                    marginTop: '8px',
-                  }}
-                >
-                  Details
-                </Text>
+                {leftSide_details_section_checker.some(Boolean) && (
+                  <>
+                    <Text
+                      style={{
+                        textAlign: 'left',
+                        fontWeight: 'bold',
+                        marginTop: '8px',
+                      }}
+                    >
+                      Details
+                    </Text>
 
-                <Text style={styles.hero__descriptions}>
-                  {pdf.personalDetails.country} {pdf.personalDetails.city}
-                  {'\n'}
-                  {pdf.personalDetails.address}
-                  {', '}
-                  {pdf.personalDetails.postalCode}
-                  {'\n'}{' '}
-                  <Link
-                    src={'tel:' + pdf.personalDetails.phone}
-                    style={{ color: 'white' }}
-                  >
-                    {pdf.personalDetails.phone}
-                  </Link>
-                  {'\n'}
-                  <Link
-                    src={'mailto:' + pdf.personalDetails.email}
-                    style={{ color: 'white' }}
-                  >
-                    {pdf.personalDetails.email}
-                  </Link>
-                </Text>
+                    <Text style={styles.hero__descriptions}>
+                      {pdf.personalDetails.country} {pdf.personalDetails.city}
+                      {'\n'}
+                      {pdf.personalDetails.address}
+                      {', '}
+                      {pdf.personalDetails.postalCode}
+                      {'\n'}{' '}
+                      <Link
+                        src={'tel:' + pdf.personalDetails.phone}
+                        style={{ color: 'white' }}
+                      >
+                        {pdf.personalDetails.phone}
+                      </Link>
+                      {'\n'}
+                      <Link
+                        src={'mailto:' + pdf.personalDetails.email}
+                        style={{ color: 'white' }}
+                      >
+                        {pdf.personalDetails.email}
+                      </Link>
+                    </Text>
+                  </>
+                )}
 
                 {/* LINKS */}
                 {Object.values(pdf.websitesSocialLink).some(Boolean) && (
