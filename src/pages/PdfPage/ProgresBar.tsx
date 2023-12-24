@@ -4,6 +4,7 @@ import { RootState } from '../../redux/store'
 import {
   PERSONAL_DETAILS,
   PROF_SUMMARY,
+  TEMPLATE_NAME,
   TITLE,
 } from '../../redux/pdf/constants'
 import {
@@ -63,7 +64,7 @@ const ProgresBar = () => {
 
     for (const item in sectionsData) {
       if (sectionsData[item]) {
-        if (item === TITLE) {
+        if (item === TITLE || item === TEMPLATE_NAME) {
           continue
         }
 

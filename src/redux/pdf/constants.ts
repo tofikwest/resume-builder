@@ -1,4 +1,5 @@
 export const TITLE = 'title'
+export const TEMPLATE_NAME = 'templateName'
 export const PERSONAL_DETAILS = 'personalDetails'
 export const PROF_SUMMARY = 'professionalSummary'
 export const EMPLOYMENT_HISTORY = 'employmentHistory'

@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import {
+  ICurrentTemplateName,
   IEducation,
   IEmploymentHistory,
   ILanguage,
@@ -12,7 +13,12 @@ import {
 } from './types'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { nanoid } from 'nanoid'
-import { PERSONAL_DETAILS, PROF_SUMMARY, TITLE } from './constants'
+import {
+  PERSONAL_DETAILS,
+  PROF_SUMMARY,
+  TEMPLATE_NAME,
+  TITLE,
+} from './constants'
 
 export interface IPayloadAdd {
   section: string
@@ -25,6 +31,7 @@ export interface IPayloadAdd {
     | IProfessionalSummary
     | IPersonalDetails
     | ITitle
+    | ICurrentTemplateName
 }
 
 export interface IPayloadDel {
@@ -40,6 +47,9 @@ export interface IPayloadChange {
 
 const initialState: IPdfState = {
   title: {},
+  templateName: {
+    currentTemplateName: null,
+  },
   personalDetails: {},
   professionalSummary: {
     summary: '',
@@ -62,9 +72,10 @@ export const pdfSlice = createSlice({
       if (
         section === PERSONAL_DETAILS ||
         section === PROF_SUMMARY ||
-        section === TITLE
+        section === TITLE ||
+        section === TEMPLATE_NAME
       ) {
-        console.log(section, data)
+        console.log(data, section)
         return {
           ...state,
           [section]: {
