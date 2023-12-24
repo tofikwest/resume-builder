@@ -61,8 +61,13 @@ export interface ILanguage {
   level?: string
 }
 
+export interface ICurrentTemplateName {
+  currentTemplateName?: string | null
+}
+
 export interface IPdfState {
   [key: string]: any
+  templateName: ICurrentTemplateName
   title: ITitle
   personalDetails: IPersonalDetails
   professionalSummary: IProfessionalSummary

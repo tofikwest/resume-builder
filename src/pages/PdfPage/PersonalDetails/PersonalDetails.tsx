@@ -1,11 +1,21 @@
 import { ChangeEvent, useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { ADD } from '../../../redux/pdf/pdfSlice'
 import { PERSONAL_DETAILS } from '../../../redux/pdf/constants'
+import debounce from 'debounce'
 import CountryDropDownInput from './CountryDropDownInput'
 
+import { RootState } from '../../../redux/store'
+import { templatesName } from '../../../helpers/constants/resumeTemplateNames'
+
 const PersonalDetails: React.FC = () => {
+  const currentTemplateName = useSelector(
+    (state: RootState) => state.pdf.templateName.currentTemplateName,
+  )
+
   const [currentWidth, setCurrentWidth] = useState(window.innerWidth)
+  const [isDisabled, setDisabled] = useState<boolean>(true)
+
   const [isNeedAdditionalForm, setIsNeedAdditionalForm] =
     useState<Boolean>(false)
 
@@ -34,12 +44,7 @@ const PersonalDetails: React.FC = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      dispatch(
-        ADD({
-          section: PERSONAL_DETAILS,
-          data: { ...mainFormData, ...additionalFormData },
-        }),
-      )
+      debouncedDispatch()
     }, 300)
   }, [mainFormData, additionalFormData])
 
@@ -49,9 +54,26 @@ const PersonalDetails: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [currentWidth])
 
+  useEffect(() => {
+    if (currentTemplateName === templatesName.dublin) {
+      setDisabled(false)
+    } else {
+      setDisabled(true)
+    }
+  }, [currentTemplateName])
+
   function handleResize() {
     setCurrentWidth(window.innerWidth)
   }
+
+  const debouncedDispatch = debounce(() => {
+    dispatch(
+      ADD({
+        section: PERSONAL_DETAILS,
+        data: { ...mainFormData, ...additionalFormData },
+      }),
+    )
+  }, 500)
 
   function handleMainFormData(
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
@@ -82,7 +104,7 @@ const PersonalDetails: React.FC = () => {
   }
 
   return (
-    <section className="">
+    <section>
       <h2 className="my-2 ml-3 block text-xl font-semibold 2xl:text-2xl">
         Personal Details
       </h2>
@@ -174,7 +196,9 @@ const PersonalDetails: React.FC = () => {
         <label
           htmlFor="photo"
           className={`mb-4 mt-[28px] flex  h-12  w-full items-center  gap-5 rounded text-sm font-light text-gray-600 
-           md:w-5/12 2xl:h-20 2xl:text-lg
+           md:w-5/12 2xl:h-20 2xl:text-lg ${
+             isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'
+           }
           `}
         >
           <svg
@@ -183,7 +207,9 @@ const PersonalDetails: React.FC = () => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className=" h-12 w-12 cursor-not-allowed bg-input-bg p-2 text-center  2xl:h-16 2xl:w-16"
+            className={`h-12 w-12 ${
+              isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'
+            } bg-input-bg p-2 text-center  2xl:h-16 2xl:w-16`}
           >
             <path
               strokeLinecap="round"
@@ -197,16 +223,26 @@ const PersonalDetails: React.FC = () => {
             />
           </svg>
 
-          <input
-            onChange={handleMainFormData}
-            className=" mb-4 mt-1 hidden h-12  w-full rounded  bg-input-bg p-2 focus:border-b-additional-color    focus:outline-none md:w-5/12"
-            type="file"
-            id="photo"
-            name="photo"
-            disabled={false}
-          />
+          {!isDisabled ? (
+            <input
+              onChange={handleMainFormData}
+              className=" mb-4 mt-1 hidden h-12  w-full rounded  bg-input-bg p-2 focus:border-b-additional-color    focus:outline-none md:w-5/12"
+              type="file"
+              id="photo"
+              name="photo"
+            />
+          ) : (
+            <input
+              onChange={handleMainFormData}
+              className=" mb-4 mt-1 hidden h-12  w-full rounded  bg-input-bg p-2 focus:border-b-additional-color    focus:outline-none md:w-5/12"
+              id="photo"
+              name="photo"
+              disabled
+            />
+          )}
+
           <p className="inline w-6/12   bg-white lg:w-5/12  lg:text-sm xl:w-7/12 2xl:text-lg">
-            This template doesn't support photo upload
+            Put your photo
           </p>
         </label>
 
