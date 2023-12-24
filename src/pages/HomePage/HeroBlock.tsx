@@ -2,12 +2,12 @@ import girlPic from '../../assets/icons/girl.png'
 
 const HeroBlock = () => {
   return (
-    <div className="hr relative flex h-[451px] w-full   justify-center rounded-3xl border border-solid bg-[rgb(209,212,255)] md:h-[65%]">
-      <div className="relative flex h-full max-w-[1440px] flex-col-reverse  items-center  before:block before:h-5/6 before:w-10/12 before:content-[''] md:flex-row md:justify-between ">
+    <div className="relative flex h-[451px] w-full   justify-center rounded-3xl border border-solid bg-[rgb(209,212,255)] md:h-[65%]">
+      <div className="relative mx-auto flex h-full max-w-[1440px]  flex-col-reverse items-center before:block before:h-5/6 before:w-full before:content-[''] md:flex-row md:justify-between 2xl:w-full">
         <img
           src={girlPic}
           alt="girl with resume table in her hand"
-          className=" absolute bottom-0 left-1/2 z-[1] h-4/6 -translate-x-1/2 transform md:left-[-2%] md:h-[80%] md:-translate-x-0  lg:left-[-10%] xl:left-10 2xl:left-0 2xl:min-h-[531px]"
+          className=" absolute bottom-0 left-1/2 z-[1] h-4/6 -translate-x-1/2 transform md:left-[-2%] md:h-[80%] md:-translate-x-0  lg:left-[-10%] xl:left-10 2xl:left-10 2xl:min-h-[531px]"
         />
         {/* right down */}
         <svg
@@ -16,7 +16,7 @@ const HeroBlock = () => {
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="absolute left-[69%] top-[27%] h-10 w-10 rounded-lg shadow-xl md:left-[45%] md:top-[12%] 2xl:left-[42%] 2xl:top-[14%]"
+          className="absolute left-[69%] top-[27%] h-10 w-10 rounded-lg shadow-xl md:left-[45%] md:top-[12%] 2xl:left-[35%] 2xl:top-[14%]"
         >
           <path
             strokeLinecap="round"
@@ -48,7 +48,7 @@ const HeroBlock = () => {
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="absolute left-[88%] top-[45%] h-10 w-10 -translate-x-1/2 rounded-lg shadow-xl md:left-[52%] md:top-[51%] 2xl:left-[45%] 2xl:top-[44%] "
+          className="absolute left-[88%] top-[45%] h-10 w-10 -translate-x-1/2 rounded-lg shadow-xl md:left-[52%] md:top-[51%] 2xl:left-[39%] 2xl:top-[48%] "
         >
           <path
             strokeLinecap="round"
@@ -73,7 +73,7 @@ const HeroBlock = () => {
           />
         </svg>
 
-        <div className=" float-right px-2 md:w-2/6 2xl:w-5/6">
+        <div className=" px-2 md:w-2/6 2xl:flex 2xl:w-full 2xl:flex-col 2xl:items-center">
           <h1 className=" shadow-3xl mb-2 pt-4 text-center text-base font-bold tracking-wide underline md:mb-8  md:w-3/6 md:pt-0 md:text-left md:text-5xl 2xl:text-7xl">
             <span className="animated-text text-additional-color">S</span>tart b
             <span className="animated-text text-additional-color">u</span>ilding
@@ -82,7 +82,7 @@ const HeroBlock = () => {
             <span className="animated-text text-additional-color">e</span>
             <span className="text-additional-color ">.</span>
           </h1>
-          <p className="text-center text-xs font-bold  tracking-wide md:text-left md:text-sm 2xl:mb-4 2xl:text-2xl">
+          <p className="text-center text-xs font-bold  tracking-wide md:text-left md:text-sm 2xl:mb-4 2xl:w-6/12 2xl:text-xl">
             Create an awesome resume in minutes, without leaving your web
             browser.
           </p>
