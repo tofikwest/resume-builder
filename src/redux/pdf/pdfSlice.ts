@@ -75,7 +75,6 @@ export const pdfSlice = createSlice({
         section === TITLE ||
         section === TEMPLATE_NAME
       ) {
-        console.log(data, section)
         return {
           ...state,
           [section]: {

@@ -30,7 +30,6 @@ const SelectTemplates: React.FC = () => {
   }
 
   function accardion(direction: string = 'right') {
-    console.log(direction)
     if (direction === 'right') {
       if (templateArr[templateIdx + 1]) {
         setTemplateIdx((prev) => prev + 1)
@@ -47,7 +46,7 @@ const SelectTemplates: React.FC = () => {
   }
 
   return (
-    <div className="fixed left-0 top-0 z-20 flex h-screen w-screen items-center  justify-center bg-gray-900  xl:left-[27%] xl:top-[5%] xl:gap-20 xl:bg-inherit 2xl:left-[27%] 2xl:top-[6%] 2xl:gap-20">
+    <div className="fixed right-0 top-0 z-20 float-right flex h-screen w-screen items-center  justify-center bg-gray-900 xl:right-0 xl:top-[5%] xl:w-6/12 xl:gap-20 xl:bg-inherit">
       <div className="relative flex flex-col items-center justify-center p-2   xl:gap-10">
         {/* CURRENT TEMPLATE */}
         {templateArr[templateIdx]}
@@ -94,7 +93,7 @@ const SelectTemplates: React.FC = () => {
         {/* BTN FOR CHOOSE CURRENT TEMPLATE */}
         <button
           onClick={reportAboutCurrentTemplate}
-          className="absolute top-[42%] rounded-lg border border-additional-color bg-additional-color  p-3 text-center text-gray-100  shadow-[0px_6px_30px_3px_rgba(34,60,80,0.2)] shadow-gray-700 hover:bg-additional-hover-color xl:left-[28%] xl:top-[40%] 2xl:left-[43.5%] 2xl:top-[42%]"
+          className="absolute top-[42%] max-w-[50%] self-center rounded-lg border border-additional-color bg-additional-color  p-3 text-center text-gray-100  shadow-[0px_6px_30px_3px_rgba(34,60,80,0.2)] shadow-gray-700 hover:bg-additional-hover-color xl:right-[40.5%]"
         >
           Use this template
         </button>

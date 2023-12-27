@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
   },
 
   photo: {
+    objectFit: 'fill',
     marginTop: '18px',
     alignSelf: 'center',
     borderRadius: '50%',
