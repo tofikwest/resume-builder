@@ -1,6 +1,7 @@
 import { ElementType, useEffect, useRef, useState } from 'react'
 import LondonResume from '../MyResume/LondonTemplate'
 import DublinResume from '../MyResume/DublinTemplate'
+import { useDispatch } from 'react-redux'
 
 import { bk } from '../../helpers/breakpoints'
 import { PDFDownloadLink } from '@react-pdf/renderer'
@@ -9,6 +10,8 @@ import { RootState } from '../../redux/store'
 import SelectTemplates from '../SelectTemplates/SelectTemplates'
 import { templatesName } from '../../helpers/constants/resumeTemplateNames'
 import BackToTemplatesBtn from '../SelectTemplates/BackToTemplatesBtn/BackToTemplatesBtn'
+import { ADD } from '../../redux/pdf/pdfSlice'
+import { TEMPLATE_NAME } from '../../redux/pdf/constants'
 
 interface PageLayoutProps {
   Component: ElementType
@@ -18,6 +21,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
   const titleFromStore = useSelector(
     (state: RootState) => state.pdf.title.title,
   )
+  const dispatch = useDispatch()
 
   const currentTemplate = useSelector(
     (state: RootState) => state.pdf.templateName.currentTemplateName,
@@ -33,6 +37,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
   const [showTemplateOptions, setShowTemplateOptions] = useState<boolean>(true)
 
   const [isClicked, setIsClicked] = useState<boolean>(false)
+
   const tag = useRef<any>(null)
 
   useEffect(() => {
@@ -41,15 +46,25 @@ const PageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
   }, [width])
 
   useEffect(() => {
-    console.log(currentTemplate, '12')
     if (currentTemplate) {
       setShowTemplateOptions(false)
     }
   }, [currentTemplate])
 
   // for btn child
+
+  const dispatchSender = (inputValue: null) => {
+    dispatch(
+      ADD({
+        section: TEMPLATE_NAME,
+        data: { currentTemplateName: inputValue },
+      }),
+    )
+  }
+
   function wrapperSwitchToTemplates() {
     setShowTemplateOptions((prev) => !prev)
+    dispatchSender(null)
   }
 
   function currentWidth() {
@@ -135,7 +150,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ Component }) => {
     <div
       id="resumeViews"
       ref={tag}
-      className=" fixed right-[3%] top-[-6%]  w-5/12 flex-1 scale-[70%] "
+      className=" fixed right-[5%] top-[-3%]  w-5/12 flex-1 scale-[70%] "
     >
       <DublinResume
         getPdfComponent={getPdfComponent}

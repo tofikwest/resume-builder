@@ -12,7 +12,7 @@ const BuilderPage = () => {
   return (
     <section
       data-testid="builderPage"
-      className=" relative flex h-auto w-full select-none flex-col justify-center gap-2 pb-6 pt-3 lg:px-5 xl:pl-7"
+      className=" relative flex h-auto w-full select-none flex-col justify-center gap-2 pb-6 pt-3 lg:px-5 xl:px-4"
     >
       <TitleResume />
       <ProgresBar />

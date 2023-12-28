@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 const useSelectText = (): [string, (value: string) => void] => {
   const [data, setData] = useState<string>('')
@@ -6,10 +6,6 @@ const useSelectText = (): [string, (value: string) => void] => {
   function saveData(value: string) {
     setData(value)
   }
-
-  useEffect(() => {
-    console.log('Data has changed inside the hook:', data)
-  }, [data])
 
   return [data, saveData]
 }

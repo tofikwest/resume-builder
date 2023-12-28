@@ -6,7 +6,7 @@ const BackToTemplatesBtn: React.FC<IProps> = ({ wrapperSwitchToTemplates }) => {
   return (
     <button
       onClick={wrapperSwitchToTemplates}
-      className="0 fixed bottom-5 left-[4%] z-30 flex h-fit items-center justify-center gap-2 rounded-xl bg-additional-color p-2 text-xs hover:bg-additional-hover-color md:bottom-5 md:p-3 xl:left-[72%] xl:top-2 xl:bg-inherit xl:p-2 xl:hover:bg-slate-600 2xl:left-[74%] 2xl:top-3"
+      className="0 fixed bottom-7 left-[4%] z-30 flex h-fit items-center justify-center gap-2 rounded-2xl bg-additional-color p-2 text-xs hover:bg-additional-hover-color md:p-3 xl:left-[72%] xl:top-2 xl:bg-inherit xl:p-2 xl:hover:bg-slate-600 2xl:left-[74%] 2xl:top-3"
     >
       <div>
         <svg
@@ -15,7 +15,7 @@ const BackToTemplatesBtn: React.FC<IProps> = ({ wrapperSwitchToTemplates }) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className=" h-6 w-6 text-gray-300  "
+          className=" h-6 w-6 text-gray-300 md:h-8 md:w-7 lg:h-8 lg:w-8  "
         >
           <path
             strokeLinecap="round"
