@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
 
   photo: {
-    objectFit: 'fill',
+    objectFit: 'cover',
     marginTop: '18px',
     alignSelf: 'center',
     borderRadius: '50%',
@@ -304,15 +304,14 @@ const DublinTemplate: React.FC<IProps> = ({
   }, [pdf])
 
   useEffect(() => {
-    if (pdf.personalDetails.photo) {
-      setPhoto(URL.createObjectURL(pdf.personalDetails.photo))
-    }
+    // @ts-ignore
+    setPhoto(pdf.personalDetails.photo!)
 
-    return () => {
-      if (photo) {
-        URL.revokeObjectURL(photo)
-      }
-    }
+    // return () => {
+    //   if (photo) {
+    //     URL.revokeObjectURL(photo)
+    //   }
+    // }
   }, [pdf.personalDetails.photo])
 
   const GreenLine = () => <View style={styles.leftBlockLine}></View>
@@ -322,7 +321,7 @@ const DublinTemplate: React.FC<IProps> = ({
       <Page size="A4" style={styles.page} dpi={70}>
         {/* LEFT SIDE */}
         <View style={styles.leftBlock}>
-          {photo && <Image src={photo} style={styles.photo} />}
+          {photo ? <Image src={photo} style={styles.photo} /> : ''}
 
           {/* Title */}
           {Object.values(pdf.personalDetails).some(Boolean) && (
