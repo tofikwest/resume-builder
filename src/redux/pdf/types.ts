@@ -3,7 +3,7 @@ export interface IPersonalDetails {
   first_name?: string
   email?: string
   country?: string
-  photo?: File | null
+  photo?: string | null
   last_name?: string
   phone?: string
   city?: string

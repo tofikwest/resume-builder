@@ -7,10 +7,15 @@ import CountryDropDownInput from './CountryDropDownInput'
 
 import { RootState } from '../../../redux/store'
 import { templatesName } from '../../../helpers/constants/resumeTemplateNames'
+import ImgSelectPage from '../../ImgSelectPage/ImgSelectPage'
 
 const PersonalDetails: React.FC = () => {
   const currentTemplateName = useSelector(
     (state: RootState) => state.pdf.templateName.currentTemplateName,
+  )
+
+  const photoInStore: string | null | undefined = useSelector(
+    (state: RootState) => state.pdf.personalDetails.photo,
   )
 
   const [currentWidth, setCurrentWidth] = useState(window.innerWidth)
@@ -21,13 +26,23 @@ const PersonalDetails: React.FC = () => {
 
   const dispatch = useDispatch()
 
+  interface IMainForm {
+    jobTitle: string
+    first_name: string
+    email: string
+    country: string
+    last_name: string
+    phone: string
+    city: string
+  }
+
   // * FORM DATA
-  const [mainFormData, setMainFormdata] = useState({
+
+  const [mainFormData, setMainFormdata] = useState<IMainForm>({
     jobTitle: '',
     first_name: '',
     email: '',
     country: '',
-    photo: null,
     last_name: '',
     phone: '',
     city: '',
@@ -70,7 +85,10 @@ const PersonalDetails: React.FC = () => {
     dispatch(
       ADD({
         section: PERSONAL_DETAILS,
-        data: { ...mainFormData, ...additionalFormData },
+        data: {
+          ...mainFormData,
+          ...additionalFormData,
+        },
       }),
     )
   }, 500)
@@ -78,17 +96,12 @@ const PersonalDetails: React.FC = () => {
   function handleMainFormData(
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) {
-    let value: string = e.target.value,
-      file: File | null = null
-    const fileInput = e.target as HTMLInputElement
+    const value: string = e.target.value
 
-    if (e.target.name === 'photo') {
-      file = fileInput.files?.[0]!
-      console.log(file, 'file')
-    }
     setMainFormdata((prev) => ({
       ...prev,
-      [e.target.name]: e.target.name !== 'photo' ? value : file,
+      [e.target.name]: value,
+      photo: photoInStore,
     }))
   }
 
@@ -120,7 +133,6 @@ const PersonalDetails: React.FC = () => {
             type="text"
             id="jobTitle"
             name="jobTitle"
-            required
             placeholder="e.g HR"
             value={mainFormData.jobTitle}
           />
@@ -138,7 +150,6 @@ const PersonalDetails: React.FC = () => {
             id="city"
             name="city"
             value={mainFormData.city}
-            required
           />
         </label>
 
@@ -153,7 +164,6 @@ const PersonalDetails: React.FC = () => {
             type="text"
             id="first_name"
             name="first_name"
-            required
             value={mainFormData.first_name}
           />
         </label>
@@ -170,7 +180,6 @@ const PersonalDetails: React.FC = () => {
             id="last_name"
             name="last_name"
             value={mainFormData.last_name}
-            required
           />
         </label>
 
@@ -186,7 +195,6 @@ const PersonalDetails: React.FC = () => {
             id="email"
             inputMode="email"
             name="email"
-            required
             value={mainFormData.email}
           />
         </label>
@@ -195,54 +203,48 @@ const PersonalDetails: React.FC = () => {
 
         <label
           htmlFor="photo"
-          className={`mb-4 mt-[28px] flex  h-12  w-full items-center  gap-5 rounded text-sm font-light text-gray-600 
-           md:w-5/12 2xl:h-20 2xl:text-lg ${
-             isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'
-           }
+          className={`mb-4 mt-[28px] flex  h-12  w-full cursor-pointer  items-center gap-5 rounded text-sm font-light 
+          text-gray-600 md:w-5/12 2xl:h-20 2xl:text-lg
+          ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'}
           `}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className={`h-12 w-12 ${
-              isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'
-            } bg-input-bg p-2 text-center  2xl:h-16 2xl:w-16`}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"
-            />
-          </svg>
-
-          {!isDisabled ? (
-            <input
-              onChange={handleMainFormData}
-              className=" mb-4 mt-1 hidden h-12  w-full rounded  bg-input-bg p-2 focus:border-b-additional-color    focus:outline-none md:w-5/12"
-              type="file"
-              id="photo"
-              name="photo"
+          {photoInStore ? (
+            <img
+              src={photoInStore as string}
+              className={`h-12 w-1/2  ${
+                isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'
+              } bg-input-bg object-cover p-2  text-center 2xl:h-16 2xl:w-16`}
             />
           ) : (
-            <input
-              onChange={handleMainFormData}
-              className=" mb-4 mt-1 hidden h-12  w-full rounded  bg-input-bg p-2 focus:border-b-additional-color    focus:outline-none md:w-5/12"
-              id="photo"
-              name="photo"
-              disabled
-            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className={`h-12 w-1/2 ${
+                isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'
+              } bg-input-bg p-2 text-center  2xl:h-16 2xl:w-16`}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"
+              />
+            </svg>
           )}
 
-          <p className="inline w-6/12   bg-white lg:w-5/12  lg:text-sm xl:w-7/12 2xl:text-lg">
-            Put your photo
+          <ImgSelectPage />
+
+          <p
+            className={`inline w-[150%] bg-white text-base  md:w-full lg:w-5/12  lg:text-sm xl:w-7/12 2xl:text-lg`}
+          >
+            {photoInStore ? 'Photo is saved' : 'Put your photo'}
           </p>
         </label>
 
@@ -259,7 +261,6 @@ const PersonalDetails: React.FC = () => {
             id="phone"
             name="phone"
             placeholder="e.g +380 96 156 75 13"
-            required
             value={mainFormData.phone}
           />
         </label>
