@@ -93,7 +93,7 @@ const SelectTemplates: React.FC = () => {
         {/* BTN FOR CHOOSE CURRENT TEMPLATE */}
         <button
           onClick={reportAboutCurrentTemplate}
-          className="absolute top-[42%] max-w-[50%] self-center rounded-lg border border-additional-color bg-additional-color  p-3 text-center text-gray-100  shadow-[0px_6px_30px_3px_rgba(34,60,80,0.2)] shadow-gray-700 hover:bg-additional-hover-color xl:right-[40.5%]"
+          className="absolute top-[42%] max-w-[50%] self-center rounded-lg border border-additional-color bg-additional-color  p-3 text-center text-gray-100  shadow-[0px_6px_30px_3px_rgba(34,60,80,0.2)] shadow-gray-700 hover:bg-additional-hover-color xl:right-[26%] 2xl:right-[40.5%]"
         >
           Use this template
         </button>
