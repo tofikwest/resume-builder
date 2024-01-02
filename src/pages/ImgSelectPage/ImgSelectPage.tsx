@@ -127,7 +127,8 @@ const Demo: React.FC<IProps> = ({ classes, photoStateF }) => {
               crop={crop}
               rotation={rotation}
               zoom={zoom}
-              aspect={4 / 3}
+              aspect={1}
+              cropShape="round"
               onCropChange={setCrop}
               onRotationChange={setRotation}
               onCropComplete={onCropComplete}
