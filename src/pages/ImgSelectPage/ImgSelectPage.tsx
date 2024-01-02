@@ -116,11 +116,11 @@ const Demo: React.FC<IProps> = ({ classes, photoStateF }) => {
   return (
     <div
       className={`${
-        isfileExist ? 'bg-white' : 'bg-black'
-      } relative z-[11] -ml-1 w-screen xl:w-1/2`}
+        isfileExist ? 'bg-inherit' : 'bg-black'
+      } relative z-[11] -ml-1 flex w-screen items-center xl:w-1/2`}
     >
       {imageSrc ? (
-        <div className="absolute left-[95%] top-1/2 -translate-x-1/2 -translate-y-1/2 md:left-[191%] lg:left-20 lg:w-96 xl:left-[300%] xl:w-[500px]">
+        <div className="absolute left-[46%] top-1/2 -translate-x-1/2 -translate-y-1/2 md:left-[-51%] md:top-[550%] lg:left-[-41%] xl:left-[-110%] xl:top-44 xl:w-[500px]">
           <div className="mt-[50x] h-[450px] w-[105vw] bg-black md:w-screen lg:w-screen xl:w-full">
             <Cropper
               image={imageSrc}
@@ -220,7 +220,7 @@ const Demo: React.FC<IProps> = ({ classes, photoStateF }) => {
             onDelete()
             onClose()
           }}
-          className="-ml-4 p-2 text-center text-additional-color hover:text-red-600 focus:text-red-600 "
+          className=" ml-4 p-2 text-center text-additional-color hover:text-red-600 focus:text-red-600 2xl:text-lg"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
