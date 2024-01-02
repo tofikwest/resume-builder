@@ -115,9 +115,7 @@ const Demo: React.FC<IProps> = ({ classes, photoStateF }) => {
 
   return (
     <div
-      className={`${
-        isfileExist ? 'bg-inherit' : 'bg-black'
-      } relative z-[11] -ml-1 flex w-screen items-center xl:w-1/2`}
+      className={`relative z-[11] -ml-1 flex w-screen items-center bg-inherit xl:w-1/2`}
     >
       {imageSrc ? (
         <div className="absolute left-[46%] top-1/2 -translate-x-1/2 -translate-y-1/2 md:left-[-51%] md:top-[550%] lg:left-[-41%] xl:left-[-110%] xl:top-44 xl:w-[500px]">
