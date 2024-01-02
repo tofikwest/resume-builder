@@ -6,7 +6,7 @@ const BackToTemplatesBtn: React.FC<IProps> = ({ wrapperSwitchToTemplates }) => {
   return (
     <button
       onClick={wrapperSwitchToTemplates}
-      className="0 fixed bottom-7 left-[4%] z-30 flex h-fit items-center justify-center gap-2 rounded-2xl bg-additional-color p-2 text-xs hover:bg-additional-hover-color md:p-3 xl:left-[72%] xl:top-2 xl:bg-inherit xl:p-2 xl:hover:bg-slate-600 2xl:left-[74%] 2xl:top-3"
+      className="0 fixed bottom-7 left-[4%] z-30 flex h-fit items-center justify-center gap-2 rounded-2xl bg-additional-color p-2 text-xs hover:bg-additional-hover-color md:p-3 xl:left-[70%] xl:top-5 xl:bg-inherit xl:p-2 xl:hover:bg-slate-600 "
     >
       <div>
         <svg
@@ -24,7 +24,7 @@ const BackToTemplatesBtn: React.FC<IProps> = ({ wrapperSwitchToTemplates }) => {
           />
         </svg>
       </div>
-      <p className="text-white  2xl:text-sm">Select template</p>
+      <p className="text-white  2xl:text-sm">Select templates</p>
     </button>
   )
 }
