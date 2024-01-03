@@ -1,4 +1,4 @@
-**Resume Builder**
+**MVP Resume Builder**
 
 Create professional resumes effortlessly with our free and easy-to-use Resume Builder. Choose from two popular templates to showcase your skills and experiences. Our responsive design ensures a seamless experience on any device. Enjoy unlimited downloads and take the first step towards your dream career!
 
